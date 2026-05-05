@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Family Wellness</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Family Wellness">
+<meta name="theme-color" content="#0f0d0a">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0d0a;
+  --surface: #181510;
+  --surface2: #211d17;
+  --gold: #c9a96e;
+  --gold-dim: #3a2c0e;
+  --sage: #8aab82;
+  --sage-dim: #1e3020;
+  --warm: #c4855a;
+  --warm-dim: #3a1e0e;
+  --plum: #b088a8;
+  --plum-dim: #2a1828;
+  --sky: #72a8c0;
+  --sky-dim: #102030;
+  --amber: #d4a843;
+  --amber-dim: #352808;
+  --tommy: #7eb8d4;
+  --tommy-dim: #0e2535;
+  --text: #ede8e0;
+  --text2: #b8b0a4;
+  --muted: #6a6258;
+  --border: #252018;
+  --border2: #302a22;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; padding-bottom: 100px; max-width: 480px; margin: 0 auto; }
+
+header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+.header-row { display: flex; justify-content: space-between; align-items: flex-start; }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; line-height: 1; }
+.logo em { font-style: italic; color: var(--gold); }
+.header-sub { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
+.family-badge { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 10px; background: var(--tommy-dim); color: var(--tommy); border: 1px solid var(--tommy); }
+
+.week-bar { display: flex; gap: 6px; padding: 9px 20px; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 68px; z-index: 99; }
+.week-btn { flex: 1; padding: 6px 0; border-radius: 7px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.week-btn.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+
+.day-bar { display: flex; gap: 5px; padding: 9px 20px; overflow-x: auto; scrollbar-width: none; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 107px; z-index: 98; }
+.day-bar::-webkit-scrollbar { display: none; }
+.day-tab { flex-shrink: 0; padding: 6px 12px; border-radius: 7px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-size: 11px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.day-tab.active { background: var(--surface2); border-color: var(--gold); color: var(--gold); }
+.day-tab.rest-tab { border-style: dashed; }
+
+.content { padding: 20px; }
+.week-panel { display: none; }
+.week-panel.active { display: block; }
+.day-panel { display: none; }
+.day-panel.active { display: block; animation: fadeUp 0.25s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+.day-header { margin-bottom: 20px; }
+.day-title { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; line-height: 1; }
+.day-date { font-size: 12px; color: var(--gold); margin-top: 3px; font-weight: 600; letter-spacing: 0.5px; }
+.day-focus { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
+.day-meta { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+.pillars { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+.pill { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 9px; border-radius: 10px; }
+.pill-mind { color: var(--plum); background: var(--plum-dim); }
+.pill-move { color: var(--sage); background: var(--sage-dim); }
+.pill-fuel { color: var(--warm); background: var(--warm-dim); }
+.pill-recover { color: var(--sky); background: var(--sky-dim); }
+.pill-work { color: var(--amber); background: var(--amber-dim); }
+.pill-tommy { color: var(--tommy); background: var(--tommy-dim); }
+
+.section { margin-bottom: 20px; }
+.section-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.tline { display: flex; flex-direction: column; gap: 7px; }
+.tblock { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; transition: all 0.15s; user-select: none; border-left-width: 3px; }
+.tblock:active { transform: scale(0.985); }
+.tblock.checked { opacity: 0.4; }
+.tblock.checked .tblock-name { text-decoration: line-through; }
+.tb-mind { border-left-color: var(--plum); }
+.tb-move { border-left-color: var(--sage); }
+.tb-fuel { border-left-color: var(--warm); }
+.tb-recover { border-left-color: var(--sky); }
+.tb-work { border-left-color: var(--amber); }
+.tb-life { border-left-color: var(--border2); }
+.tb-tommy { border-left-color: var(--tommy); background: #0a1a26; }
+.tb-gabe { border-left-color: var(--sage); background: #0a1a0e; }
+.tblock-chk { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--border2); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: transparent; transition: all 0.15s; }
+.tblock.checked .tblock-chk { background: var(--sage); border-color: var(--sage); color: var(--bg); }
+.tblock-body { flex: 1; min-width: 0; }
+.tblock-name { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.3; }
+.tblock-detail { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+.tblock-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.tblock-time { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--gold); line-height: 1; }
+.tommy-tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 6px; background: var(--tommy-dim); color: var(--tommy); letter-spacing: 0.5px; }
+
+.alert { border-radius: 10px; padding: 11px 13px; margin-bottom: 12px; font-size: 12px; line-height: 1.5; }
+.alert-tommy { background: var(--tommy-dim); border: 1px solid var(--tommy); color: var(--tommy); }
+.alert-tommy strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.alert-info { background: var(--amber-dim); border: 1px solid var(--amber); color: var(--amber); }
+.alert-info strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.alert-sage { background: var(--sage-dim); border: 1px solid var(--sage); color: var(--sage); }
+.alert-sage strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+
+.pack-card { background: var(--sky-dim); border: 1px solid var(--sky); border-radius: 12px; padding: 13px 14px; margin-bottom: 10px; }
+.pack-title { font-size: 12px; font-weight: 700; color: var(--sky); margin-bottom: 6px; letter-spacing: 0.5px; text-transform: uppercase; }
+.pack-items { font-size: 12px; color: var(--text2); line-height: 1.8; }
+.pack-items span { display: block; padding-left: 14px; position: relative; }
+.pack-items span::before { content: '·'; position: absolute; left: 3px; color: var(--sky); }
+
+.meal-card { background: var(--surface); border: 1px solid var(--border2); border-left: 3px solid var(--warm); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
+.meal-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; }
+.meal-items { font-size: 12px; color: var(--text2); line-height: 1.8; }
+.meal-items span { display: block; padding-left: 12px; position: relative; }
+.meal-items span::before { content: '·'; position: absolute; left: 3px; color: var(--warm); }
+.meal-swap { font-size: 11px; color: var(--muted); margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); font-style: italic; }
+
+.supp-card { background: var(--plum-dim); border: 1px solid var(--plum); border-radius: 12px; padding: 12px 14px; margin-bottom: 7px; }
+.supp-title { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--plum); margin-bottom: 7px; }
+.supp-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.supp { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 7px; background: rgba(176,136,168,0.15); color: var(--plum); border: 1px solid rgba(176,136,168,0.3); }
+
+.dinner-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; margin-bottom: 7px; }
+.dinner-who { padding: 8px 14px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.dinner-marcia { background: var(--warm-dim); color: var(--warm); }
+.dinner-tommy { background: var(--tommy-dim); color: var(--tommy); }
+.dinner-out { background: var(--sage-dim); color: var(--sage); }
+.dinner-easy { background: var(--gold-dim); color: var(--gold); }
+.dinner-body { padding: 12px 14px; }
+.dinner-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+.dinner-detail { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.dinner-steps { margin-top: 8px; counter-reset: step; }
+.dinner-step { font-size: 12px; color: var(--text2); padding: 5px 0 5px 18px; position: relative; border-top: 1px solid var(--border); line-height: 1.5; counter-increment: step; }
+.dinner-step::before { content: counter(step); position: absolute; left: 0; color: var(--gold); font-weight: 700; font-size: 11px; }
+
+.wellness-card { background: var(--sky-dim); border: 1px solid var(--sky); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
+.wellness-priority { font-size: 10px; font-weight: 700; color: var(--sky); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.wellness-name { font-size: 13px; font-weight: 600; color: var(--sky); margin-bottom: 4px; }
+.wellness-why { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+.gym-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; margin-bottom: 7px; }
+.gym-header { padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.gym-name { font-size: 14px; font-weight: 500; }
+.gym-eq { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.gym-sets { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--sage); flex-shrink: 0; margin-left: 10px; }
+.gym-expand { padding: 0 14px 12px; display: none; border-top: 1px solid var(--border); }
+.gym-expand.open { display: block; }
+.weight-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.weight-label { font-size: 11px; color: var(--muted); }
+.weight-input { background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 5px 8px; width: 70px; outline: none; }
+.weight-input:focus { border-color: var(--gold); }
+.weight-input::placeholder { color: var(--muted); }
+.weight-unit { font-size: 12px; color: var(--muted); }
+.gym-done-btn { margin-top: 10px; padding: 8px 0; width: 100%; border-radius: 8px; border: 1px solid var(--sage-dim); background: transparent; color: var(--sage); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.gym-done-btn.done { background: var(--sage-dim); }
+.prog-wrap { background: var(--surface2); border-radius: 4px; height: 3px; margin-bottom: 5px; overflow: hidden; }
+.prog-fill { height: 100%; background: var(--sage); border-radius: 4px; transition: width 0.4s ease; width: 0%; }
+.prog-text { font-size: 11px; color: var(--muted); text-align: right; }
+.reset-btn { width: 100%; margin-top: 10px; padding: 9px; border-radius: 8px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer; }
+
+.timer-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 13px 14px; display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.timer-display { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); line-height: 1; min-width: 65px; font-weight: 300; }
+.timer-display.running { color: var(--sage); }
+.timer-btns { display: flex; gap: 7px; }
+.t-btn { padding: 7px 13px; border-radius: 8px; border: none; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; }
+.t-start { background: var(--gold); color: var(--bg); }
+.t-reset { background: var(--surface2); color: var(--muted); }
+
+.checkin-box { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 14px 15px; }
+.checkin-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--text2); }
+.checkin-q { font-size: 10px; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.mood-row { display: flex; gap: 6px; margin-bottom: 14px; }
+.mood-opt { flex: 1; }
+.mood-btn { width: 100%; padding: 8px 4px; border-radius: 8px; border: 1px solid var(--border2); background: transparent; font-size: 18px; cursor: pointer; transition: all 0.2s; display: block; }
+.mood-btn.selected { background: var(--surface2); border-color: var(--gold); }
+.mood-lbl { font-size: 9px; color: var(--muted); text-align: center; margin-top: 3px; }
+.checkin-ta { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 10px 12px; width: 100%; resize: none; outline: none; line-height: 1.5; min-height: 80px; margin-bottom: 10px; }
+.checkin-ta:focus { border-color: var(--gold); }
+.checkin-ta::placeholder { color: var(--muted); }
+.save-btn { width: 100%; padding: 10px; border-radius: 8px; border: none; background: var(--gold-dim); color: var(--gold); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
+.save-btn.saved { background: var(--sage-dim); color: var(--sage); }
+
+.rest-card { background: var(--surface); border: 1px dashed var(--border2); border-radius: 16px; padding: 36px 20px; text-align: center; }
+.rest-icon { font-size: 40px; margin-bottom: 10px; }
+.rest-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--muted); margin-bottom: 8px; }
+.rest-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+.tips { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 13px 14px; margin-top: 14px; }
+.tips-title { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.tip { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 5px; padding-left: 14px; position: relative; }
+.tip::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+
+/* Night routine block */
+.night-block { background: var(--plum-dim); border: 1px solid var(--plum); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
+.night-title { font-size: 12px; font-weight: 700; color: var(--plum); margin-bottom: 6px; letter-spacing: 0.5px; }
+.night-items { font-size: 12px; color: var(--text2); line-height: 1.8; }
+.night-items span { display: block; padding-left: 14px; position: relative; }
+.night-items span::before { content: '·'; position: absolute; left: 3px; color: var(--plum); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-row">
+    <div>
+      <div class="logo">Our <em>Family Plan</em></div>
+      <div class="header-sub">Marcia · Tommy · Gabe 🌿</div>
+    </div>
+    <div class="family-badge">👨‍👩‍👦 Family</div>
+  </div>
+</header>
+
+<div class="week-bar">
+  <button class="week-btn active" onclick="showWeek(1)">7–11 May</button>
+  <button class="week-btn" onclick="showWeek(2)">12–18 May</button>
+</div>
+
+<div class="day-bar" id="bar-1">
+  <button class="day-tab active" onclick="showDay(1,1)">WED 7</button>
+  <button class="day-tab" onclick="showDay(1,2)">THU 8</button>
+  <button class="day-tab" onclick="showDay(1,3)">FRI 9</button>
+  <button class="day-tab rest-tab" onclick="showDay(1,4)">SAT 10</button>
+  <button class="day-tab rest-tab" onclick="showDay(1,5)">SUN 11</button>
+</div>
+<div class="day-bar" id="bar-2" style="display:none">
+  <button class="day-tab active" onclick="showDay(2,1)">MON 12</button>
+  <button class="day-tab" onclick="showDay(2,2)">TUE 13</button>
+  <button class="day-tab" onclick="showDay(2,3)">WED 14</button>
+  <button class="day-tab" onclick="showDay(2,4)">THU 15</button>
+  <button class="day-tab" onclick="showDay(2,5)">FRI 16</button>
+  <button class="day-tab rest-tab" onclick="showDay(2,6)">SAT 17</button>
+  <button class="day-tab rest-tab" onclick="showDay(2,7)">SUN 18</button>
+</div>
+
+<div class="content">
+
+<!-- ═══════ WEEK 1 ═══════ -->
+<div class="week-panel active" id="week-1">
+
+<!-- WED 7 MAY -->
+<div class="day-panel active" id="w1d1">
+  <div class="day-header">
+    <div class="day-title">Wednesday</div>
+    <div class="day-date">7 May</div>
+    <div class="day-focus" style="color:var(--sage)">Gym · Lower Body</div>
+    <div class="day-meta">Tommy drop-off · Marcia walks to gym · Ninja Foodi · Marcia cooks</div>
+    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-fuel">Fuel</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy drop-off</span></div>
+  </div>
+
+  <div class="alert alert-tommy"><strong>🚗 Tommy does drop-off today</strong>Tommy leaves 7:45am with Gabe. Marcia goes straight to gym.</div>
+
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water at room temperature</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee — Marcia, Tommy & Gabe ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy leaves with Gabe 🚗</div><div class="tblock-detail">Daycare drop-off. Rides to work after.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-move" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🏋️ Gym — Lower Body</div><div class="tblock-detail">3 min walk. Goblet squat · RDL · Leg extension · Leg curl · Glute bridge. ~40 min session.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div></div></div>
+      <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Back home — shower</div></div><div class="tblock-right"><div class="tblock-time">8:30</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌿 Ninja Foodi prep + clean up</div><div class="tblock-detail">Chicken thighs + pumpkin + sweet potato + zucchini + cherry tomatoes + garlic + olive oil + herbs. Slow cook LOW. ~20 min including clean up.</div></div><div class="tblock-right"><div class="tblock-time">8:50</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Breakfast + supplements (9:10)</div>
+    <div class="supp-card">
+      <div class="supp-title">Morning supplements</div>
+      <div class="supp-list"><span class="supp">Fluoxetine</span><span class="supp">Tresos</span><span class="supp">Folate</span><span class="supp">B12</span><span class="supp">CoQ10</span><span class="supp">5g Creatine</span></div>
+    </div>
+    <div class="meal-card">
+      <div class="meal-title">🥤 Protein Smoothie</div>
+      <div class="meal-items">
+        <span>Plant protein PRANA ON 1 scoop + plant milk 150ml + water/ice 100ml</span>
+        <span>Mango 50g OR berries 50g + cacao nibs + flax seeds + brewer's yeast + ginger</span>
+        <span>Add 5g creatine here</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Gym exercises — log your weights</div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell held at chest</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gs')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-rdl')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-le')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-lc')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Glute Bridge</div><div class="gym-eq">Bodyweight or dumbbell on hips</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gb')"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="prog-wrap"><div class="prog-fill" id="gp-w1d1"></div></div>
+    <div class="prog-text" id="gt-w1d1">0 / 5 done</div>
+    <button class="reset-btn" onclick="resetGym('w1d1')">Reset session</button>
+  </div>
+
+  <div class="section">
+    <div class="section-label">💼 Work + lunch at desk</div>
+    <div class="tline"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — Airtable 💛</div><div class="tblock-detail">Smoothie at desk. Ninja Foodi doing the work.</div></div><div class="tblock-right"><div class="tblock-time">9:15–3:00</div></div></div></div>
+    <div class="meal-card" style="margin-top:8px">
+      <div class="meal-title">🥤 Lunch Smoothie (at desk, 13:00)</div>
+      <div class="meal-items"><span>Plant protein + almond milk 100ml + water/ice + mango 50g + peanut butter 10g + cacao nibs + ginger</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Afternoon — Marcia + Gabe time</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div><div class="tblock-detail">Yogurt + fruit + muesli bar — set aside before leaving</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe gets his snack. Protected time together.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Home — Marcia snack</div><div class="tblock-detail">Protein shake or yogurt bowl</div></div><div class="tblock-right"><div class="tblock-time">17:00</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — Ninja Foodi ready</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-marcia">🌿 Marcia prepped this morning — just plate up</div>
+      <div class="dinner-body">
+        <div class="dinner-name">Slow-cooked chicken + roast vegetables</div>
+        <div class="dinner-steps">
+          <div class="dinner-step">Plate up chicken + veg. Nutritional yeast on Marcia's serve.</div>
+          <div class="dinner-step">Gabe: pull chicken apart + soft veg. Toddler perfect.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠 — dinner ready</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate 200–300mg + Glutamine 5g</span>
+        <span>Chamomile or lavender tea</span>
+        <span>Set out tomorrow's water + fluoxetine + morning supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Wednesday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened?</div>
+      <textarea class="checkin-ta" id="n-w1d1" placeholder="e.g. Gym felt great, Ninja Foodi dinner was amazing, Gabe loved the playground…" oninput="saveN('w1d1')"></textarea>
+      <button class="save-btn" id="s-w1d1" onclick="saveDay('w1d1')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- THU 8 MAY -->
+<div class="day-panel" id="w1d2">
+  <div class="day-header">
+    <div class="day-title">Thursday</div>
+    <div class="day-date">8 May</div>
+    <div class="day-focus" style="color:var(--sky)">Meeting → Flow Physique</div>
+    <div class="day-meta">Out all day 🚗 · West End 10am · Flow after · Café work · No trip home</div>
+    <div class="pillars"><span class="pill pill-recover">Flow</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy cooks</span></div>
+  </div>
+
+  <div class="alert alert-tommy"><strong>👨‍🍳 Tommy cooks tonight — Kale Bowl</strong>Instructions in dinner section below.</div>
+
+  <div class="pack-card">
+    <div class="pack-title">🎒 Pack before leaving home (8:00)</div>
+    <div class="pack-items">
+      <span>🥤 Smoothie in flask (make at home)</span>
+      <span>💊 Morning supplements to take in car or at Flow</span>
+      <span>💊 Afternoon supplements (Hair & Energy + Magnesium Threonate)</span>
+      <span>🧒 Gabe's snack bag (yogurt + fruit + muesli bar)</span>
+      <span>💧 Water bottle</span>
+      <span>💻 Laptop</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Make smoothie + pack bag</div><div class="tblock-detail">Smoothie in flask. Pack all items from list above.</div></div><div class="tblock-right"><div class="tblock-time">7:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave — Gabe drop-off 🚗</div><div class="tblock-detail">Drive straight to West End after.</div></div><div class="tblock-right"><div class="tblock-time">8:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Morning supplements + smoothie</div><div class="tblock-detail">Take in the car or on arrival at West End. Fluoxetine · Tresos · Folate · B12 · CoQ10 · 5g Creatine</div></div><div class="tblock-right"><div class="tblock-time">8:30</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">West End — meeting then café then Flow</div>
+    <div class="tline">
+      <div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">📍 Meeting — West End</div></div><div class="tblock-right"><div class="tblock-time">10:00</div></div></div>
+      <div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Meeting ends — post-meeting chat + drive off</div><div class="tblock-detail">~30 min to wrap up and get to the car.</div></div><div class="tblock-right"><div class="tblock-time">11:00</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">☕ Café lunch first — then Flow</div>
+    <div class="meal-card">
+      <div class="meal-title">🥗 Café lunch — Camila-approved</div>
+      <div class="meal-items">
+        <span>Grilled chicken or salmon salad</span>
+        <span>Grain bowl with protein + veg</span>
+        <span>Poached eggs + avocado</span>
+        <span>Avoid: pastries, sandwiches, heavy carbs</span>
+      </div>
+      <div class="meal-swap">💡 Eat before Flow — especially important before sauna.</div>
+    </div>
+    <div class="tline" style="margin-top:8px">
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Arrive café near Flow — lunch</div></div><div class="tblock-right"><div class="tblock-time">11:30</div></div></div>
+      <div class="tblock tb-recover" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌿 Flow Physique</div><div class="tblock-detail">Red Light first (always) → Sauna → Lymphatic if time</div></div><div class="tblock-right"><div class="tblock-time">12:15</div></div></div>
+      <div class="tblock tb-recover" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Flow done ✓</div></div><div class="tblock-right"><div class="tblock-time">13:30</div></div></div>
+      <div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — café or library 💛</div><div class="tblock-detail">Airtable. ~1.5 hrs focused work before pickup.</div></div><div class="tblock-right"><div class="tblock-time">13:30–15:00</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Afternoon — Gabe time (no trip home)</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate. Take before leaving café.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe's snack bag is in the car.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Home — Marcia snack</div><div class="tblock-detail">Protein shake or yogurt bowl when you get back</div></div><div class="tblock-right"><div class="tblock-time">17:00</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — Tommy cooks</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-tommy">👨‍🍳 Tommy cooks — Kale Bowl</div>
+      <div class="dinner-body">
+        <div class="dinner-name">Kale Bowl — Salmon or Chicken</div>
+        <div class="dinner-steps">
+          <div class="dinner-step">Pan or BBQ: salmon (80g) or chicken (90g) — 4 min each side. Olive oil + salt.</div>
+          <div class="dinner-step">Bowl: kale/spinach + edamame + cherry tomatoes + SACLA pesto + feta.</div>
+          <div class="dinner-step">Add protein + sesame seeds + nutritional yeast on Marcia's serve.</div>
+          <div class="dinner-step">Gabe: shredded protein + soft veg.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠 — starts dinner</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate 200–300mg + Glutamine 5g</span>
+        <span>Chamomile or lavender tea</span>
+        <span>Set out tomorrow's water + fluoxetine + morning supplements</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Thursday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened? Meeting + Flow?</div>
+      <textarea class="checkin-ta" id="n-w1d2" placeholder="e.g. Meeting went well, red light + sauna felt incredible, café work was so productive…" oninput="saveN('w1d2')"></textarea>
+      <button class="save-btn" id="s-w1d2" onclick="saveDay('w1d2')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- FRI 9 MAY -->
+<div class="day-panel" id="w1d3">
+  <div class="day-header">
+    <div class="day-title">Friday</div>
+    <div class="day-date">9 May</div>
+    <div class="day-focus" style="color:var(--sage)">Gym · Upper Pull</div>
+    <div class="day-meta">Back · Biceps · Posture · Easy dinner tonight</div>
+    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-work">Work</span><span class="pill pill-fuel">Fuel</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Gabe drop-off — Marcia drives 🚗</div><div class="tblock-detail">Back home ~8:45</div></div><div class="tblock-right"><div class="tblock-time">8:00</div></div></div>
+      <div class="tblock tb-move" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🏋️ Gym — Upper Pull</div><div class="tblock-detail">3 min walk. Lat pulldown · Seated row · Bent-over row · Face pull · Bicep curl. ~40 min.</div></div><div class="tblock-right"><div class="tblock-time">8:45</div></div></div>
+      <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Back home — shower</div></div><div class="tblock-right"><div class="tblock-time">9:30</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Breakfast + supplements (9:50)</div>
+    <div class="supp-card"><div class="supp-title">Morning supplements</div><div class="supp-list"><span class="supp">Fluoxetine</span><span class="supp">Tresos</span><span class="supp">Folate</span><span class="supp">B12</span><span class="supp">CoQ10</span><span class="supp">5g Creatine</span></div></div>
+    <div class="meal-card"><div class="meal-title">🥤 Protein Smoothie</div><div class="meal-items"><span>Plant protein + plant milk + frozen berries + cacao nibs + flax + brewer's yeast</span></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Gym exercises — log your weights</div>
+    <div class="timer-card">
+      <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td">1:30</div></div>
+      <div class="timer-btns"><button class="t-btn t-start" id="t-start" onclick="startTimer()">Start</button><button class="t-btn t-reset" onclick="resetTimer()">Reset</button></div>
+    </div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-lpd')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-sr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bent-Over Row</div><div class="gym-eq">One arm · bench support</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bor')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope attachment · posture</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-fp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bc')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="prog-wrap"><div class="prog-fill" id="gp-w1d3"></div></div>
+    <div class="prog-text" id="gt-w1d3">0 / 5 done</div>
+    <button class="reset-btn" onclick="resetGym('w1d3')">Reset session</button>
+  </div>
+
+  <div class="section">
+    <div class="section-label">💼 Work + lunch at desk</div>
+    <div class="tline"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — Airtable 💛</div></div><div class="tblock-right"><div class="tblock-time">10:00–3:00</div></div></div></div>
+    <div class="meal-card" style="margin-top:8px"><div class="meal-title">🥤 Lunch Smoothie (13:00)</div><div class="meal-items"><span>Plant protein + almond milk + berries + cacao nibs + flax</span></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Afternoon — Gabe time</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">End of week — you both deserve it 🌟</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — easy tonight</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-tommy">👨‍🍳 Tommy cooks — super simple</div>
+      <div class="dinner-body">
+        <div class="dinner-name">BBQ or pan chicken + air fryer veg</div>
+        <div class="dinner-steps">
+          <div class="dinner-step">Air fryer: toss veg (zucchini, capsicum, cherry tomatoes) in olive oil. 200°C, 15 min.</div>
+          <div class="dinner-step">BBQ or pan: chicken breast or thighs, season simply, 5 min each side.</div>
+          <div class="dinner-step">Plate up. Nutritional yeast on Marcia's serve.</div>
+        </div>
+      </div>
+    </div>
+    <div class="dinner-card" style="margin-top:7px">
+      <div class="dinner-who dinner-easy">😌 Low energy? Sushi train instead 🍣</div>
+      <div class="dinner-body"><div class="dinner-name">Sushi Train</div><div class="dinner-detail">Use this whenever the week feels heavy. No cooking, no cleanup. Gabe loves it. Zero guilt.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out weekend supplements on the bench</span>
+        <span>Phone off. Week done! 🌿</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Friday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened?</div>
+      <textarea class="checkin-ta" id="n-w1d3" placeholder="e.g. Pull day felt strong, had sushi, Gabe was so happy at playground…" oninput="saveN('w1d3')"></textarea>
+      <button class="save-btn" id="s-w1d3" onclick="saveDay('w1d3')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- SAT 10 MAY -->
+<div class="day-panel" id="w1d4">
+  <div class="day-header">
+    <div class="day-title">Saturday</div>
+    <div class="day-date">10 May</div>
+    <div class="day-focus" style="color:var(--muted)">Rest · Family</div>
+    <div class="day-meta">Tommy → farmers market · Gentle day</div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-icon">🌿</div>
+    <div class="rest-title">Rest Day</div>
+    <div class="rest-text">Gym twice + Flow this week. Your body is repairing now.<br><br>Slow morning, Gabe time, walk if it feels good.</div>
+  </div>
+  <div class="tline" style="margin-top:16px">
+    <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual + 5g creatine</div><div class="tblock-detail">Even on rest days — don't skip creatine</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+    <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+    <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy → Farmers market 🥦</div><div class="tblock-detail">Fresh produce for next week</div></div><div class="tblock-right"><div class="tblock-time">AM</div><div class="tommy-tag">Tommy</div></div></div>
+    <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Marcia + Gabe time 🧡</div><div class="tblock-detail">Walk, park, playground — whatever feels good</div></div><div class="tblock-right"><div class="tblock-time">AM</div></div></div>
+  </div>
+  <div class="section" style="margin-top:16px">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">Before bed</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out Sunday's supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUN 11 MAY -->
+<div class="day-panel" id="w1d5">
+  <div class="day-header">
+    <div class="day-title">Sunday</div>
+    <div class="day-date">11 May</div>
+    <div class="day-focus" style="color:var(--muted)">Rest · Reset · Woolies order</div>
+    <div class="day-meta">Slow family day · Prep for the week</div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-icon">☀️</div>
+    <div class="rest-title">Recharge Sunday</div>
+    <div class="rest-text">Slow morning with the family. Woolies order in the evening — set up for a smooth week ahead.</div>
+  </div>
+  <div class="tline" style="margin-top:16px">
+    <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual + 5g creatine</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+    <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+    <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛒 Woolies online order</div><div class="tblock-detail">Smoothie ingredients + Mon/Wed Ninja Foodi items + Gabe snacks + Tommy's dinner ingredients (Tue: pesto pasta, Thu: kale bowl)</div></div><div class="tblock-right"><div class="tblock-time">19:00</div></div></div>
+    <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Set smoothie ingredients on bench 🥤</div><div class="tblock-detail">Ready for Monday morning. Ninja Foodi check — clean and ready.</div></div><div class="tblock-right"><div class="tblock-time">20:00</div></div></div>
+  </div>
+  <div class="section" style="margin-top:16px">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">Before bed</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out Monday's water + fluoxetine + morning supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+  <div class="section" style="margin-top:16px">
+    <div class="section-label">Week 1 reflection</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How was the week overall?</div>
+      <div class="checkin-q">Overall mood</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What worked? What didn't? Anything to change?</div>
+      <textarea class="checkin-ta" id="n-w1wknd" placeholder="e.g. Flow was the highlight, dinner was stress-free, want more time at playground…" oninput="saveN('w1wknd')" style="min-height:100px"></textarea>
+      <button class="save-btn" id="s-w1wknd" onclick="saveDay('w1wknd')">Save reflection</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- week-1 -->
+
+<!-- ═══════ WEEK 2 ═══════ -->
+<div class="week-panel" id="week-2">
+
+<!-- MON 12 MAY -->
+<div class="day-panel active" id="w2d1">
+  <div class="day-header">
+    <div class="day-title">Monday</div>
+    <div class="day-date">12 May</div>
+    <div class="day-focus" style="color:var(--sage)">Gym · Upper Push</div>
+    <div class="day-meta">Tommy drop-off · Marcia walks to gym · Ninja Foodi · Marcia cooks</div>
+    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-fuel">Fuel</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy drop-off</span></div>
+  </div>
+  <div class="alert alert-tommy"><strong>🚗 Tommy does drop-off today</strong>Tommy leaves 7:45am with Gabe. Marcia goes straight to gym.</div>
+
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy leaves with Gabe 🚗</div><div class="tblock-detail">Daycare drop-off. Rides to work after.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-move" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🏋️ Gym — Upper Push</div><div class="tblock-detail">3 min walk. Chest press · Cable fly · Shoulder press · Lateral raise · Tricep pushdown. ~40 min.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div></div></div>
+      <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Back home — shower</div></div><div class="tblock-right"><div class="tblock-time">8:30</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌿 Ninja Foodi prep + clean up</div><div class="tblock-detail">Chicken + pumpkin + sweet potato + zucchini + cherry tomatoes + garlic + olive oil + herbs. Slow cook LOW. ~20 min.</div></div><div class="tblock-right"><div class="tblock-time">8:50</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Breakfast + supplements (9:15)</div>
+    <div class="supp-card"><div class="supp-title">Morning supplements</div><div class="supp-list"><span class="supp">Fluoxetine</span><span class="supp">Tresos</span><span class="supp">Folate</span><span class="supp">B12</span><span class="supp">CoQ10</span><span class="supp">5g Creatine</span></div></div>
+    <div class="meal-card"><div class="meal-title">🥤 Protein Smoothie</div><div class="meal-items"><span>Plant protein + plant milk 150ml + water/ice + banana 30g + berries 50g + cacao nibs + flax + brewer's yeast + ginger</span></div><div class="meal-swap">💡 Ingredients already on the bench from Sunday night.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Gym exercises — log your weights</div>
+    <div class="timer-card">
+      <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td2">1:30</div></div>
+      <div class="timer-btns"><button class="t-btn t-start" id="t-start2" onclick="startTimer2()">Start</button><button class="t-btn t-reset" onclick="resetTimer2()">Reset</button></div>
+    </div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Chest Press</div><div class="gym-eq">Bench + dumbbells</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cp')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Chest Fly</div><div class="gym-eq">Life Fitness cable tower</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cf')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Shoulder Press</div><div class="gym-eq">Seated or standing</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-sp')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lateral Raise</div><div class="gym-eq">Life Fitness · single arm</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-lr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Tricep Pushdown</div><div class="gym-eq">Rope attachment</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-tp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="prog-wrap"><div class="prog-fill" id="gp-w2d1"></div></div>
+    <div class="prog-text" id="gt-w2d1">0 / 5 done</div>
+    <button class="reset-btn" onclick="resetGym('w2d1')">Reset session</button>
+  </div>
+
+  <div class="section">
+    <div class="section-label">💼 Work + lunch at desk</div>
+    <div class="tline"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — Airtable 💛</div><div class="tblock-detail">Smoothie at desk. Ninja Foodi doing the work.</div></div><div class="tblock-right"><div class="tblock-time">9:15–3:00</div></div></div></div>
+    <div class="meal-card" style="margin-top:8px"><div class="meal-title">🥤 Lunch Smoothie (13:00)</div><div class="meal-items"><span>Plant protein + almond milk + strawberry 80g + peanut butter 10g + cacao nibs + flax</span></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Afternoon — Gabe time</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Home — Marcia snack</div><div class="tblock-detail">Protein shake or yogurt bowl</div></div><div class="tblock-right"><div class="tblock-time">17:00</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — Ninja Foodi ready</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-marcia">🌿 Marcia prepped this morning — just plate up</div>
+      <div class="dinner-body"><div class="dinner-name">Slow-cooked chicken + roast vegetables</div><div class="dinner-steps"><div class="dinner-step">Plate up. Nutritional yeast on Marcia's serve.</div><div class="dinner-step">Gabe: pull chicken apart + soft veg.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠 — dinner ready</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out tomorrow's water + fluoxetine + morning supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Monday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened?</div>
+      <textarea class="checkin-ta" id="n-w2d1" placeholder="e.g. Push day felt strong, Ninja Foodi dinner was perfect…" oninput="saveN('w2d1')"></textarea>
+      <button class="save-btn" id="s-w2d1" onclick="saveDay('w2d1')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- TUE 13 MAY -->
+<div class="day-panel" id="w2d2">
+  <div class="day-header">
+    <div class="day-title">Tuesday</div>
+    <div class="day-date">13 May</div>
+    <div class="day-focus" style="color:var(--sky)">Flow Physique</div>
+    <div class="day-meta">Out all day 🚗 · Flow · Café/library · Tommy cooks</div>
+    <div class="pillars"><span class="pill pill-recover">Flow</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy cooks</span></div>
+  </div>
+  <div class="alert alert-tommy"><strong>👨‍🍳 Tommy cooks tonight — Pesto Pasta</strong>15 min. Instructions in dinner section.</div>
+  <div class="pack-card">
+    <div class="pack-title">🎒 Pack before leaving (8:00)</div>
+    <div class="pack-items">
+      <span>🥤 Smoothie in flask</span>
+      <span>💊 Morning supplements (take in car after drop-off)</span>
+      <span>💊 Afternoon supplements (Hair & Energy + Magnesium Threonate)</span>
+      <span>🧒 Gabe's snack bag</span>
+      <span>💧 Water bottle</span>
+      <span>💻 Laptop</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Make smoothie + pack bag</div><div class="tblock-detail">Smoothie in flask. Pack all items from list above.</div></div><div class="tblock-right"><div class="tblock-time">7:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave — Gabe drop-off 🚗</div><div class="tblock-detail">Drive straight to Flow after.</div></div><div class="tblock-right"><div class="tblock-time">8:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Morning supplements + smoothie in car</div><div class="tblock-detail">Fluoxetine · Tresos · Folate · B12 · CoQ10 · 5g Creatine</div></div><div class="tblock-right"><div class="tblock-time">8:20</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🌿 Flow Physique</div>
+    <div class="wellness-card"><div class="wellness-priority">⭐ Always first — every visit</div><div class="wellness-name">💡 LED / Red Light Therapy (~20 min)</div><div class="wellness-why">Mood + energy + cellular recovery. Cumulative — consistency is everything.</div></div>
+    <div class="wellness-card"><div class="wellness-name">🫧 Lymphatic Body Roller</div><div class="wellness-why">Supports Mounjaro, reduces inflammation, boosts energy.</div></div>
+    <div class="wellness-card"><div class="wellness-name">🌡️ Infrared Sauna (~20 min) — optional today</div><div class="wellness-why">Save for Thursday if time is tight.</div></div>
+    <div class="tline" style="margin-top:8px">
+      <div class="tblock tb-recover" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Arrive Flow Physique</div></div><div class="tblock-right"><div class="tblock-time">8:35</div></div></div>
+      <div class="tblock tb-recover" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Flow done ✓</div></div><div class="tblock-right"><div class="tblock-time">10:30</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">☕ Café — lunch + work</div>
+    <div class="meal-card"><div class="meal-title">🥗 Café lunch — Camila-approved</div><div class="meal-items"><span>Grilled chicken or salmon salad · grain bowl · poached eggs + avo</span><span>Avoid: pastries, sandwiches, heavy carbs</span></div></div>
+    <div class="tline" style="margin-top:8px"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — café or library 💛</div><div class="tblock-detail">Airtable. Work until 15:00.</div></div><div class="tblock-right"><div class="tblock-time">10:30–15:00</div></div></div></div>
+  </div>
+  <div class="section">
+    <div class="section-label">Afternoon — Gabe time</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate. Take before leaving café.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe's snack bag in the car.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — Tommy cooks</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-tommy">👨‍🍳 Tommy cooks — Pesto Pasta</div>
+      <div class="dinner-body"><div class="dinner-name">Pesto Pasta with Chicken</div><div class="dinner-steps"><div class="dinner-step">Boil edamame fettuccine 8 min. Pan: cook chicken simply.</div><div class="dinner-step">Toss pasta + SACLA pesto + chicken + cherry tomatoes + feta + rocket.</div><div class="dinner-step">Nutritional yeast on Marcia's serve. Gabe: plain pasta + pesto + chicken.</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠 — starts dinner</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out tomorrow's water + fluoxetine + morning supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Tuesday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened?</div>
+      <textarea class="checkin-ta" id="n-w2d2" placeholder="e.g. Flow was great, café work flowed well, pesto pasta was delicious…" oninput="saveN('w2d2')"></textarea>
+      <button class="save-btn" id="s-w2d2" onclick="saveDay('w2d2')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- WED 14 MAY -->
+<div class="day-panel" id="w2d3">
+  <div class="day-header">
+    <div class="day-title">Wednesday</div>
+    <div class="day-date">14 May</div>
+    <div class="day-focus" style="color:var(--sage)">Gym · Lower Body</div>
+    <div class="day-meta">Tommy drop-off · Marcia walks to gym · Ninja Foodi · Marcia cooks</div>
+    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-fuel">Fuel</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy drop-off</span></div>
+  </div>
+  <div class="alert alert-tommy"><strong>🚗 Tommy does drop-off today</strong>Tommy leaves 7:45am with Gabe. Marcia goes straight to gym.</div>
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy leaves with Gabe 🚗</div></div><div class="tblock-right"><div class="tblock-time">7:45</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-move" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🏋️ Gym — Lower Body</div><div class="tblock-detail">Goblet squat · RDL · Leg extension · Leg curl · Glute bridge. ~40 min.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div></div></div>
+      <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Back home — shower</div></div><div class="tblock-right"><div class="tblock-time">8:30</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌿 Ninja Foodi prep + clean up</div><div class="tblock-detail">Same as Monday. Chicken + veg + herbs. Slow cook LOW. ~20 min.</div></div><div class="tblock-right"><div class="tblock-time">8:50</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Breakfast + supplements (9:15)</div>
+    <div class="supp-card"><div class="supp-title">Morning supplements</div><div class="supp-list"><span class="supp">Fluoxetine</span><span class="supp">Tresos</span><span class="supp">Folate</span><span class="supp">B12</span><span class="supp">CoQ10</span><span class="supp">5g Creatine</span></div></div>
+    <div class="meal-card"><div class="meal-title">🥤 Protein Smoothie</div><div class="meal-items"><span>Plant protein + plant milk + mango/pineapple 50g + cacao nibs + flax + brewer's yeast + ginger</span></div></div>
+  </div>
+  <div class="section">
+    <div class="section-label">Gym exercises — log your weights</div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell at chest</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gs')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-rdl')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-le')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-lc')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Glute Bridge</div><div class="gym-eq">Bodyweight or dumbbell</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gb')"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="prog-wrap"><div class="prog-fill" id="gp-w2d3"></div></div>
+    <div class="prog-text" id="gt-w2d3">0 / 5 done</div>
+    <button class="reset-btn" onclick="resetGym('w2d3')">Reset session</button>
+  </div>
+  <div class="section">
+    <div class="section-label">💼 Work + lunch at desk</div>
+    <div class="tline"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — Airtable 💛</div></div><div class="tblock-right"><div class="tblock-time">9:15–3:00</div></div></div></div>
+    <div class="meal-card" style="margin-top:8px"><div class="meal-title">🥤 Lunch Smoothie (13:00)</div><div class="meal-items"><span>Plant protein + almond milk + mango + peanut butter + cacao nibs</span></div></div>
+  </div>
+  <div class="section">
+    <div class="section-label">Afternoon — Gabe time</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Home — Marcia snack</div></div><div class="tblock-right"><div class="tblock-time">17:00</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — Ninja Foodi ready</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-marcia">🌿 Marcia prepped this morning — just plate up</div>
+      <div class="dinner-body"><div class="dinner-name">Slow-cooked chicken + roast vegetables</div><div class="dinner-steps"><div class="dinner-step">Plate up. Nutritional yeast on Marcia's serve.</div><div class="dinner-step">Gabe: pull chicken + soft veg.</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠 — dinner ready</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out tomorrow's water + fluoxetine + morning supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Wednesday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened?</div>
+      <textarea class="checkin-ta" id="n-w2d3" placeholder="e.g. Legs felt stronger than last week, Ninja Foodi was perfect again…" oninput="saveN('w2d3')"></textarea>
+      <button class="save-btn" id="s-w2d3" onclick="saveDay('w2d3')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- THU 15 MAY -->
+<div class="day-panel" id="w2d4">
+  <div class="day-header">
+    <div class="day-title">Thursday</div>
+    <div class="day-date">15 May</div>
+    <div class="day-focus" style="color:var(--sky)">Flow Physique</div>
+    <div class="day-meta">Out all day 🚗 · Flow · Café/library · Tommy cooks</div>
+    <div class="pillars"><span class="pill pill-recover">Flow</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy cooks</span></div>
+  </div>
+  <div class="alert alert-tommy"><strong>👨‍🍳 Tommy cooks tonight — Kale Bowl</strong>Ingredients in fridge.</div>
+  <div class="pack-card">
+    <div class="pack-title">🎒 Pack before leaving (8:00)</div>
+    <div class="pack-items">
+      <span>🥤 Smoothie in flask</span>
+      <span>💊 Morning supplements (take in car after drop-off)</span>
+      <span>💊 Afternoon supplements (Hair & Energy + Magnesium Threonate)</span>
+      <span>🧒 Gabe's snack bag</span>
+      <span>💧 Water bottle</span>
+      <span>💻 Laptop</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Make smoothie + pack bag</div></div><div class="tblock-right"><div class="tblock-time">7:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave — Gabe drop-off 🚗</div><div class="tblock-detail">Drive straight to Flow after.</div></div><div class="tblock-right"><div class="tblock-time">8:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Morning supplements + smoothie in car</div></div><div class="tblock-right"><div class="tblock-time">8:20</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🌿 Flow Physique</div>
+    <div class="wellness-card"><div class="wellness-priority">⭐ Always first</div><div class="wellness-name">💡 LED / Red Light Therapy (~20 min)</div><div class="wellness-why">After two gym days — mood and cells will love this.</div></div>
+    <div class="wellness-card"><div class="wellness-name">🌡️ Infrared Sauna (~20 min)</div><div class="wellness-why">Thursday sauna = better sleep tonight. Lowers cortisol perfectly.</div></div>
+    <div class="wellness-card"><div class="wellness-name">🫧 Lymphatic Roller (if time)</div><div class="wellness-why">Post-sauna drainage. Reduces soreness and puffiness.</div></div>
+    <div class="tline" style="margin-top:8px">
+      <div class="tblock tb-recover" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Arrive Flow Physique</div></div><div class="tblock-right"><div class="tblock-time">8:35</div></div></div>
+      <div class="tblock tb-recover" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Flow done ✓</div></div><div class="tblock-right"><div class="tblock-time">10:30</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">☕ Café — lunch + work</div>
+    <div class="meal-card"><div class="meal-title">🥗 Café lunch</div><div class="meal-items"><span>Grilled chicken/salmon salad · grain bowl · poached eggs + avo</span></div></div>
+    <div class="tline" style="margin-top:8px"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — café or library 💛</div></div><div class="tblock-right"><div class="tblock-time">10:30–15:00</div></div></div></div>
+  </div>
+  <div class="section">
+    <div class="section-label">Afternoon — Gabe time</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe's snack in the car.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Dinner (18:00) — Tommy cooks</div>
+    <div class="dinner-card">
+      <div class="dinner-who dinner-tommy">👨‍🍳 Tommy cooks — Kale Bowl</div>
+      <div class="dinner-body"><div class="dinner-name">Kale Bowl — Salmon or Chicken</div><div class="dinner-steps"><div class="dinner-step">Pan or BBQ: salmon (80g) or chicken (90g). Olive oil + salt.</div><div class="dinner-step">Bowl: kale/spinach + edamame + cherry tomatoes + SACLA pesto + feta.</div><div class="dinner-step">Add protein + sesame seeds + nutritional yeast on Marcia's serve.</div><div class="dinner-step">Gabe: shredded protein + soft veg.</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Evening</div>
+    <div class="tline">
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy home 🏠 — starts dinner</div></div><div class="tblock-right"><div class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Family dinner</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛁 Gabe bedtime routine</div></div><div class="tblock-right"><div class="tblock-time">19:30</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">During Gabe's bath/shower</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out tomorrow's water + fluoxetine + morning supplements on the bench</span>
+        <span>Pack Friday afternoon supplements in bag for pickup</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Thursday go?</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened?</div>
+      <textarea class="checkin-ta" id="n-w2d4" placeholder="e.g. Red light + sauna was incredible, café work flowed well, kale bowl was perfect…" oninput="saveN('w2d4')"></textarea>
+      <button class="save-btn" id="s-w2d4" onclick="saveDay('w2d4')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- FRI 16 MAY — CLIMBING FRIDAY -->
+<div class="day-panel" id="w2d5">
+  <div class="day-header">
+    <div class="day-title">Friday</div>
+    <div class="day-date">16 May 🧗</div>
+    <div class="day-focus" style="color:var(--sage)">Gym + First Climbing Friday!</div>
+    <div class="day-meta">Gym morning · Pickup Gabe · Urban Climb West End · Tommy 4:30 · Dinner out</div>
+    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-move">Climb</span><span class="pill pill-tommy">Tommy 4:30</span></div>
+  </div>
+  <div class="alert alert-info"><strong>🧗 First climbing Friday!</strong>Pick up Gabe → drive to Urban Climb West End (20 min). Tommy meets you 4:30pm. 2–3 climbs, hang out as a family, shower Gabe at gym, dinner out. Gabe sleeps on the way home 😴</div>
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Gabe drop-off — Marcia drives 🚗</div><div class="tblock-detail">Back home ~8:45</div></div><div class="tblock-right"><div class="tblock-time">8:00</div></div></div>
+      <div class="tblock tb-move" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🏋️ Gym — Upper Pull</div><div class="tblock-detail">3 min walk. Lat pulldown · Row · Bent-over row · Face pull · Bicep curl. ~40 min.</div></div><div class="tblock-right"><div class="tblock-time">8:45</div></div></div>
+      <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Back home — shower</div></div><div class="tblock-right"><div class="tblock-time">9:30</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Breakfast + supplements (9:50)</div>
+    <div class="supp-card"><div class="supp-title">Morning supplements</div><div class="supp-list"><span class="supp">Fluoxetine</span><span class="supp">Tresos</span><span class="supp">Folate</span><span class="supp">B12</span><span class="supp">CoQ10</span><span class="supp">5g Creatine</span></div></div>
+    <div class="meal-card"><div class="meal-title">🥤 Protein Smoothie</div><div class="meal-items"><span>Plant protein + plant milk + berries + cacao nibs + flax + brewer's yeast</span></div></div>
+  </div>
+  <div class="section">
+    <div class="section-label">Gym exercises — log your weights</div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-lpd')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-sr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bent-Over Row</div><div class="gym-eq">One arm · bench support</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bor')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope attachment · posture</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-fp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bc')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="prog-wrap"><div class="prog-fill" id="gp-w2d5"></div></div>
+    <div class="prog-text" id="gt-w2d5">0 / 5 done</div>
+    <button class="reset-btn" onclick="resetGym('w2d5')">Reset session</button>
+  </div>
+  <div class="section">
+    <div class="section-label">💼 Work + lunch at desk</div>
+    <div class="tline"><div class="tblock tb-work" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Deep work — Airtable 💛</div></div><div class="tblock-right"><div class="tblock-time">10:00–3:00</div></div></div></div>
+    <div class="meal-card" style="margin-top:8px"><div class="meal-title">🥤 Lunch Smoothie (13:00)</div><div class="meal-items"><span>Plant protein + almond milk + berries + cacao nibs</span></div></div>
+  </div>
+  <div class="section">
+    <div class="section-label">Afternoon — 🧗 Climbing time!</div>
+    <div class="tline">
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate. Pack in bag before pickup.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pack Gabe's snack bag for climbing</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe — drive straight to Urban Climb 🚗</div><div class="tblock-detail">20 min drive to West End.</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🧗 Arrive Urban Climb West End</div><div class="tblock-detail">Get set up. Gabe's snack while you warm up.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
+      <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy arrives! 🧗</div><div class="tblock-detail">Family session. 2–3 climbs. Gabe runs wild.</div></div><div class="tblock-right"><div class="tblock-time">16:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Shower Gabe at gym 🚿</div></div><div class="tblock-right"><div class="tblock-time">17:30</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🍽️ Dinner out — all three</div><div class="tblock-detail">Anywhere nearby. Gabe will sleep on the way home 😴</div></div><div class="tblock-right"><div class="tblock-time">18:00</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Daily check-in</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How did Friday go? 🧗</div>
+      <div class="checkin-q">Mood today</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What actually happened? First climbing Friday!</div>
+      <textarea class="checkin-ta" id="n-w2d5" placeholder="e.g. Gabe loved it, Tommy made it, dinner was so nice, Gabe asleep before we got home…" oninput="saveN('w2d5')"></textarea>
+      <button class="save-btn" id="s-w2d5" onclick="saveDay('w2d5')">Save check-in</button>
+    </div>
+  </div>
+</div>
+
+<!-- SAT 17 MAY — HIKE WITH BIBI -->
+<div class="day-panel" id="w2d6">
+  <div class="day-header">
+    <div class="day-title">Saturday</div>
+    <div class="day-date">17 May 🥾</div>
+    <div class="day-focus" style="color:var(--sage)">Day Hike with Bibi!</div>
+    <div class="day-meta">Marcia · Tommy · Gabe · Bibi — day out together</div>
+  </div>
+  <div class="alert alert-sage"><strong>🥾 Hike day with niece Bibi!</strong>Full day out. Enjoy completely — no plan needed beyond having a great time.</div>
+  <div class="tline" style="margin-top:16px">
+    <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual + 5g creatine</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+    <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+    <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🥾 Day hike with Bibi</div><div class="tblock-detail">Marcia + Tommy + Gabe + Bibi. Beautiful day out. Gabe will love it.</div></div><div class="tblock-right"><div class="tblock-time">All day</div></div></div>
+  </div>
+  <div class="section" style="margin-top:16px">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">Before bed</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out Sunday's supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUN 18 MAY -->
+<div class="day-panel" id="w2d7">
+  <div class="day-header">
+    <div class="day-title">Sunday</div>
+    <div class="day-date">18 May</div>
+    <div class="day-focus" style="color:var(--muted)">Rest · Reset · Woolies order</div>
+    <div class="day-meta">Slow family day · Prep for next week · Come back to Claude 🌿</div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-icon">☀️</div>
+    <div class="rest-title">Recharge Sunday</div>
+    <div class="rest-text">Full two weeks done — gym 3x, Flow 2x, first climbing Friday, hike with Bibi. That's everything.<br><br>Rest, recharge, and come back to Claude tonight or Monday to tell me how it all went.</div>
+  </div>
+  <div class="tline" style="margin-top:16px">
+    <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual + 5g creatine</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
+    <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+    <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🛒 Woolies online order</div><div class="tblock-detail">Smoothie ingredients + Ninja Foodi items + Gabe snacks + Tommy dinner items for next week</div></div><div class="tblock-right"><div class="tblock-time">19:00</div></div></div>
+    <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Set smoothie ingredients on bench 🥤</div><div class="tblock-detail">Ready for Monday. Ninja Foodi check — clean and ready.</div></div><div class="tblock-right"><div class="tblock-time">20:00</div></div></div>
+  </div>
+  <div class="section" style="margin-top:16px">
+    <div class="section-label">🌙 Night routine</div>
+    <div class="night-block">
+      <div class="night-title">Before bed</div>
+      <div class="night-items">
+        <span>Magnesium glycinate + Glutamine 5g + chamomile tea</span>
+        <span>Set out Monday's water + fluoxetine + morning supplements on the bench</span>
+        <span>Phone off 🌿</span>
+      </div>
+    </div>
+  </div>
+  <div class="section" style="margin-top:16px">
+    <div class="section-label">Two-week reflection</div>
+    <div class="checkin-box">
+      <div class="checkin-title">How were these two weeks?</div>
+      <div class="checkin-q">Overall mood</div>
+      <div class="mood-row">
+        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+      </div>
+      <div class="checkin-q">What worked? What needs changing? What's on next week?</div>
+      <textarea class="checkin-ta" id="n-w2wknd" placeholder="e.g. Climbing Friday was the highlight. Flow visits changed my mood completely. Dinners were stress-free. Want to add…" oninput="saveN('w2wknd')" style="min-height:110px"></textarea>
+      <button class="save-btn" id="s-w2wknd" onclick="saveDay('w2wknd')">Save reflection</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- week-2 -->
+</div><!-- content -->
+
+<script>
+// ── AIRTABLE CONFIG ──────────────────────────────────────────
+const AT_TOKEN = 'patfjjOqBAvHilWfG.f44268c7c9c00ebb06f3af5a058e305684f18e2f50c77c280fecc0016a19c659';
+const AT_BASE  = 'appL4TjHeGtKm2HDF';
+const AT_DAILY = 'tbluPY7MlKAGdFPHQ';
+const AT_GYM   = 'tblcC0NG2cxN8fapo';
+const AT_WEEK  = 'tbl5vVCxcILtr1cBt';
+
+// Day metadata — maps day ID to date + type for Airtable records
+const DAY_META = {
+  w1d1: { date: '2026-05-07', type: 'Gym - Lower',    label: 'Wed 7 May' },
+  w1d2: { date: '2026-05-08', type: 'Flow Physique',  label: 'Thu 8 May' },
+  w1d3: { date: '2026-05-09', type: 'Gym - Pull',     label: 'Fri 9 May' },
+  w1wknd:{ date:'2026-05-11', type: 'Rest',            label: 'Weekend 10-11 May' },
+  w2d1: { date: '2026-05-12', type: 'Gym - Push',     label: 'Mon 12 May' },
+  w2d2: { date: '2026-05-13', type: 'Flow Physique',  label: 'Tue 13 May' },
+  w2d3: { date: '2026-05-14', type: 'Gym - Lower',    label: 'Wed 14 May' },
+  w2d4: { date: '2026-05-15', type: 'Flow Physique',  label: 'Thu 15 May' },
+  w2d5: { date: '2026-05-16', type: 'Climbing Friday',label: 'Fri 16 May' },
+  w2d6: { date: '2026-05-17', type: 'Hike / Day Out', label: 'Sat 17 May' },
+  w2wknd:{date: '2026-05-18', type: 'Rest',            label: 'Sun 18 May' },
+};
+
+// In-memory state for current check-ins
+const state = {};
+
+// ── AIRTABLE API ─────────────────────────────────────────────
+async function atCreate(tableId, fields) {
+  try {
+    const res = await fetch(`https://api.airtable.com/v0/${AT_BASE}/${tableId}`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${AT_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields })
+    });
+    return await res.json();
+  } catch(e) { console.warn('Airtable save failed:', e); return null; }
+}
+
+async function atFind(tableId, filterFormula) {
+  try {
+    const url = `https://api.airtable.com/v0/${AT_BASE}/${tableId}?filterByFormula=${encodeURIComponent(filterFormula)}`;
+    const res = await fetch(url, { headers: { 'Authorization': `Bearer ${AT_TOKEN}` } });
+    const data = await res.json();
+    return data.records || [];
+  } catch(e) { return []; }
+}
+
+async function atUpdate(tableId, recordId, fields) {
+  try {
+    const res = await fetch(`https://api.airtable.com/v0/${AT_BASE}/${tableId}/${recordId}`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `Bearer ${AT_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields })
+    });
+    return await res.json();
+  } catch(e) { console.warn('Airtable update failed:', e); return null; }
+}
+
+// ── SAVE DAILY CHECK-IN TO AIRTABLE ──────────────────────────
+async function saveToAirtable(dayId) {
+  const meta = DAY_META[dayId];
+  if (!meta) return;
+
+  const moodEl = document.querySelector(`#checkin-${dayId} .mood-btn.selected`);
+  const mood = moodEl ? moodEl.textContent.trim() : null;
+  const moodMap = { '😔': '😔 Hard', '😐': '😐 Okay', '🙂': '🙂 Good', '😊': '😊 Great' };
+  const moodVal = moodMap[mood] || null;
+
+  const notes = document.getElementById('n-'+dayId)?.value || '';
+
+  // Check gym done
+  const panel = document.getElementById(dayId.replace('wknd','d6').replace(/w(\d)d(\d)/,'w$1d$2'));
+  const gymPanel = panel || document.getElementById(dayId);
+  const gymDoneCount = gymPanel ? gymPanel.querySelectorAll('.gym-done-btn.done').length : 0;
+  const gymDone = gymDoneCount > 0;
+
+  // Check if flow day
+  const flowDone = gymPanel ? !!gymPanel.querySelector('.tblock-recover.checked') : false;
+
+  const fields = {
+    'Date': meta.date,
+    'Day Type': meta.type,
+    'Notes': notes,
+    'Gym Done': gymDone,
+    'Flow Done': flowDone,
+    'Logged By': 'Marcia'
+  };
+  if (moodVal) fields['Mood'] = moodVal;
+
+  // Check if record exists for this date, update or create
+  const existing = await atFind(AT_DAILY, `{Date}='${meta.date}'`);
+  if (existing.length > 0) {
+    await atUpdate(AT_DAILY, existing[0].id, fields);
+  } else {
+    await atCreate(AT_DAILY, fields);
+  }
+}
+
+// ── SAVE GYM WEIGHT TO AIRTABLE ──────────────────────────────
+async function saveGymToAirtable(date, exercise, sessionType, weight) {
+  if (!weight || isNaN(parseFloat(weight))) return;
+  const existing = await atFind(AT_GYM, `AND({Date}='${date}',{Exercise}='${exercise}')`);
+  const fields = {
+    'Date': date,
+    'Exercise': exercise,
+    'Session Type': sessionType,
+    'Weight (kg)': parseFloat(weight),
+    'Sets': 3
+  };
+  if (existing.length > 0) {
+    await atUpdate(AT_GYM, existing[0].id, fields);
+  } else {
+    await atCreate(AT_GYM, fields);
+  }
+}
+
+// ── SAVE WEEKLY REFLECTION TO AIRTABLE ───────────────────────
+async function saveWeeklyReflection(weekId, weekDate) {
+  const moodEl = document.querySelector(`#checkin-${weekId} .mood-btn.selected`);
+  const mood = moodEl ? moodEl.textContent.trim() : null;
+  const moodMap = { '😔': '😔 Hard week', '😐': '😐 Okay week', '🙂': '🙂 Good week', '😊': '😊 Great week' };
+
+  const notes = document.getElementById('n-'+weekId)?.value || '';
+  const fields = { 'Week Of': weekDate, 'Next Week Notes': notes };
+  if (moodMap[mood]) fields['Overall Mood'] = moodMap[mood];
+
+  const existing = await atFind(AT_WEEK, `{Week Of}='${weekDate}'`);
+  if (existing.length > 0) {
+    await atUpdate(AT_WEEK, existing[0].id, fields);
+  } else {
+    await atCreate(AT_WEEK, fields);
+  }
+}
+
+// ── NAVIGATION ───────────────────────────────────────────────
+let curWeek=1, curDay={1:1,2:1};
+
+function showWeek(w) {
+  curWeek=w;
+  document.querySelectorAll('.week-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.week-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('week-'+w).classList.add('active');
+  document.querySelectorAll('.week-btn')[w-1].classList.add('active');
+  document.querySelectorAll('.day-bar').forEach(b=>b.style.display='none');
+  document.getElementById('bar-'+w).style.display='flex';
+  showDay(w,curDay[w]);
+}
+
+function showDay(w,d) {
+  curDay[w]=d;
+  const bar=document.getElementById('bar-'+w);
+  bar.querySelectorAll('.day-tab').forEach((t,i)=>t.classList.toggle('active',i===d-1));
+  document.getElementById('week-'+w).querySelectorAll('.day-panel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById('w'+w+'d'+d);
+  if(panel) panel.classList.add('active');
+}
+
+// ── CHECKLIST ────────────────────────────────────────────────
+function tog(el) {
+  el.classList.toggle('checked');
+  el.querySelector('.tblock-chk').textContent=el.classList.contains('checked')?'✓':'';
+}
+
+// ── GYM ──────────────────────────────────────────────────────
+function togGym(h) { h.nextElementSibling.classList.toggle('open'); }
+
+function gymDone(btn,progId) {
+  btn.classList.toggle('done');
+  btn.textContent=btn.classList.contains('done')?'Done ✓':'Mark done ✓';
+  btn.closest('.gym-card').style.opacity=btn.classList.contains('done')?'0.45':'1';
+  const section=btn.closest('.section');
+  const total=section.querySelectorAll('.gym-done-btn').length;
+  const done=section.querySelectorAll('.gym-done-btn.done').length;
+  const p=document.getElementById(progId);
+  const t=document.getElementById(progId.replace('gp-','gt-'));
+  if(p) p.style.width=(done/total*100)+'%';
+  if(t) t.textContent=done+' / '+total+' done'+(done===total?' 🎉':'');
+}
+
+function resetGym(id) {
+  const w=id[1], d=id[3];
+  const panel=document.getElementById('w'+w+'d'+d);
+  if(!panel) return;
+  panel.querySelectorAll('.gym-done-btn.done').forEach(b=>{
+    b.classList.remove('done'); b.textContent='Mark done ✓';
+    b.closest('.gym-card').style.opacity='1';
+  });
+  const p=document.getElementById('gp-w'+w+'d'+d);
+  const t=document.getElementById('gt-w'+w+'d'+d);
+  if(p) p.style.width='0%';
+  if(t) t.textContent='0 / 5 done';
+}
+
+// ── WEIGHT SAVING (localStorage + Airtable) ──────────────────
+// Map of weight key -> { date, exercise, sessionType }
+const GYM_MAP = {
+  'w1d1-gs':  { date:'2026-05-07', exercise:'Goblet Squat',         sessionType:'Lower Body' },
+  'w1d1-rdl': { date:'2026-05-07', exercise:'Romanian Deadlift',    sessionType:'Lower Body' },
+  'w1d1-le':  { date:'2026-05-07', exercise:'Leg Extension',        sessionType:'Lower Body' },
+  'w1d1-lc':  { date:'2026-05-07', exercise:'Leg Curl',             sessionType:'Lower Body' },
+  'w1d1-gb':  { date:'2026-05-07', exercise:'Glute Bridge',         sessionType:'Lower Body' },
+  'w1d3-lpd': { date:'2026-05-09', exercise:'Cable Lat Pulldown',   sessionType:'Upper Pull' },
+  'w1d3-sr':  { date:'2026-05-09', exercise:'Cable Seated Row',     sessionType:'Upper Pull' },
+  'w1d3-bor': { date:'2026-05-09', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
+  'w1d3-fp':  { date:'2026-05-09', exercise:'Cable Face Pull',      sessionType:'Upper Pull' },
+  'w1d3-bc':  { date:'2026-05-09', exercise:'Dumbbell Bicep Curl',  sessionType:'Upper Pull' },
+  'w2d1-cp':  { date:'2026-05-12', exercise:'Dumbbell Chest Press', sessionType:'Upper Push' },
+  'w2d1-cf':  { date:'2026-05-12', exercise:'Cable Chest Fly',      sessionType:'Upper Push' },
+  'w2d1-sp':  { date:'2026-05-12', exercise:'Dumbbell Shoulder Press',sessionType:'Upper Push' },
+  'w2d1-lr':  { date:'2026-05-12', exercise:'Cable Lateral Raise',  sessionType:'Upper Push' },
+  'w2d1-tp':  { date:'2026-05-12', exercise:'Cable Tricep Pushdown',sessionType:'Upper Push' },
+  'w2d3-gs':  { date:'2026-05-14', exercise:'Goblet Squat',         sessionType:'Lower Body' },
+  'w2d3-rdl': { date:'2026-05-14', exercise:'Romanian Deadlift',    sessionType:'Lower Body' },
+  'w2d3-le':  { date:'2026-05-14', exercise:'Leg Extension',        sessionType:'Lower Body' },
+  'w2d3-lc':  { date:'2026-05-14', exercise:'Leg Curl',             sessionType:'Lower Body' },
+  'w2d3-gb':  { date:'2026-05-14', exercise:'Glute Bridge',         sessionType:'Lower Body' },
+  'w2d5-lpd': { date:'2026-05-16', exercise:'Cable Lat Pulldown',   sessionType:'Upper Pull' },
+  'w2d5-sr':  { date:'2026-05-16', exercise:'Cable Seated Row',     sessionType:'Upper Pull' },
+  'w2d5-bor': { date:'2026-05-16', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
+  'w2d5-fp':  { date:'2026-05-16', exercise:'Cable Face Pull',      sessionType:'Upper Pull' },
+  'w2d5-bc':  { date:'2026-05-16', exercise:'Dumbbell Bicep Curl',  sessionType:'Upper Pull' },
+};
+
+let weightSaveTimer = {};
+function saveW(input, key) {
+  try { localStorage.setItem('mw-'+key, input.value); } catch(e) {}
+  // Debounce Airtable save by 2 seconds to avoid too many calls
+  clearTimeout(weightSaveTimer[key]);
+  weightSaveTimer[key] = setTimeout(() => {
+    const meta = GYM_MAP[key];
+    if (meta && input.value) {
+      saveGymToAirtable(meta.date, meta.exercise, meta.sessionType, input.value);
+    }
+  }, 2000);
+}
+
+// ── TIMERS ───────────────────────────────────────────────────
+let t1s=90,t1r=false,t1i=null;
+function startTimer() {
+  const btn=document.getElementById('t-start'),disp=document.getElementById('td');
+  if(t1r){clearInterval(t1i);t1r=false;btn.textContent='Start';disp.classList.remove('running');}
+  else{t1r=true;btn.textContent='Pause';disp.classList.add('running');
+    t1i=setInterval(()=>{if(t1s<=0){clearInterval(t1i);t1r=false;btn.textContent='Start';disp.textContent='Go! ✓';disp.classList.remove('running');t1s=90;return;}t1s--;disp.textContent=Math.floor(t1s/60)+':'+String(t1s%60).padStart(2,'0');},1000);}
+}
+function resetTimer(){clearInterval(t1i);t1r=false;t1s=90;const btn=document.getElementById('t-start'),disp=document.getElementById('td');if(btn)btn.textContent='Start';if(disp){disp.textContent='1:30';disp.classList.remove('running');}}
+
+let t2s=90,t2r=false,t2i=null;
+function startTimer2() {
+  const btn=document.getElementById('t-start2'),disp=document.getElementById('td2');
+  if(t2r){clearInterval(t2i);t2r=false;btn.textContent='Start';disp.classList.remove('running');}
+  else{t2r=true;btn.textContent='Pause';disp.classList.add('running');
+    t2i=setInterval(()=>{if(t2s<=0){clearInterval(t2i);t2r=false;btn.textContent='Start';disp.textContent='Go! ✓';disp.classList.remove('running');t2s=90;return;}t2s--;disp.textContent=Math.floor(t2s/60)+':'+String(t2s%60).padStart(2,'0');},1000);}
+}
+function resetTimer2(){clearInterval(t2i);t2r=false;t2s=90;const btn=document.getElementById('t-start2'),disp=document.getElementById('td2');if(btn)btn.textContent='Start';if(disp){disp.textContent='1:30';disp.classList.remove('running');}}
+
+// ── MOOD ─────────────────────────────────────────────────────
+function selMood(wrapper,id) {
+  wrapper.closest('.mood-row').querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('selected'));
+  wrapper.querySelector('.mood-btn').classList.add('selected');
+  try{localStorage.setItem('mm-'+id,wrapper.querySelector('.mood-btn').textContent);}catch(e){}
+}
+
+// ── NOTES ────────────────────────────────────────────────────
+function saveN(id) {
+  const ta=document.getElementById('n-'+id);
+  if(ta) try{localStorage.setItem('mn-'+id,ta.value);}catch(e){}
+}
+
+// ── SAVE CHECK-IN (localStorage + Airtable) ──────────────────
+async function saveDay(id) {
+  const btn=document.getElementById('s-'+id);
+  if(!btn) return;
+
+  // Optimistic UI update
+  btn.textContent='Saving…';
+  btn.style.opacity='0.7';
+
+  // Save to localStorage first (always works)
+  const ta=document.getElementById('n-'+id);
+  if(ta) try{localStorage.setItem('mn-'+id,ta.value);}catch(e){}
+  try{localStorage.setItem('md-'+id,'1');}catch(e){}
+
+  // Save to Airtable
+  const weeklyIds = ['w1wknd','w2wknd'];
+  if (weeklyIds.includes(id)) {
+    const weekDates = { 'w1wknd': '2026-05-11', 'w2wknd': '2026-05-18' };
+    await saveWeeklyReflection(id, weekDates[id]);
+  } else {
+    await saveToAirtable(id);
+  }
+
+  btn.textContent='Saved ✓';
+  btn.classList.add('saved');
+  btn.style.opacity='1';
+  setTimeout(()=>{btn.textContent='Save check-in';btn.classList.remove('saved');},2500);
+}
+
+// ── LOAD SAVED STATE ─────────────────────────────────────────
+function load() {
+  document.querySelectorAll('.weight-input').forEach(inp=>{
+    const fn=inp.getAttribute('oninput')||'';
+    const m=fn.match(/'([^']+)'\)/);
+    if(m) try{const s=localStorage.getItem('mw-'+m[1]);if(s)inp.value=s;}catch(e){}
+  });
+  ['w1d1','w1d2','w1d3','w1wknd','w2d1','w2d2','w2d3','w2d4','w2d5','w2d6','w2wknd'].forEach(id=>{
+    const ta=document.getElementById('n-'+id);
+    if(ta) try{const s=localStorage.getItem('mn-'+id);if(s)ta.value=s;}catch(e){}
+    // Restore mood selection
+    const savedMood=localStorage.getItem('mm-'+id);
+    if(savedMood){
+      document.querySelectorAll(`#s-${id}`).forEach(()=>{
+        const row=document.querySelector(`[id="s-${id}"]`)?.closest('.checkin-box')?.querySelector('.mood-row');
+        if(row) row.querySelectorAll('.mood-btn').forEach(b=>{
+          if(b.textContent.trim()===savedMood) b.classList.add('selected');
+        });
+      });
+    }
+  });
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+showWeek(1);
+load();
+</script>
+</body>
+</html>

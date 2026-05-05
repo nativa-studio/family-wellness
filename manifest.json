@@ -1,0 +1,22 @@
+{
+  "name": "Family Wellness",
+  "short_name": "Family Wellness",
+  "description": "Marcia, Tommy & Gabe — daily family plan, wellness and health tracker",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f0d0a",
+  "theme_color": "#0f0d0a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
