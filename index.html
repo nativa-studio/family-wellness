@@ -5,53 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Family Wellness</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Family Wellness">
-<meta name="theme-color" content="#0f0d0a">
+<meta name="theme-color" content="#f7f4ef">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0f0d0a;
-  --surface: #181510;
-  --surface2: #211d17;
-  --gold: #c9a96e;
-  --gold-dim: #3a2c0e;
-  --sage: #8aab82;
-  --sage-dim: #1e3020;
-  --warm: #c4855a;
-  --warm-dim: #3a1e0e;
-  --plum: #b088a8;
-  --plum-dim: #2a1828;
-  --sky: #72a8c0;
-  --sky-dim: #102030;
-  --amber: #d4a843;
-  --amber-dim: #352808;
-  --tommy: #7eb8d4;
-  --tommy-dim: #0e2535;
-  --text: #ede8e0;
-  --text2: #b8b0a4;
-  --muted: #6a6258;
-  --border: #252018;
-  --border2: #302a22;
+  --bg: #f7f4ef;
+  --surface: #ffffff;
+  --surface2: #f0ece4;
+  --surface3: #e8e2d8;
+  --sage: #6b8f6e;
+  --sage-dim: #dde8dd;
+  --sage-mid: #a8c4a8;
+  --warm: #b5734a;
+  --warm-dim: #f5e6da;
+  --plum: #8a6878;
+  --plum-dim: #f0e6ec;
+  --sky: #5a8fa0;
+  --sky-dim: #ddeef4;
+  --gold: #8a6914;
+  --gold-dim: #f5edda;
+  --amber: #9a7020;
+  --amber-dim: #f5eedc;
+  --tommy: #4a7a9b;
+  --tommy-dim: #ddeef8;
+  --text: #2a2218;
+  --text2: #5a5048;
+  --muted: #9a8e82;
+  --border: #e5ded4;
+  --border2: #ddd6ca;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; padding-bottom: 100px; max-width: 480px; margin: 0 auto; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  max-width: 480px;
+  margin: 0 auto;
+}
 
-header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+header {
+  padding: 24px 20px 14px;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0;
+  background: var(--bg);
+  z-index: 100;
+}
 .header-row { display: flex; justify-content: space-between; align-items: flex-start; }
-.logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; line-height: 1; }
-.logo em { font-style: italic; color: var(--gold); }
+.logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; line-height: 1; color: var(--text); }
+.logo em { font-style: italic; color: var(--sage); }
 .header-sub { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
-.family-badge { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 10px; background: var(--tommy-dim); color: var(--tommy); border: 1px solid var(--tommy); }
+.family-badge { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 20px; background: var(--sage-dim); color: var(--sage); border: 1px solid var(--sage-mid); }
 
 .week-bar { display: flex; gap: 6px; padding: 9px 20px; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 68px; z-index: 99; }
-.week-btn { flex: 1; padding: 6px 0; border-radius: 7px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-.week-btn.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+.week-btn { flex: 1; padding: 6px 0; border-radius: 20px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.week-btn.active { background: var(--sage); border-color: var(--sage); color: white; }
 
 .day-bar { display: flex; gap: 5px; padding: 9px 20px; overflow-x: auto; scrollbar-width: none; background: var(--bg); border-bottom: 1px solid var(--border); position: sticky; top: 107px; z-index: 98; }
 .day-bar::-webkit-scrollbar { display: none; }
-.day-tab { flex-shrink: 0; padding: 6px 12px; border-radius: 7px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-size: 11px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-.day-tab.active { background: var(--surface2); border-color: var(--gold); color: var(--gold); }
+.day-tab { flex-shrink: 0; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-size: 11px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.day-tab.active { background: var(--sage); border-color: var(--sage); color: white; }
 .day-tab.rest-tab { border-style: dashed; }
 
 .content { padding: 20px; }
@@ -62,8 +78,8 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
 @keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 
 .day-header { margin-bottom: 20px; }
-.day-title { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; line-height: 1; }
-.day-date { font-size: 12px; color: var(--gold); margin-top: 3px; font-weight: 600; letter-spacing: 0.5px; }
+.day-title { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; line-height: 1; color: var(--text); }
+.day-date { font-size: 12px; color: var(--sage); margin-top: 3px; font-weight: 600; letter-spacing: 0.5px; }
 .day-focus { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
 .day-meta { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
 .pillars { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
@@ -80,7 +96,7 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
 .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
 .tline { display: flex; flex-direction: column; gap: 7px; }
-.tblock { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; transition: all 0.15s; user-select: none; border-left-width: 3px; }
+.tblock { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; transition: all 0.15s; user-select: none; border-left-width: 3px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
 .tblock:active { transform: scale(0.985); }
 .tblock.checked { opacity: 0.4; }
 .tblock.checked .tblock-name { text-decoration: line-through; }
@@ -90,64 +106,64 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
 .tb-recover { border-left-color: var(--sky); }
 .tb-work { border-left-color: var(--amber); }
 .tb-life { border-left-color: var(--border2); }
-.tb-tommy { border-left-color: var(--tommy); background: #0a1a26; }
-.tb-gabe { border-left-color: var(--sage); background: #0a1a0e; }
+.tb-tommy { border-left-color: var(--tommy); background: var(--tommy-dim); }
+.tb-gabe { border-left-color: var(--sage); background: var(--sage-dim); }
 .tblock-chk { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--border2); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: transparent; transition: all 0.15s; }
-.tblock.checked .tblock-chk { background: var(--sage); border-color: var(--sage); color: var(--bg); }
+.tblock.checked .tblock-chk { background: var(--sage); border-color: var(--sage); color: white; }
 .tblock-body { flex: 1; min-width: 0; }
 .tblock-name { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.3; }
 .tblock-detail { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
 .tblock-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
-.tblock-time { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--gold); line-height: 1; }
+.tblock-time { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--sage); line-height: 1; }
 .tommy-tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 6px; background: var(--tommy-dim); color: var(--tommy); letter-spacing: 0.5px; }
 
-.alert { border-radius: 10px; padding: 11px 13px; margin-bottom: 12px; font-size: 12px; line-height: 1.5; }
-.alert-tommy { background: var(--tommy-dim); border: 1px solid var(--tommy); color: var(--tommy); }
+.alert { border-radius: 12px; padding: 11px 13px; margin-bottom: 12px; font-size: 12px; line-height: 1.5; }
+.alert-tommy { background: var(--tommy-dim); border: 1px solid #b8d4e8; color: var(--tommy); }
 .alert-tommy strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
-.alert-info { background: var(--amber-dim); border: 1px solid var(--amber); color: var(--amber); }
+.alert-info { background: var(--amber-dim); border: 1px solid #d4b870; color: var(--amber); }
 .alert-info strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
-.alert-sage { background: var(--sage-dim); border: 1px solid var(--sage); color: var(--sage); }
+.alert-sage { background: var(--sage-dim); border: 1px solid var(--sage-mid); color: var(--sage); }
 .alert-sage strong { display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
 
-.pack-card { background: var(--sky-dim); border: 1px solid var(--sky); border-radius: 12px; padding: 13px 14px; margin-bottom: 10px; }
+.pack-card { background: var(--sky-dim); border: 1px solid #b8d8e4; border-radius: 12px; padding: 13px 14px; margin-bottom: 10px; }
 .pack-title { font-size: 12px; font-weight: 700; color: var(--sky); margin-bottom: 6px; letter-spacing: 0.5px; text-transform: uppercase; }
 .pack-items { font-size: 12px; color: var(--text2); line-height: 1.8; }
 .pack-items span { display: block; padding-left: 14px; position: relative; }
 .pack-items span::before { content: '·'; position: absolute; left: 3px; color: var(--sky); }
 
-.meal-card { background: var(--surface); border: 1px solid var(--border2); border-left: 3px solid var(--warm); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
+.meal-card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--warm); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
 .meal-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; }
 .meal-items { font-size: 12px; color: var(--text2); line-height: 1.8; }
 .meal-items span { display: block; padding-left: 12px; position: relative; }
 .meal-items span::before { content: '·'; position: absolute; left: 3px; color: var(--warm); }
 .meal-swap { font-size: 11px; color: var(--muted); margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); font-style: italic; }
 
-.supp-card { background: var(--plum-dim); border: 1px solid var(--plum); border-radius: 12px; padding: 12px 14px; margin-bottom: 7px; }
+.supp-card { background: var(--plum-dim); border: 1px solid #d4b8c8; border-radius: 12px; padding: 12px 14px; margin-bottom: 7px; }
 .supp-title { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--plum); margin-bottom: 7px; }
 .supp-list { display: flex; flex-wrap: wrap; gap: 5px; }
-.supp { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 7px; background: rgba(176,136,168,0.15); color: var(--plum); border: 1px solid rgba(176,136,168,0.3); }
+.supp { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 7px; background: rgba(138,104,120,0.1); color: var(--plum); border: 1px solid rgba(138,104,120,0.25); }
 
-.dinner-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; margin-bottom: 7px; }
+.dinner-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 7px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
 .dinner-who { padding: 8px 14px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
 .dinner-marcia { background: var(--warm-dim); color: var(--warm); }
 .dinner-tommy { background: var(--tommy-dim); color: var(--tommy); }
 .dinner-out { background: var(--sage-dim); color: var(--sage); }
 .dinner-easy { background: var(--gold-dim); color: var(--gold); }
 .dinner-body { padding: 12px 14px; }
-.dinner-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+.dinner-name { font-size: 14px; font-weight: 600; margin-bottom: 5px; color: var(--text); }
 .dinner-detail { font-size: 12px; color: var(--muted); line-height: 1.6; }
 .dinner-steps { margin-top: 8px; counter-reset: step; }
 .dinner-step { font-size: 12px; color: var(--text2); padding: 5px 0 5px 18px; position: relative; border-top: 1px solid var(--border); line-height: 1.5; counter-increment: step; }
-.dinner-step::before { content: counter(step); position: absolute; left: 0; color: var(--gold); font-weight: 700; font-size: 11px; }
+.dinner-step::before { content: counter(step); position: absolute; left: 0; color: var(--sage); font-weight: 700; font-size: 11px; }
 
-.wellness-card { background: var(--sky-dim); border: 1px solid var(--sky); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
+.wellness-card { background: var(--sky-dim); border: 1px solid #b8d8e4; border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
 .wellness-priority { font-size: 10px; font-weight: 700; color: var(--sky); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
 .wellness-name { font-size: 13px; font-weight: 600; color: var(--sky); margin-bottom: 4px; }
 .wellness-why { font-size: 12px; color: var(--text2); line-height: 1.5; }
 
-.gym-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; margin-bottom: 7px; }
+.gym-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 7px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
 .gym-header { padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-.gym-name { font-size: 14px; font-weight: 500; }
+.gym-name { font-size: 14px; font-weight: 500; color: var(--text); }
 .gym-eq { font-size: 11px; color: var(--muted); margin-top: 2px; }
 .gym-sets { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--sage); flex-shrink: 0; margin-left: 10px; }
 .gym-expand { padding: 0 14px 12px; display: none; border-top: 1px solid var(--border); }
@@ -155,36 +171,36 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
 .weight-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
 .weight-label { font-size: 11px; color: var(--muted); }
 .weight-input { background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 5px 8px; width: 70px; outline: none; }
-.weight-input:focus { border-color: var(--gold); }
+.weight-input:focus { border-color: var(--sage); }
 .weight-input::placeholder { color: var(--muted); }
 .weight-unit { font-size: 12px; color: var(--muted); }
-.gym-done-btn { margin-top: 10px; padding: 8px 0; width: 100%; border-radius: 8px; border: 1px solid var(--sage-dim); background: transparent; color: var(--sage); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-.gym-done-btn.done { background: var(--sage-dim); }
+.gym-done-btn { margin-top: 10px; padding: 8px 0; width: 100%; border-radius: 8px; border: 1px solid var(--sage-mid); background: transparent; color: var(--sage); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.gym-done-btn.done { background: var(--sage-dim); border-color: var(--sage); }
 .prog-wrap { background: var(--surface2); border-radius: 4px; height: 3px; margin-bottom: 5px; overflow: hidden; }
 .prog-fill { height: 100%; background: var(--sage); border-radius: 4px; transition: width 0.4s ease; width: 0%; }
 .prog-text { font-size: 11px; color: var(--muted); text-align: right; }
 .reset-btn { width: 100%; margin-top: 10px; padding: 9px; border-radius: 8px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer; }
 
-.timer-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 13px 14px; display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
-.timer-display { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold); line-height: 1; min-width: 65px; font-weight: 300; }
-.timer-display.running { color: var(--sage); }
+.timer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 13px 14px; display: flex; align-items: center; gap: 14px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.timer-display { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--sage); line-height: 1; min-width: 65px; font-weight: 300; }
+.timer-display.running { color: var(--warm); }
 .timer-btns { display: flex; gap: 7px; }
 .t-btn { padding: 7px 13px; border-radius: 8px; border: none; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; }
-.t-start { background: var(--gold); color: var(--bg); }
+.t-start { background: var(--sage); color: white; }
 .t-reset { background: var(--surface2); color: var(--muted); }
 
-.checkin-box { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 14px 15px; }
+.checkin-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 15px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
 .checkin-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; color: var(--text2); }
 .checkin-q { font-size: 10px; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
 .mood-row { display: flex; gap: 6px; margin-bottom: 14px; }
 .mood-opt { flex: 1; }
 .mood-btn { width: 100%; padding: 8px 4px; border-radius: 8px; border: 1px solid var(--border2); background: transparent; font-size: 18px; cursor: pointer; transition: all 0.2s; display: block; }
-.mood-btn.selected { background: var(--surface2); border-color: var(--gold); }
+.mood-btn.selected { background: var(--sage-dim); border-color: var(--sage); }
 .mood-lbl { font-size: 9px; color: var(--muted); text-align: center; margin-top: 3px; }
 .checkin-ta { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 10px 12px; width: 100%; resize: none; outline: none; line-height: 1.5; min-height: 80px; margin-bottom: 10px; }
-.checkin-ta:focus { border-color: var(--gold); }
+.checkin-ta:focus { border-color: var(--sage); }
 .checkin-ta::placeholder { color: var(--muted); }
-.save-btn { width: 100%; padding: 10px; border-radius: 8px; border: none; background: var(--gold-dim); color: var(--gold); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
+.save-btn { width: 100%; padding: 10px; border-radius: 8px; border: none; background: var(--sage); color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
 .save-btn.saved { background: var(--sage-dim); color: var(--sage); }
 
 .rest-card { background: var(--surface); border: 1px dashed var(--border2); border-radius: 16px; padding: 36px 20px; text-align: center; }
@@ -192,17 +208,31 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
 .rest-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--muted); margin-bottom: 8px; }
 .rest-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
-.tips { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 13px 14px; margin-top: 14px; }
-.tips-title { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.tips { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 13px 14px; margin-top: 14px; }
+.tips-title { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; }
 .tip { font-size: 12px; color: var(--text2); line-height: 1.5; margin-bottom: 5px; padding-left: 14px; position: relative; }
-.tip::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+.tip::before { content: '→'; position: absolute; left: 0; color: var(--sage); font-size: 11px; }
 
 /* Night routine block */
-.night-block { background: var(--plum-dim); border: 1px solid var(--plum); border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
+.night-block { background: var(--plum-dim); border: 1px solid #d4b8c8; border-radius: 12px; padding: 13px 14px; margin-bottom: 7px; }
 .night-title { font-size: 12px; font-weight: 700; color: var(--plum); margin-bottom: 6px; letter-spacing: 0.5px; }
 .night-items { font-size: 12px; color: var(--text2); line-height: 1.8; }
 .night-items span { display: block; padding-left: 14px; position: relative; }
 .night-items span::before { content: '·'; position: absolute; left: 3px; color: var(--plum); }
+
+/* ── LOG VIEW ── */
+.log-view { margin-top: 12px; display: none; }
+.log-view.visible { display: block; }
+.log-title { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.log-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.log-entry { background: var(--sage-dim); border: 1px solid var(--sage-mid); border-radius: 10px; padding: 12px 14px; }
+.log-mood { font-size: 22px; margin-bottom: 6px; }
+.log-chips { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+.log-chip { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 8px; background: white; color: var(--sage); border: 1px solid var(--sage-mid); }
+.log-chip.done { background: var(--sage); color: white; border-color: var(--sage); }
+.log-notes { font-size: 12px; color: var(--text2); line-height: 1.5; font-style: italic; }
+.log-empty { font-size: 12px; color: var(--muted); font-style: italic; }
+.log-time { font-size: 10px; color: var(--muted); margin-top: 6px; }
 </style>
 </head>
 <body>
@@ -366,6 +396,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened?</div>
       <textarea class="checkin-ta" id="n-w1d1" placeholder="e.g. Gym felt great, Ninja Foodi dinner was amazing, Gabe loved the playground…" oninput="saveN('w1d1')"></textarea>
       <button class="save-btn" id="s-w1d1" onclick="saveDay('w1d1')">Save check-in</button>
+        <div class="log-view" id="log-w1d1">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w1d1"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -495,6 +529,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened? Meeting + Flow?</div>
       <textarea class="checkin-ta" id="n-w1d2" placeholder="e.g. Meeting went well, red light + sauna felt incredible, café work was so productive…" oninput="saveN('w1d2')"></textarea>
       <button class="save-btn" id="s-w1d2" onclick="saveDay('w1d2')">Save check-in</button>
+        <div class="log-view" id="log-w1d2">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w1d2"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -612,6 +650,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened?</div>
       <textarea class="checkin-ta" id="n-w1d3" placeholder="e.g. Pull day felt strong, had sushi, Gabe was so happy at playground…" oninput="saveN('w1d3')"></textarea>
       <button class="save-btn" id="s-w1d3" onclick="saveDay('w1d3')">Save check-in</button>
+        <div class="log-view" id="log-w1d3">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w1d3"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -692,6 +734,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What worked? What didn't? Anything to change?</div>
       <textarea class="checkin-ta" id="n-w1wknd" placeholder="e.g. Flow was the highlight, dinner was stress-free, want more time at playground…" oninput="saveN('w1wknd')" style="min-height:100px"></textarea>
       <button class="save-btn" id="s-w1wknd" onclick="saveDay('w1wknd')">Save reflection</button>
+        <div class="log-view" id="log-w1wknd">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w1wknd"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -806,6 +852,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened?</div>
       <textarea class="checkin-ta" id="n-w2d1" placeholder="e.g. Push day felt strong, Ninja Foodi dinner was perfect…" oninput="saveN('w2d1')"></textarea>
       <button class="save-btn" id="s-w2d1" onclick="saveDay('w2d1')">Save check-in</button>
+        <div class="log-view" id="log-w2d1">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w2d1"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -904,6 +954,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened?</div>
       <textarea class="checkin-ta" id="n-w2d2" placeholder="e.g. Flow was great, café work flowed well, pesto pasta was delicious…" oninput="saveN('w2d2')"></textarea>
       <button class="save-btn" id="s-w2d2" onclick="saveDay('w2d2')">Save check-in</button>
+        <div class="log-view" id="log-w2d2">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w2d2"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -1000,6 +1054,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened?</div>
       <textarea class="checkin-ta" id="n-w2d3" placeholder="e.g. Legs felt stronger than last week, Ninja Foodi was perfect again…" oninput="saveN('w2d3')"></textarea>
       <button class="save-btn" id="s-w2d3" onclick="saveDay('w2d3')">Save check-in</button>
+        <div class="log-view" id="log-w2d3">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w2d3"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -1099,6 +1157,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened?</div>
       <textarea class="checkin-ta" id="n-w2d4" placeholder="e.g. Red light + sauna was incredible, café work flowed well, kale bowl was perfect…" oninput="saveN('w2d4')"></textarea>
       <button class="save-btn" id="s-w2d4" onclick="saveDay('w2d4')">Save check-in</button>
+        <div class="log-view" id="log-w2d4">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w2d4"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -1170,6 +1232,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What actually happened? First climbing Friday!</div>
       <textarea class="checkin-ta" id="n-w2d5" placeholder="e.g. Gabe loved it, Tommy made it, dinner was so nice, Gabe asleep before we got home…" oninput="saveN('w2d5')"></textarea>
       <button class="save-btn" id="s-w2d5" onclick="saveDay('w2d5')">Save check-in</button>
+        <div class="log-view" id="log-w2d5">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w2d5"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -1245,6 +1311,10 @@ header { padding: 24px 20px 14px; border-bottom: 1px solid var(--border); positi
       <div class="checkin-q">What worked? What needs changing? What's on next week?</div>
       <textarea class="checkin-ta" id="n-w2wknd" placeholder="e.g. Climbing Friday was the highlight. Flow visits changed my mood completely. Dinners were stress-free. Want to add…" oninput="saveN('w2wknd')" style="min-height:110px"></textarea>
       <button class="save-btn" id="s-w2wknd" onclick="saveDay('w2wknd')">Save reflection</button>
+        <div class="log-view" id="log-w2wknd">
+          <div class="log-title">Logged</div>
+          <div id="log-content-w2wknd"></div>
+        </div>
     </div>
   </div>
 </div>
@@ -1260,23 +1330,22 @@ const AT_DAILY = 'tbluPY7MlKAGdFPHQ';
 const AT_GYM   = 'tblcC0NG2cxN8fapo';
 const AT_WEEK  = 'tbl5vVCxcILtr1cBt';
 
-// Day metadata — maps day ID to date + type for Airtable records
 const DAY_META = {
-  w1d1: { date: '2026-05-07', type: 'Gym - Lower',    label: 'Wed 7 May' },
-  w1d2: { date: '2026-05-08', type: 'Flow Physique',  label: 'Thu 8 May' },
-  w1d3: { date: '2026-05-09', type: 'Gym - Pull',     label: 'Fri 9 May' },
-  w1wknd:{ date:'2026-05-11', type: 'Rest',            label: 'Weekend 10-11 May' },
-  w2d1: { date: '2026-05-12', type: 'Gym - Push',     label: 'Mon 12 May' },
-  w2d2: { date: '2026-05-13', type: 'Flow Physique',  label: 'Tue 13 May' },
-  w2d3: { date: '2026-05-14', type: 'Gym - Lower',    label: 'Wed 14 May' },
-  w2d4: { date: '2026-05-15', type: 'Flow Physique',  label: 'Thu 15 May' },
-  w2d5: { date: '2026-05-16', type: 'Climbing Friday',label: 'Fri 16 May' },
-  w2d6: { date: '2026-05-17', type: 'Hike / Day Out', label: 'Sat 17 May' },
-  w2wknd:{date: '2026-05-18', type: 'Rest',            label: 'Sun 18 May' },
+  w1d1:  { date: '2026-05-07', type: 'Gym - Lower',     label: 'Wed 7 May' },
+  w1d2:  { date: '2026-05-08', type: 'Flow Physique',   label: 'Thu 8 May' },
+  w1d3:  { date: '2026-05-09', type: 'Gym - Pull',      label: 'Fri 9 May' },
+  w1wknd:{ date: '2026-05-11', type: 'Rest',             label: 'Weekend 10-11 May' },
+  w2d1:  { date: '2026-05-12', type: 'Gym - Push',      label: 'Mon 12 May' },
+  w2d2:  { date: '2026-05-13', type: 'Flow Physique',   label: 'Tue 13 May' },
+  w2d3:  { date: '2026-05-14', type: 'Gym - Lower',     label: 'Wed 14 May' },
+  w2d4:  { date: '2026-05-15', type: 'Flow Physique',   label: 'Thu 15 May' },
+  w2d5:  { date: '2026-05-16', type: 'Climbing Friday', label: 'Fri 16 May' },
+  w2d6:  { date: '2026-05-17', type: 'Hike / Day Out',  label: 'Sat 17 May' },
+  w2wknd:{ date: '2026-05-18', type: 'Rest',             label: 'Sun 18 May' },
 };
 
-// In-memory state for current check-ins
-const state = {};
+// Cache of Airtable record IDs per date — avoids repeated lookups
+const recordCache = {};
 
 // ── AIRTABLE API ─────────────────────────────────────────────
 async function atCreate(tableId, fields) {
@@ -1287,7 +1356,7 @@ async function atCreate(tableId, fields) {
       body: JSON.stringify({ fields })
     });
     return await res.json();
-  } catch(e) { console.warn('Airtable save failed:', e); return null; }
+  } catch(e) { console.warn('AT create failed:', e); return null; }
 }
 
 async function atFind(tableId, filterFormula) {
@@ -1307,82 +1376,34 @@ async function atUpdate(tableId, recordId, fields) {
       body: JSON.stringify({ fields })
     });
     return await res.json();
-  } catch(e) { console.warn('Airtable update failed:', e); return null; }
+  } catch(e) { console.warn('AT update failed:', e); return null; }
 }
 
-// ── SAVE DAILY CHECK-IN TO AIRTABLE ──────────────────────────
-async function saveToAirtable(dayId) {
+// ── UPSERT DAILY RECORD ──────────────────────────────────────
+// Gets or creates the record for a day, then updates specific fields
+// This is the core real-time save function used by everything
+async function upsertDaily(dayId, fields) {
   const meta = DAY_META[dayId];
   if (!meta) return;
 
-  const moodEl = document.querySelector(`#checkin-${dayId} .mood-btn.selected`);
-  const mood = moodEl ? moodEl.textContent.trim() : null;
-  const moodMap = { '😔': '😔 Hard', '😐': '😐 Okay', '🙂': '🙂 Good', '😊': '😊 Great' };
-  const moodVal = moodMap[mood] || null;
+  // Always include date + type
+  fields['Date'] = meta.date;
+  if (!fields['Day Type']) fields['Day Type'] = meta.type;
 
-  const notes = document.getElementById('n-'+dayId)?.value || '';
+  // Check cache first
+  if (recordCache[dayId]) {
+    await atUpdate(AT_DAILY, recordCache[dayId], fields);
+    return;
+  }
 
-  // Check gym done
-  const panel = document.getElementById(dayId.replace('wknd','d6').replace(/w(\d)d(\d)/,'w$1d$2'));
-  const gymPanel = panel || document.getElementById(dayId);
-  const gymDoneCount = gymPanel ? gymPanel.querySelectorAll('.gym-done-btn.done').length : 0;
-  const gymDone = gymDoneCount > 0;
-
-  // Check if flow day
-  const flowDone = gymPanel ? !!gymPanel.querySelector('.tblock-recover.checked') : false;
-
-  const fields = {
-    'Date': meta.date,
-    'Day Type': meta.type,
-    'Notes': notes,
-    'Gym Done': gymDone,
-    'Flow Done': flowDone,
-    'Logged By': 'Marcia'
-  };
-  if (moodVal) fields['Mood'] = moodVal;
-
-  // Check if record exists for this date, update or create
+  // Look up in Airtable
   const existing = await atFind(AT_DAILY, `{Date}='${meta.date}'`);
   if (existing.length > 0) {
+    recordCache[dayId] = existing[0].id;
     await atUpdate(AT_DAILY, existing[0].id, fields);
   } else {
-    await atCreate(AT_DAILY, fields);
-  }
-}
-
-// ── SAVE GYM WEIGHT TO AIRTABLE ──────────────────────────────
-async function saveGymToAirtable(date, exercise, sessionType, weight) {
-  if (!weight || isNaN(parseFloat(weight))) return;
-  const existing = await atFind(AT_GYM, `AND({Date}='${date}',{Exercise}='${exercise}')`);
-  const fields = {
-    'Date': date,
-    'Exercise': exercise,
-    'Session Type': sessionType,
-    'Weight (kg)': parseFloat(weight),
-    'Sets': 3
-  };
-  if (existing.length > 0) {
-    await atUpdate(AT_GYM, existing[0].id, fields);
-  } else {
-    await atCreate(AT_GYM, fields);
-  }
-}
-
-// ── SAVE WEEKLY REFLECTION TO AIRTABLE ───────────────────────
-async function saveWeeklyReflection(weekId, weekDate) {
-  const moodEl = document.querySelector(`#checkin-${weekId} .mood-btn.selected`);
-  const mood = moodEl ? moodEl.textContent.trim() : null;
-  const moodMap = { '😔': '😔 Hard week', '😐': '😐 Okay week', '🙂': '🙂 Good week', '😊': '😊 Great week' };
-
-  const notes = document.getElementById('n-'+weekId)?.value || '';
-  const fields = { 'Week Of': weekDate, 'Next Week Notes': notes };
-  if (moodMap[mood]) fields['Overall Mood'] = moodMap[mood];
-
-  const existing = await atFind(AT_WEEK, `{Week Of}='${weekDate}'`);
-  if (existing.length > 0) {
-    await atUpdate(AT_WEEK, existing[0].id, fields);
-  } else {
-    await atCreate(AT_WEEK, fields);
+    const created = await atCreate(AT_DAILY, fields);
+    if (created && created.id) recordCache[dayId] = created.id;
   }
 }
 
@@ -1409,26 +1430,53 @@ function showDay(w,d) {
   if(panel) panel.classList.add('active');
 }
 
-// ── CHECKLIST ────────────────────────────────────────────────
+// ── CHECKLIST — saves instantly on tap ───────────────────────
 function tog(el) {
   el.classList.toggle('checked');
-  el.querySelector('.tblock-chk').textContent=el.classList.contains('checked')?'✓':'';
+  el.querySelector('.tblock-chk').textContent = el.classList.contains('checked') ? '✓' : '';
+  // Find which day this is in and trigger a background save
+  const panel = el.closest('.day-panel');
+  if (panel) {
+    const dayId = getDayId(panel);
+    if (dayId) debounceSave(dayId);
+  }
+}
+
+function getDayId(panel) {
+  if (!panel) return null;
+  const id = panel.id; // e.g. "w1d1" or "w2d3"
+  // Map panel id to DAY_META key
+  const map = {
+    'w1d1':'w1d1','w1d2':'w1d2','w1d3':'w1d3','w1d4':'w1wknd','w1d5':'w1wknd',
+    'w2d1':'w2d1','w2d2':'w2d2','w2d3':'w2d3','w2d4':'w2d4','w2d5':'w2d5',
+    'w2d6':'w2d6','w2d7':'w2wknd'
+  };
+  return map[id] || null;
 }
 
 // ── GYM ──────────────────────────────────────────────────────
 function togGym(h) { h.nextElementSibling.classList.toggle('open'); }
 
-function gymDone(btn,progId) {
+function gymDone(btn, progId) {
   btn.classList.toggle('done');
-  btn.textContent=btn.classList.contains('done')?'Done ✓':'Mark done ✓';
-  btn.closest('.gym-card').style.opacity=btn.classList.contains('done')?'0.45':'1';
-  const section=btn.closest('.section');
-  const total=section.querySelectorAll('.gym-done-btn').length;
-  const done=section.querySelectorAll('.gym-done-btn.done').length;
-  const p=document.getElementById(progId);
-  const t=document.getElementById(progId.replace('gp-','gt-'));
-  if(p) p.style.width=(done/total*100)+'%';
-  if(t) t.textContent=done+' / '+total+' done'+(done===total?' 🎉':'');
+  btn.textContent = btn.classList.contains('done') ? 'Done ✓' : 'Mark done ✓';
+  btn.closest('.gym-card').style.opacity = btn.classList.contains('done') ? '0.45' : '1';
+  const section = btn.closest('.section');
+  const total = section.querySelectorAll('.gym-done-btn').length;
+  const done  = section.querySelectorAll('.gym-done-btn.done').length;
+  const p = document.getElementById(progId);
+  const t = document.getElementById(progId.replace('gp-','gt-'));
+  if(p) p.style.width = (done/total*100)+'%';
+  if(t) t.textContent = done+' / '+total+' done'+(done===total?' 🎉':'');
+  // Save gym progress
+  const panel = btn.closest('.day-panel');
+  if (panel) {
+    const dayId = getDayId(panel);
+    if (dayId) {
+      upsertDaily(dayId, { 'Gym Done': done > 0 });
+      updateLogView(dayId);
+    }
+  }
 }
 
 function resetGym(id) {
@@ -1445,45 +1493,55 @@ function resetGym(id) {
   if(t) t.textContent='0 / 5 done';
 }
 
-// ── WEIGHT SAVING (localStorage + Airtable) ──────────────────
-// Map of weight key -> { date, exercise, sessionType }
+// ── WEIGHT SAVING ─────────────────────────────────────────────
 const GYM_MAP = {
-  'w1d1-gs':  { date:'2026-05-07', exercise:'Goblet Squat',         sessionType:'Lower Body' },
-  'w1d1-rdl': { date:'2026-05-07', exercise:'Romanian Deadlift',    sessionType:'Lower Body' },
-  'w1d1-le':  { date:'2026-05-07', exercise:'Leg Extension',        sessionType:'Lower Body' },
-  'w1d1-lc':  { date:'2026-05-07', exercise:'Leg Curl',             sessionType:'Lower Body' },
-  'w1d1-gb':  { date:'2026-05-07', exercise:'Glute Bridge',         sessionType:'Lower Body' },
-  'w1d3-lpd': { date:'2026-05-09', exercise:'Cable Lat Pulldown',   sessionType:'Upper Pull' },
-  'w1d3-sr':  { date:'2026-05-09', exercise:'Cable Seated Row',     sessionType:'Upper Pull' },
+  'w1d1-gs':  { date:'2026-05-07', exercise:'Goblet Squat',          sessionType:'Lower Body' },
+  'w1d1-rdl': { date:'2026-05-07', exercise:'Romanian Deadlift',     sessionType:'Lower Body' },
+  'w1d1-le':  { date:'2026-05-07', exercise:'Leg Extension',         sessionType:'Lower Body' },
+  'w1d1-lc':  { date:'2026-05-07', exercise:'Leg Curl',              sessionType:'Lower Body' },
+  'w1d1-gb':  { date:'2026-05-07', exercise:'Glute Bridge',          sessionType:'Lower Body' },
+  'w1d3-lpd': { date:'2026-05-09', exercise:'Cable Lat Pulldown',    sessionType:'Upper Pull' },
+  'w1d3-sr':  { date:'2026-05-09', exercise:'Cable Seated Row',      sessionType:'Upper Pull' },
   'w1d3-bor': { date:'2026-05-09', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
-  'w1d3-fp':  { date:'2026-05-09', exercise:'Cable Face Pull',      sessionType:'Upper Pull' },
-  'w1d3-bc':  { date:'2026-05-09', exercise:'Dumbbell Bicep Curl',  sessionType:'Upper Pull' },
-  'w2d1-cp':  { date:'2026-05-12', exercise:'Dumbbell Chest Press', sessionType:'Upper Push' },
-  'w2d1-cf':  { date:'2026-05-12', exercise:'Cable Chest Fly',      sessionType:'Upper Push' },
-  'w2d1-sp':  { date:'2026-05-12', exercise:'Dumbbell Shoulder Press',sessionType:'Upper Push' },
-  'w2d1-lr':  { date:'2026-05-12', exercise:'Cable Lateral Raise',  sessionType:'Upper Push' },
-  'w2d1-tp':  { date:'2026-05-12', exercise:'Cable Tricep Pushdown',sessionType:'Upper Push' },
-  'w2d3-gs':  { date:'2026-05-14', exercise:'Goblet Squat',         sessionType:'Lower Body' },
-  'w2d3-rdl': { date:'2026-05-14', exercise:'Romanian Deadlift',    sessionType:'Lower Body' },
-  'w2d3-le':  { date:'2026-05-14', exercise:'Leg Extension',        sessionType:'Lower Body' },
-  'w2d3-lc':  { date:'2026-05-14', exercise:'Leg Curl',             sessionType:'Lower Body' },
-  'w2d3-gb':  { date:'2026-05-14', exercise:'Glute Bridge',         sessionType:'Lower Body' },
-  'w2d5-lpd': { date:'2026-05-16', exercise:'Cable Lat Pulldown',   sessionType:'Upper Pull' },
-  'w2d5-sr':  { date:'2026-05-16', exercise:'Cable Seated Row',     sessionType:'Upper Pull' },
+  'w1d3-fp':  { date:'2026-05-09', exercise:'Cable Face Pull',       sessionType:'Upper Pull' },
+  'w1d3-bc':  { date:'2026-05-09', exercise:'Dumbbell Bicep Curl',   sessionType:'Upper Pull' },
+  'w2d1-cp':  { date:'2026-05-12', exercise:'Dumbbell Chest Press',  sessionType:'Upper Push' },
+  'w2d1-cf':  { date:'2026-05-12', exercise:'Cable Chest Fly',       sessionType:'Upper Push' },
+  'w2d1-sp':  { date:'2026-05-12', exercise:'Dumbbell Shoulder Press',sessionType:'Upper Push'},
+  'w2d1-lr':  { date:'2026-05-12', exercise:'Cable Lateral Raise',   sessionType:'Upper Push' },
+  'w2d1-tp':  { date:'2026-05-12', exercise:'Cable Tricep Pushdown', sessionType:'Upper Push' },
+  'w2d3-gs':  { date:'2026-05-14', exercise:'Goblet Squat',          sessionType:'Lower Body' },
+  'w2d3-rdl': { date:'2026-05-14', exercise:'Romanian Deadlift',     sessionType:'Lower Body' },
+  'w2d3-le':  { date:'2026-05-14', exercise:'Leg Extension',         sessionType:'Lower Body' },
+  'w2d3-lc':  { date:'2026-05-14', exercise:'Leg Curl',              sessionType:'Lower Body' },
+  'w2d3-gb':  { date:'2026-05-14', exercise:'Glute Bridge',          sessionType:'Lower Body' },
+  'w2d5-lpd': { date:'2026-05-16', exercise:'Cable Lat Pulldown',    sessionType:'Upper Pull' },
+  'w2d5-sr':  { date:'2026-05-16', exercise:'Cable Seated Row',      sessionType:'Upper Pull' },
   'w2d5-bor': { date:'2026-05-16', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
-  'w2d5-fp':  { date:'2026-05-16', exercise:'Cable Face Pull',      sessionType:'Upper Pull' },
-  'w2d5-bc':  { date:'2026-05-16', exercise:'Dumbbell Bicep Curl',  sessionType:'Upper Pull' },
+  'w2d5-fp':  { date:'2026-05-16', exercise:'Cable Face Pull',       sessionType:'Upper Pull' },
+  'w2d5-bc':  { date:'2026-05-16', exercise:'Dumbbell Bicep Curl',   sessionType:'Upper Pull' },
 };
 
-let weightSaveTimer = {};
+const weightSaveTimer = {};
 function saveW(input, key) {
   try { localStorage.setItem('mw-'+key, input.value); } catch(e) {}
-  // Debounce Airtable save by 2 seconds to avoid too many calls
   clearTimeout(weightSaveTimer[key]);
-  weightSaveTimer[key] = setTimeout(() => {
+  weightSaveTimer[key] = setTimeout(async () => {
     const meta = GYM_MAP[key];
-    if (meta && input.value) {
-      saveGymToAirtable(meta.date, meta.exercise, meta.sessionType, input.value);
+    if (!meta || !input.value) return;
+    // Check if record exists for this date+exercise, upsert
+    const existing = await atFind(AT_GYM, `AND({Date}='${meta.date}',{Exercise}='${meta.exercise}')`);
+    const fields = {
+      'Date': meta.date,
+      'Exercise': meta.exercise,
+      'Session Type': meta.sessionType,
+      'Weight (kg)': parseFloat(input.value),
+      'Sets': 3
+    };
+    if (existing.length > 0) {
+      await atUpdate(AT_GYM, existing[0].id, fields);
+    } else {
+      await atCreate(AT_GYM, fields);
     }
   }, 2000);
 }
@@ -1491,90 +1549,173 @@ function saveW(input, key) {
 // ── TIMERS ───────────────────────────────────────────────────
 let t1s=90,t1r=false,t1i=null;
 function startTimer() {
-  const btn=document.getElementById('t-start'),disp=document.getElementById('td');
-  if(t1r){clearInterval(t1i);t1r=false;btn.textContent='Start';disp.classList.remove('running');}
-  else{t1r=true;btn.textContent='Pause';disp.classList.add('running');
-    t1i=setInterval(()=>{if(t1s<=0){clearInterval(t1i);t1r=false;btn.textContent='Start';disp.textContent='Go! ✓';disp.classList.remove('running');t1s=90;return;}t1s--;disp.textContent=Math.floor(t1s/60)+':'+String(t1s%60).padStart(2,'0');},1000);}
+  const btn=document.getElementById('t-start'), disp=document.getElementById('td');
+  if(t1r){ clearInterval(t1i); t1r=false; btn.textContent='Start'; disp.classList.remove('running'); }
+  else { t1r=true; btn.textContent='Pause'; disp.classList.add('running');
+    t1i=setInterval(()=>{ if(t1s<=0){ clearInterval(t1i); t1r=false; btn.textContent='Start'; disp.textContent='Go! ✓'; disp.classList.remove('running'); t1s=90; return; } t1s--; disp.textContent=Math.floor(t1s/60)+':'+String(t1s%60).padStart(2,'0'); },1000); }
 }
-function resetTimer(){clearInterval(t1i);t1r=false;t1s=90;const btn=document.getElementById('t-start'),disp=document.getElementById('td');if(btn)btn.textContent='Start';if(disp){disp.textContent='1:30';disp.classList.remove('running');}}
+function resetTimer(){ clearInterval(t1i); t1r=false; t1s=90; const btn=document.getElementById('t-start'),disp=document.getElementById('td'); if(btn)btn.textContent='Start'; if(disp){disp.textContent='1:30';disp.classList.remove('running');} }
 
 let t2s=90,t2r=false,t2i=null;
 function startTimer2() {
-  const btn=document.getElementById('t-start2'),disp=document.getElementById('td2');
-  if(t2r){clearInterval(t2i);t2r=false;btn.textContent='Start';disp.classList.remove('running');}
-  else{t2r=true;btn.textContent='Pause';disp.classList.add('running');
-    t2i=setInterval(()=>{if(t2s<=0){clearInterval(t2i);t2r=false;btn.textContent='Start';disp.textContent='Go! ✓';disp.classList.remove('running');t2s=90;return;}t2s--;disp.textContent=Math.floor(t2s/60)+':'+String(t2s%60).padStart(2,'0');},1000);}
+  const btn=document.getElementById('t-start2'), disp=document.getElementById('td2');
+  if(t2r){ clearInterval(t2i); t2r=false; btn.textContent='Start'; disp.classList.remove('running'); }
+  else { t2r=true; btn.textContent='Pause'; disp.classList.add('running');
+    t2i=setInterval(()=>{ if(t2s<=0){ clearInterval(t2i); t2r=false; btn.textContent='Start'; disp.textContent='Go! ✓'; disp.classList.remove('running'); t2s=90; return; } t2s--; disp.textContent=Math.floor(t2s/60)+':'+String(t2s%60).padStart(2,'0'); },1000); }
 }
-function resetTimer2(){clearInterval(t2i);t2r=false;t2s=90;const btn=document.getElementById('t-start2'),disp=document.getElementById('td2');if(btn)btn.textContent='Start';if(disp){disp.textContent='1:30';disp.classList.remove('running');}}
+function resetTimer2(){ clearInterval(t2i); t2r=false; t2s=90; const btn=document.getElementById('t-start2'),disp=document.getElementById('td2'); if(btn)btn.textContent='Start'; if(disp){disp.textContent='1:30';disp.classList.remove('running');} }
 
-// ── MOOD ─────────────────────────────────────────────────────
-function selMood(wrapper,id) {
+// ── MOOD — saves instantly on tap ────────────────────────────
+function selMood(wrapper, id) {
   wrapper.closest('.mood-row').querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('selected'));
   wrapper.querySelector('.mood-btn').classList.add('selected');
-  try{localStorage.setItem('mm-'+id,wrapper.querySelector('.mood-btn').textContent);}catch(e){}
-}
-
-// ── NOTES ────────────────────────────────────────────────────
-function saveN(id) {
-  const ta=document.getElementById('n-'+id);
-  if(ta) try{localStorage.setItem('mn-'+id,ta.value);}catch(e){}
-}
-
-// ── SAVE CHECK-IN (localStorage + Airtable) ──────────────────
-async function saveDay(id) {
-  const btn=document.getElementById('s-'+id);
-  if(!btn) return;
-
-  // Optimistic UI update
-  btn.textContent='Saving…';
-  btn.style.opacity='0.7';
-
-  // Save to localStorage first (always works)
-  const ta=document.getElementById('n-'+id);
-  if(ta) try{localStorage.setItem('mn-'+id,ta.value);}catch(e){}
-  try{localStorage.setItem('md-'+id,'1');}catch(e){}
-
-  // Save to Airtable
-  const weeklyIds = ['w1wknd','w2wknd'];
-  if (weeklyIds.includes(id)) {
-    const weekDates = { 'w1wknd': '2026-05-11', 'w2wknd': '2026-05-18' };
-    await saveWeeklyReflection(id, weekDates[id]);
-  } else {
-    await saveToAirtable(id);
+  const emoji = wrapper.querySelector('.mood-btn').textContent.trim();
+  try { localStorage.setItem('mm-'+id, emoji); } catch(e) {}
+  const moodMap = { '😔':'😔 Hard', '😐':'😐 Okay', '🙂':'🙂 Good', '😊':'😊 Great' };
+  if (moodMap[emoji]) {
+    upsertDaily(id, { 'Mood': moodMap[emoji] });
   }
+  updateLogView(id);
+}
 
-  btn.textContent='Saved ✓';
+// ── NOTES — saves as you type (debounced 2s) ─────────────────
+const noteTimers = {};
+function saveN(id) {
+  const ta = document.getElementById('n-'+id);
+  if (!ta) return;
+  try { localStorage.setItem('mn-'+id, ta.value); } catch(e) {}
+  clearTimeout(noteTimers[id]);
+  noteTimers[id] = setTimeout(() => {
+    upsertDaily(id, { 'Notes': ta.value });
+    updateLogView(id);
+  }, 2000);
+}
+
+// ── DEBOUNCE SAVE (for checkbox taps) ────────────────────────
+const saveTimers = {};
+function debounceSave(dayId) {
+  clearTimeout(saveTimers[dayId]);
+  saveTimers[dayId] = setTimeout(() => {
+    const panel = document.querySelector(`[id="${dayId}"]`) || findPanel(dayId);
+    if (!panel) return;
+    const gymDone = panel.querySelectorAll('.gym-done-btn.done').length > 0;
+    const flowDone = !!panel.querySelector('.tblock-recover.checked');
+    upsertDaily(dayId, { 'Gym Done': gymDone, 'Flow Done': flowDone });
+    updateLogView(dayId);
+  }, 1000);
+}
+
+function findPanel(dayId) {
+  const panelMap = {
+    'w1d1':'w1d1','w1d2':'w1d2','w1d3':'w1d3','w1wknd':'w1d4',
+    'w2d1':'w2d1','w2d2':'w2d2','w2d3':'w2d3','w2d4':'w2d4','w2d5':'w2d5','w2d6':'w2d6','w2wknd':'w2d7'
+  };
+  return document.getElementById(panelMap[dayId]);
+}
+
+// ── SAVE BUTTON — still available as manual trigger ──────────
+async function saveDay(id) {
+  const btn = document.getElementById('s-'+id);
+  if (!btn) return;
+  btn.textContent = 'Saving…';
+  btn.style.opacity = '0.7';
+  try { localStorage.setItem('md-'+id,'1'); } catch(e) {}
+  // Force immediate save of everything
+  const ta = document.getElementById('n-'+id);
+  const notes = ta ? ta.value : '';
+  const moodEl = btn.closest('.checkin-box')?.querySelector('.mood-btn.selected');
+  const emoji = moodEl ? moodEl.textContent.trim() : null;
+  const moodMap = { '😔':'😔 Hard', '😐':'😐 Okay', '🙂':'🙂 Good', '😊':'😊 Great' };
+  const panel = findPanel(id);
+  const gymDone = panel ? panel.querySelectorAll('.gym-done-btn.done').length > 0 : false;
+  const flowDone = panel ? !!panel.querySelector('.tblock-recover.checked') : false;
+  const suppDone = panel ? !!panel.querySelector('.tb-mind.checked') : false;
+  const fields = { 'Notes': notes, 'Gym Done': gymDone, 'Flow Done': flowDone, 'Supplements Taken': suppDone, 'Logged By': 'Marcia' };
+  if (emoji && moodMap[emoji]) fields['Mood'] = moodMap[emoji];
+  if (id.includes('wknd')) {
+    const weekDates = { 'w1wknd':'2026-05-11', 'w2wknd':'2026-05-18' };
+    const wf = { 'Week Of': weekDates[id], 'Next Week Notes': notes };
+    if (emoji && moodMap[emoji]) wf['Overall Mood'] = moodMap[emoji].replace(' Hard',' Hard week').replace(' Okay',' Okay week').replace(' Good',' Good week').replace(' Great',' Great week');
+    const existing = await atFind(AT_WEEK, `{Week Of}='${weekDates[id]}'`);
+    if (existing.length > 0) { await atUpdate(AT_WEEK, existing[0].id, wf); }
+    else { await atCreate(AT_WEEK, wf); }
+  } else {
+    await upsertDaily(id, fields);
+  }
+  btn.textContent = 'Saved ✓';
   btn.classList.add('saved');
-  btn.style.opacity='1';
-  setTimeout(()=>{btn.textContent='Save check-in';btn.classList.remove('saved');},2500);
+  btn.style.opacity = '1';
+  setTimeout(()=>{ btn.textContent='Save check-in'; btn.classList.remove('saved'); }, 2500);
+  updateLogView(id);
+}
+
+// ── LOG VIEW ─────────────────────────────────────────────────
+function updateLogView(id) {
+  const logView = document.getElementById('log-'+id);
+  const logContent = document.getElementById('log-content-'+id);
+  if (!logView || !logContent) return;
+
+  const notes = document.getElementById('n-'+id)?.value || '';
+  const mood = localStorage.getItem('mm-'+id) || '';
+  const panel = findPanel(id);
+  const gymDone = panel ? panel.querySelectorAll('.gym-done-btn.done').length : 0;
+  const gymTotal = panel ? panel.querySelectorAll('.gym-done-btn').length : 0;
+  const flowDone = panel ? !!panel.querySelector('.tblock-recover.checked') : false;
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('en-AU', { hour:'2-digit', minute:'2-digit' });
+
+  let html = '<div class="log-entry">';
+  if (mood) html += `<div class="log-mood">${mood}</div>`;
+  html += '<div class="log-chips">';
+  if (gymTotal > 0) html += `<span class="log-chip ${gymDone===gymTotal?'done':''}">${gymDone===gymTotal?'✓ Gym done':'Gym '+gymDone+'/'+gymTotal}</span>`;
+  if (flowDone) html += `<span class="log-chip done">✓ Flow done</span>`;
+  html += '</div>';
+  if (notes.trim()) html += `<div class="log-notes">"${notes.trim()}"</div>`;
+  else html += `<div class="log-empty">Tap your mood or add notes above</div>`;
+  html += `<div class="log-time">Updated ${timeStr}</div>`;
+  html += '</div>';
+
+  logContent.innerHTML = html;
+  logView.classList.add('visible');
 }
 
 // ── LOAD SAVED STATE ─────────────────────────────────────────
 function load() {
-  document.querySelectorAll('.weight-input').forEach(inp=>{
-    const fn=inp.getAttribute('oninput')||'';
-    const m=fn.match(/'([^']+)'\)/);
-    if(m) try{const s=localStorage.getItem('mw-'+m[1]);if(s)inp.value=s;}catch(e){}
+  // Restore weight inputs
+  document.querySelectorAll('.weight-input').forEach(inp => {
+    const fn = inp.getAttribute('oninput') || '';
+    const m = fn.match(/'([^']+)'\)/);
+    if (m) try { const s = localStorage.getItem('mw-'+m[1]); if(s) inp.value=s; } catch(e) {}
   });
-  ['w1d1','w1d2','w1d3','w1wknd','w2d1','w2d2','w2d3','w2d4','w2d5','w2d6','w2wknd'].forEach(id=>{
-    const ta=document.getElementById('n-'+id);
-    if(ta) try{const s=localStorage.getItem('mn-'+id);if(s)ta.value=s;}catch(e){}
-    // Restore mood selection
-    const savedMood=localStorage.getItem('mm-'+id);
-    if(savedMood){
-      document.querySelectorAll(`#s-${id}`).forEach(()=>{
-        const row=document.querySelector(`[id="s-${id}"]`)?.closest('.checkin-box')?.querySelector('.mood-row');
-        if(row) row.querySelectorAll('.mood-btn').forEach(b=>{
-          if(b.textContent.trim()===savedMood) b.classList.add('selected');
+  // Restore notes + mood
+  Object.keys(DAY_META).forEach(id => {
+    const ta = document.getElementById('n-'+id);
+    if (ta) try { const s = localStorage.getItem('mn-'+id); if(s) ta.value=s; } catch(e) {}
+    // Restore mood
+    const savedMood = localStorage.getItem('mm-'+id);
+    if (savedMood) {
+      const panel = findPanel(id);
+      if (panel) {
+        const box = panel.querySelector('.checkin-box');
+        if (box) box.querySelectorAll('.mood-btn').forEach(b => {
+          if (b.textContent.trim() === savedMood) b.classList.add('selected');
         });
-      });
+      }
     }
+  });
+}
+
+function restoreLogs() {
+  Object.keys(DAY_META).forEach(id => {
+    const hasData = localStorage.getItem('mn-'+id) || localStorage.getItem('mm-'+id);
+    if (hasData) updateLogView(id);
   });
 }
 
 // ── INIT ─────────────────────────────────────────────────────
 showWeek(1);
 load();
+restoreLogs();
 </script>
 </body>
 </html>

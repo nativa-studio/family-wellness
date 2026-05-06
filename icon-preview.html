@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #e8e2d8; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; gap: 20px; font-family: sans-serif; }
+p { color: #b5734a; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+.icon-wrap { filter: drop-shadow(0 6px 20px rgba(80,70,60,0.2)); }
+</style>
+</head>
+<body>
+<p>Terracotta Sun</p>
+<div class="icon-wrap">
+<svg width="220" height="220" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="115" fill="#fdf8f2"/>
+  <!-- Soft warm glow behind sun -->
+  <circle cx="256" cy="256" r="120" fill="#f5e6da" opacity="0.6"/>
+  <!-- Sun circle -->
+  <circle cx="256" cy="256" r="75" fill="none" stroke="#b5734a" stroke-width="9"/>
+  <circle cx="256" cy="256" r="55" fill="#b5734a" opacity="0.18"/>
+  <!-- Main rays -->
+  <line x1="256" y1="148" x2="256" y2="118" stroke="#b5734a" stroke-width="7" stroke-linecap="round"/>
+  <line x1="256" y1="364" x2="256" y2="394" stroke="#b5734a" stroke-width="7" stroke-linecap="round"/>
+  <line x1="148" y1="256" x2="118" y2="256" stroke="#b5734a" stroke-width="7" stroke-linecap="round"/>
+  <line x1="364" y1="256" x2="394" y2="256" stroke="#b5734a" stroke-width="7" stroke-linecap="round"/>
+  <!-- Diagonal rays -->
+  <line x1="179" y1="179" x2="157" y2="157" stroke="#b5734a" stroke-width="6" stroke-linecap="round"/>
+  <line x1="333" y1="333" x2="355" y2="355" stroke="#b5734a" stroke-width="6" stroke-linecap="round"/>
+  <line x1="333" y1="179" x2="355" y2="157" stroke="#b5734a" stroke-width="6" stroke-linecap="round"/>
+  <line x1="179" y1="333" x2="157" y2="355" stroke="#b5734a" stroke-width="6" stroke-linecap="round"/>
+  <!-- Short rays -->
+  <line x1="210" y1="153" x2="202" y2="128" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="302" y1="153" x2="310" y2="128" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="153" y1="210" x2="128" y2="202" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="359" y1="210" x2="384" y2="202" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="153" y1="302" x2="128" y2="310" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="359" y1="302" x2="384" y2="310" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="210" y1="359" x2="202" y2="384" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+  <line x1="302" y1="359" x2="310" y2="384" stroke="#b5734a" stroke-width="4.5" stroke-linecap="round" opacity="0.65"/>
+</svg>
+</div>
+<p>Family Wellness</p>
+</body>
+</html>
