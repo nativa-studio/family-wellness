@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0051)file:///Users/marciaferreira/Downloads/index_3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Family Wellness</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Family Wellness">
 <meta name="theme-color" content="#f7f4ef">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
 :root {
   --bg: #f7f4ef;
@@ -252,7 +252,7 @@ header {
   <button class="week-btn" onclick="showWeek(2)">12–18 May</button>
 </div>
 
-<div class="day-bar" id="bar-1">
+<div class="day-bar" id="bar-1" style="display: flex;">
   <button class="day-tab active" onclick="showDay(1,1)">WED 7</button>
   <button class="day-tab" onclick="showDay(1,2)">THU 8</button>
   <button class="day-tab" onclick="showDay(1,3)">FRI 9</button>
@@ -290,7 +290,7 @@ header {
     <div class="section-label">Morning</div>
     <div class="tline">
       <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🌅 Morning rise ritual</div><div class="tblock-detail">Tongue scrape + 600ml water at room temperature</div></div><div class="tblock-right"><div class="tblock-time">7:00</div></div></div>
-      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee — Marcia, Tommy & Gabe ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
+      <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">☕ Family coffee — Marcia, Tommy &amp; Gabe ❤️</div></div><div class="tblock-right"><div class="tblock-time">7:15</div></div></div>
       <div class="tblock tb-tommy" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Tommy leaves with Gabe 🚗</div><div class="tblock-detail">Daycare drop-off. Rides to work after.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div><div class="tommy-tag">Tommy</div></div></div>
       <div class="tblock tb-move" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🏋️ Gym — Lower Body</div><div class="tblock-detail">3 min walk. Goblet squat · RDL · Leg extension · Leg curl · Glute bridge. ~40 min session.</div></div><div class="tblock-right"><div class="tblock-time">7:45</div></div></div>
       <div class="tblock tb-life" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Back home — shower</div></div><div class="tblock-right"><div class="tblock-time">8:30</div></div></div>
@@ -316,14 +316,14 @@ header {
 
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell held at chest</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gs')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-rdl')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-le')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-lc')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Glute Bridge</div><div class="gym-eq">Bodyweight or dumbbell on hips</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gb')"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell held at chest</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d1-gs&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d1-rdl&#39;)"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d1-le&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d1-lc&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Glute Bridge</div><div class="gym-eq">Bodyweight or dumbbell on hips</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d1-gb&#39;)"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d1&#39;)">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w1d1"></div></div>
     <div class="prog-text" id="gt-w1d1">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w1d1')">Reset session</button>
+    <button class="reset-btn" onclick="resetGym(&#39;w1d1&#39;)">Reset session</button>
   </div>
 
   <div class="section">
@@ -338,7 +338,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — Marcia + Gabe time</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div><div class="tblock-detail">Yogurt + fruit + muesli bar — set aside before leaving</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe gets his snack. Protected time together.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
@@ -388,14 +388,14 @@ header {
       <div class="checkin-title">How did Wednesday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d1')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d1&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d1&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d1&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d1&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w1d1" placeholder="e.g. Gym felt great, Ninja Foodi dinner was amazing, Gabe loved the playground…" oninput="saveN('w1d1')"></textarea>
-      <button class="save-btn" id="s-w1d1" onclick="saveDay('w1d1')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w1d1" placeholder="e.g. Gym felt great, Ninja Foodi dinner was amazing, Gabe loved the playground…" oninput="saveN(&#39;w1d1&#39;)"></textarea>
+      <button class="save-btn" id="s-w1d1" onclick="saveDay(&#39;w1d1&#39;)">Save check-in</button>
         <div class="log-view" id="log-w1d1">
           <div class="log-title">Logged</div>
           <div id="log-content-w1d1"></div>
@@ -421,7 +421,7 @@ header {
     <div class="pack-items">
       <span>🥤 Smoothie in flask (make at home)</span>
       <span>💊 Morning supplements to take in car or at Flow</span>
-      <span>💊 Afternoon supplements (Hair & Energy + Magnesium Threonate)</span>
+      <span>💊 Afternoon supplements (Hair &amp; Energy + Magnesium Threonate)</span>
       <span>🧒 Gabe's snack bag (yogurt + fruit + muesli bar)</span>
       <span>💧 Water bottle</span>
       <span>💻 Laptop</span>
@@ -470,7 +470,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — Gabe time (no trip home)</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate. Take before leaving café.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate. Take before leaving café.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe's snack bag is in the car.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
       <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Home — Marcia snack</div><div class="tblock-detail">Protein shake or yogurt bowl when you get back</div></div><div class="tblock-right"><div class="tblock-time">17:00</div></div></div>
@@ -521,14 +521,14 @@ header {
       <div class="checkin-title">How did Thursday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d2')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d2&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d2&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d2&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d2&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened? Meeting + Flow?</div>
-      <textarea class="checkin-ta" id="n-w1d2" placeholder="e.g. Meeting went well, red light + sauna felt incredible, café work was so productive…" oninput="saveN('w1d2')"></textarea>
-      <button class="save-btn" id="s-w1d2" onclick="saveDay('w1d2')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w1d2" placeholder="e.g. Meeting went well, red light + sauna felt incredible, café work was so productive…" oninput="saveN(&#39;w1d2&#39;)"></textarea>
+      <button class="save-btn" id="s-w1d2" onclick="saveDay(&#39;w1d2&#39;)">Save check-in</button>
         <div class="log-view" id="log-w1d2">
           <div class="log-title">Logged</div>
           <div id="log-content-w1d2"></div>
@@ -570,14 +570,14 @@ header {
       <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td">1:30</div></div>
       <div class="timer-btns"><button class="t-btn t-start" id="t-start" onclick="startTimer()">Start</button><button class="t-btn t-reset" onclick="resetTimer()">Reset</button></div>
     </div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-lpd')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-sr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bent-Over Row</div><div class="gym-eq">One arm · bench support</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bor')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope attachment · posture</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-fp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bc')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d3-lpd&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d3-sr&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bent-Over Row</div><div class="gym-eq">One arm · bench support</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d3-bor&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope attachment · posture</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d3-fp&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w1d3-bc&#39;)"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w1d3&#39;)">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w1d3"></div></div>
     <div class="prog-text" id="gt-w1d3">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w1d3')">Reset session</button>
+    <button class="reset-btn" onclick="resetGym(&#39;w1d3&#39;)">Reset session</button>
   </div>
 
   <div class="section">
@@ -589,7 +589,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — Gabe time</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">End of week — you both deserve it 🌟</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
@@ -642,14 +642,14 @@ header {
       <div class="checkin-title">How did Friday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1d3')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d3&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d3&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d3&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1d3&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w1d3" placeholder="e.g. Pull day felt strong, had sushi, Gabe was so happy at playground…" oninput="saveN('w1d3')"></textarea>
-      <button class="save-btn" id="s-w1d3" onclick="saveDay('w1d3')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w1d3" placeholder="e.g. Pull day felt strong, had sushi, Gabe was so happy at playground…" oninput="saveN(&#39;w1d3&#39;)"></textarea>
+      <button class="save-btn" id="s-w1d3" onclick="saveDay(&#39;w1d3&#39;)">Save check-in</button>
         <div class="log-view" id="log-w1d3">
           <div class="log-title">Logged</div>
           <div id="log-content-w1d3"></div>
@@ -726,14 +726,14 @@ header {
       <div class="checkin-title">How was the week overall?</div>
       <div class="checkin-q">Overall mood</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w1wknd')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1wknd&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1wknd&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1wknd&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w1wknd&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What worked? What didn't? Anything to change?</div>
-      <textarea class="checkin-ta" id="n-w1wknd" placeholder="e.g. Flow was the highlight, dinner was stress-free, want more time at playground…" oninput="saveN('w1wknd')" style="min-height:100px"></textarea>
-      <button class="save-btn" id="s-w1wknd" onclick="saveDay('w1wknd')">Save reflection</button>
+      <textarea class="checkin-ta" id="n-w1wknd" placeholder="e.g. Flow was the highlight, dinner was stress-free, want more time at playground…" oninput="saveN(&#39;w1wknd&#39;)" style="min-height:100px"></textarea>
+      <button class="save-btn" id="s-w1wknd" onclick="saveDay(&#39;w1wknd&#39;)">Save reflection</button>
         <div class="log-view" id="log-w1wknd">
           <div class="log-title">Logged</div>
           <div id="log-content-w1wknd"></div>
@@ -782,14 +782,14 @@ header {
       <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td2">1:30</div></div>
       <div class="timer-btns"><button class="t-btn t-start" id="t-start2" onclick="startTimer2()">Start</button><button class="t-btn t-reset" onclick="resetTimer2()">Reset</button></div>
     </div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Chest Press</div><div class="gym-eq">Bench + dumbbells</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cp')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Chest Fly</div><div class="gym-eq">Life Fitness cable tower</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cf')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Shoulder Press</div><div class="gym-eq">Seated or standing</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-sp')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lateral Raise</div><div class="gym-eq">Life Fitness · single arm</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-lr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Tricep Pushdown</div><div class="gym-eq">Rope attachment</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-tp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Chest Press</div><div class="gym-eq">Bench + dumbbells</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d1-cp&#39;)"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Chest Fly</div><div class="gym-eq">Life Fitness cable tower</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d1-cf&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Shoulder Press</div><div class="gym-eq">Seated or standing</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d1-sp&#39;)"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lateral Raise</div><div class="gym-eq">Life Fitness · single arm</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d1-lr&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d1&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Tricep Pushdown</div><div class="gym-eq">Rope attachment</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d1-tp&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d1&#39;)">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w2d1"></div></div>
     <div class="prog-text" id="gt-w2d1">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w2d1')">Reset session</button>
+    <button class="reset-btn" onclick="resetGym(&#39;w2d1&#39;)">Reset session</button>
   </div>
 
   <div class="section">
@@ -801,7 +801,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — Gabe time</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
@@ -844,14 +844,14 @@ header {
       <div class="checkin-title">How did Monday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d1')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d1&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d1&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d1&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d1&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w2d1" placeholder="e.g. Push day felt strong, Ninja Foodi dinner was perfect…" oninput="saveN('w2d1')"></textarea>
-      <button class="save-btn" id="s-w2d1" onclick="saveDay('w2d1')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w2d1" placeholder="e.g. Push day felt strong, Ninja Foodi dinner was perfect…" oninput="saveN(&#39;w2d1&#39;)"></textarea>
+      <button class="save-btn" id="s-w2d1" onclick="saveDay(&#39;w2d1&#39;)">Save check-in</button>
         <div class="log-view" id="log-w2d1">
           <div class="log-title">Logged</div>
           <div id="log-content-w2d1"></div>
@@ -875,7 +875,7 @@ header {
     <div class="pack-items">
       <span>🥤 Smoothie in flask</span>
       <span>💊 Morning supplements (take in car after drop-off)</span>
-      <span>💊 Afternoon supplements (Hair & Energy + Magnesium Threonate)</span>
+      <span>💊 Afternoon supplements (Hair &amp; Energy + Magnesium Threonate)</span>
       <span>🧒 Gabe's snack bag</span>
       <span>💧 Water bottle</span>
       <span>💻 Laptop</span>
@@ -909,7 +909,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — Gabe time</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate. Take before leaving café.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate. Take before leaving café.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div><div class="tblock-detail">Gabe's snack bag in the car.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
     </div>
@@ -946,14 +946,14 @@ header {
       <div class="checkin-title">How did Tuesday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d2')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d2&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d2&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d2&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d2&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w2d2" placeholder="e.g. Flow was great, café work flowed well, pesto pasta was delicious…" oninput="saveN('w2d2')"></textarea>
-      <button class="save-btn" id="s-w2d2" onclick="saveDay('w2d2')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w2d2" placeholder="e.g. Flow was great, café work flowed well, pesto pasta was delicious…" oninput="saveN(&#39;w2d2&#39;)"></textarea>
+      <button class="save-btn" id="s-w2d2" onclick="saveDay(&#39;w2d2&#39;)">Save check-in</button>
         <div class="log-view" id="log-w2d2">
           <div class="log-title">Logged</div>
           <div id="log-content-w2d2"></div>
@@ -990,14 +990,14 @@ header {
   </div>
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell at chest</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gs')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-rdl')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-le')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-lc')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Glute Bridge</div><div class="gym-eq">Bodyweight or dumbbell</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gb')"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell at chest</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d3-gs&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d3-rdl&#39;)"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d3-le&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d3-lc&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d3&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Glute Bridge</div><div class="gym-eq">Bodyweight or dumbbell</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d3-gb&#39;)"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d3&#39;)">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w2d3"></div></div>
     <div class="prog-text" id="gt-w2d3">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w2d3')">Reset session</button>
+    <button class="reset-btn" onclick="resetGym(&#39;w2d3&#39;)">Reset session</button>
   </div>
   <div class="section">
     <div class="section-label">💼 Work + lunch at desk</div>
@@ -1007,7 +1007,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — Gabe time</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Prep Gabe's snack</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Leave for pickup 🚗</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe + playground 🛝</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
@@ -1046,14 +1046,14 @@ header {
       <div class="checkin-title">How did Wednesday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d3')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d3&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d3&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d3&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d3&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w2d3" placeholder="e.g. Legs felt stronger than last week, Ninja Foodi was perfect again…" oninput="saveN('w2d3')"></textarea>
-      <button class="save-btn" id="s-w2d3" onclick="saveDay('w2d3')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w2d3" placeholder="e.g. Legs felt stronger than last week, Ninja Foodi was perfect again…" oninput="saveN(&#39;w2d3&#39;)"></textarea>
+      <button class="save-btn" id="s-w2d3" onclick="saveDay(&#39;w2d3&#39;)">Save check-in</button>
         <div class="log-view" id="log-w2d3">
           <div class="log-title">Logged</div>
           <div id="log-content-w2d3"></div>
@@ -1077,7 +1077,7 @@ header {
     <div class="pack-items">
       <span>🥤 Smoothie in flask</span>
       <span>💊 Morning supplements (take in car after drop-off)</span>
-      <span>💊 Afternoon supplements (Hair & Energy + Magnesium Threonate)</span>
+      <span>💊 Afternoon supplements (Hair &amp; Energy + Magnesium Threonate)</span>
       <span>🧒 Gabe's snack bag</span>
       <span>💧 Water bottle</span>
       <span>💻 Laptop</span>
@@ -1149,14 +1149,14 @@ header {
       <div class="checkin-title">How did Thursday go?</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d4&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d4&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d4&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d4&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w2d4" placeholder="e.g. Red light + sauna was incredible, café work flowed well, kale bowl was perfect…" oninput="saveN('w2d4')"></textarea>
-      <button class="save-btn" id="s-w2d4" onclick="saveDay('w2d4')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w2d4" placeholder="e.g. Red light + sauna was incredible, café work flowed well, kale bowl was perfect…" oninput="saveN(&#39;w2d4&#39;)"></textarea>
+      <button class="save-btn" id="s-w2d4" onclick="saveDay(&#39;w2d4&#39;)">Save check-in</button>
         <div class="log-view" id="log-w2d4">
           <div class="log-title">Logged</div>
           <div id="log-content-w2d4"></div>
@@ -1192,14 +1192,14 @@ header {
   </div>
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-lpd')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-sr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bent-Over Row</div><div class="gym-eq">One arm · bench support</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bor')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope attachment · posture</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-fp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bc')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d5-lpd&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d5&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d5-sr&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d5&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bent-Over Row</div><div class="gym-eq">One arm · bench support</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d5-bor&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d5&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope attachment · posture</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d5-fp&#39;)"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d5&#39;)">Mark done ✓</button></div></div>
+    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,&#39;w2d5-bc&#39;)"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,&#39;gp-w2d5&#39;)">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w2d5"></div></div>
     <div class="prog-text" id="gt-w2d5">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w2d5')">Reset session</button>
+    <button class="reset-btn" onclick="resetGym(&#39;w2d5&#39;)">Reset session</button>
   </div>
   <div class="section">
     <div class="section-label">💼 Work + lunch at desk</div>
@@ -1209,7 +1209,7 @@ header {
   <div class="section">
     <div class="section-label">Afternoon — 🧗 Climbing time!</div>
     <div class="tline">
-      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair & Energy + Magnesium Threonate. Pack in bag before pickup.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
+      <div class="tblock tb-mind" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Afternoon supplements — from bag 💊</div><div class="tblock-detail">Hair &amp; Energy + Magnesium Threonate. Pack in bag before pickup.</div></div><div class="tblock-right"><div class="tblock-time">15:00</div></div></div>
       <div class="tblock tb-fuel" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pack Gabe's snack bag for climbing</div></div><div class="tblock-right"><div class="tblock-time">15:15</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">Pick up Gabe — drive straight to Urban Climb 🚗</div><div class="tblock-detail">20 min drive to West End.</div></div><div class="tblock-right"><div class="tblock-time">15:30</div></div></div>
       <div class="tblock tb-gabe" onclick="tog(this)"><div class="tblock-chk">✓</div><div class="tblock-body"><div class="tblock-name">🧗 Arrive Urban Climb West End</div><div class="tblock-detail">Get set up. Gabe's snack while you warm up.</div></div><div class="tblock-right"><div class="tblock-time">16:00</div></div></div>
@@ -1224,14 +1224,14 @@ header {
       <div class="checkin-title">How did Friday go? 🧗</div>
       <div class="checkin-q">Mood today</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2d5')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d5&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d5&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d5&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2d5&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened? First climbing Friday!</div>
-      <textarea class="checkin-ta" id="n-w2d5" placeholder="e.g. Gabe loved it, Tommy made it, dinner was so nice, Gabe asleep before we got home…" oninput="saveN('w2d5')"></textarea>
-      <button class="save-btn" id="s-w2d5" onclick="saveDay('w2d5')">Save check-in</button>
+      <textarea class="checkin-ta" id="n-w2d5" placeholder="e.g. Gabe loved it, Tommy made it, dinner was so nice, Gabe asleep before we got home…" oninput="saveN(&#39;w2d5&#39;)"></textarea>
+      <button class="save-btn" id="s-w2d5" onclick="saveDay(&#39;w2d5&#39;)">Save check-in</button>
         <div class="log-view" id="log-w2d5">
           <div class="log-title">Logged</div>
           <div id="log-content-w2d5"></div>
@@ -1303,14 +1303,14 @@ header {
       <div class="checkin-title">How were these two weeks?</div>
       <div class="checkin-q">Overall mood</div>
       <div class="mood-row">
-        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
-        <div class="mood-opt" onclick="selMood(this,'w2wknd')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2wknd&#39;)"><button class="mood-btn">😔</button><div class="mood-lbl">Hard</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2wknd&#39;)"><button class="mood-btn">😐</button><div class="mood-lbl">Okay</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2wknd&#39;)"><button class="mood-btn">🙂</button><div class="mood-lbl">Good</div></div>
+        <div class="mood-opt" onclick="selMood(this,&#39;w2wknd&#39;)"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What worked? What needs changing? What's on next week?</div>
-      <textarea class="checkin-ta" id="n-w2wknd" placeholder="e.g. Climbing Friday was the highlight. Flow visits changed my mood completely. Dinners were stress-free. Want to add…" oninput="saveN('w2wknd')" style="min-height:110px"></textarea>
-      <button class="save-btn" id="s-w2wknd" onclick="saveDay('w2wknd')">Save reflection</button>
+      <textarea class="checkin-ta" id="n-w2wknd" placeholder="e.g. Climbing Friday was the highlight. Flow visits changed my mood completely. Dinners were stress-free. Want to add…" oninput="saveN(&#39;w2wknd&#39;)" style="min-height:110px"></textarea>
+      <button class="save-btn" id="s-w2wknd" onclick="saveDay(&#39;w2wknd&#39;)">Save reflection</button>
         <div class="log-view" id="log-w2wknd">
           <div class="log-title">Logged</div>
           <div id="log-content-w2wknd"></div>
@@ -1679,43 +1679,113 @@ function updateLogView(id) {
   logView.classList.add('visible');
 }
 
-// ── LOAD SAVED STATE ─────────────────────────────────────────
-function load() {
-  // Restore weight inputs
+// ── LOAD FROM LOCALSTORAGE ───────────────────────────────────
+function loadLocal() {
   document.querySelectorAll('.weight-input').forEach(inp => {
     const fn = inp.getAttribute('oninput') || '';
     const m = fn.match(/'([^']+)'\)/);
     if (m) try { const s = localStorage.getItem('mw-'+m[1]); if(s) inp.value=s; } catch(e) {}
   });
-  // Restore notes + mood
   Object.keys(DAY_META).forEach(id => {
     const ta = document.getElementById('n-'+id);
     if (ta) try { const s = localStorage.getItem('mn-'+id); if(s) ta.value=s; } catch(e) {}
-    // Restore mood
     const savedMood = localStorage.getItem('mm-'+id);
-    if (savedMood) {
-      const panel = findPanel(id);
-      if (panel) {
-        const box = panel.querySelector('.checkin-box');
-        if (box) box.querySelectorAll('.mood-btn').forEach(b => {
-          if (b.textContent.trim() === savedMood) b.classList.add('selected');
-        });
+    if (savedMood) restoreMoodUI(id, savedMood);
+  });
+}
+
+function restoreMoodUI(id, emoji) {
+  const panel = findPanel(id);
+  if (!panel) return;
+  const box = panel.querySelector('.checkin-box');
+  if (!box) return;
+  box.querySelectorAll('.mood-btn').forEach(b => {
+    b.classList.toggle('selected', b.textContent.trim() === emoji);
+  });
+}
+
+// ── LOAD FROM AIRTABLE ON STARTUP ───────────────────────────
+// Fetches all records for current two weeks and restores UI
+async function loadFromAirtable() {
+  const dates = Object.values(DAY_META).map(m => m.date);
+  // Fetch all daily records in one call using OR formula
+  const formula = 'OR(' + dates.map(d => `{Date}='${d}'`).join(',') + ')';
+  const records = await atFind(AT_DAILY, formula);
+  if (!records.length) return;
+
+  // Map records by date
+  const byDate = {};
+  records.forEach(r => {
+    if (r.fields && r.fields['Date']) {
+      byDate[r.fields['Date']] = r;
+      // Cache record IDs
+      const dayId = Object.keys(DAY_META).find(k => DAY_META[k].date === r.fields['Date']);
+      if (dayId) recordCache[dayId] = r.id;
+    }
+  });
+
+  // Restore UI for each day
+  Object.keys(DAY_META).forEach(id => {
+    const meta = DAY_META[id];
+    const rec = byDate[meta.date];
+    if (!rec) return;
+    const f = rec.fields;
+
+    // Restore notes
+    const ta = document.getElementById('n-'+id);
+    if (ta && f['Notes']) {
+      ta.value = f['Notes'];
+      try { localStorage.setItem('mn-'+id, f['Notes']); } catch(e) {}
+    }
+
+    // Restore mood
+    if (f['Mood']) {
+      const emojiMap = { '😔 Hard':'😔', '😐 Okay':'😐', '🙂 Good':'🙂', '😊 Great':'😊' };
+      const emoji = emojiMap[f['Mood']];
+      if (emoji) {
+        try { localStorage.setItem('mm-'+id, emoji); } catch(e) {}
+        restoreMoodUI(id, emoji);
       }
+    }
+
+    // Show log view if any data exists
+    if (f['Notes'] || f['Mood'] || f['Gym Done'] || f['Flow Done']) {
+      updateLogViewFromRecord(id, f);
     }
   });
 }
 
-function restoreLogs() {
-  Object.keys(DAY_META).forEach(id => {
-    const hasData = localStorage.getItem('mn-'+id) || localStorage.getItem('mm-'+id);
-    if (hasData) updateLogView(id);
-  });
+// ── UPDATE LOG VIEW FROM AIRTABLE RECORD ─────────────────────
+function updateLogViewFromRecord(id, fields) {
+  const logView = document.getElementById('log-'+id);
+  const logContent = document.getElementById('log-content-'+id);
+  if (!logView || !logContent) return;
+
+  const emojiMap = { '😔 Hard':'😔', '😐 Okay':'😐', '🙂 Good':'🙂', '😊 Great':'😊' };
+  const mood = fields['Mood'] ? (emojiMap[fields['Mood']] || '') : '';
+  const notes = fields['Notes'] || '';
+  const gymDone = fields['Gym Done'] || false;
+  const flowDone = fields['Flow Done'] || false;
+
+  let html = '<div class="log-entry">';
+  if (mood) html += `<div class="log-mood">${mood}</div>`;
+  html += '<div class="log-chips">';
+  if (gymDone) html += `<span class="log-chip done">✓ Gym done</span>`;
+  if (flowDone) html += `<span class="log-chip done">✓ Flow done</span>`;
+  html += '</div>';
+  if (notes.trim()) html += `<div class="log-notes">"${notes.trim()}"</div>`;
+  else html += `<div class="log-empty">Tap your mood or add notes above</div>`;
+  html += '</div>';
+
+  logContent.innerHTML = html;
+  logView.classList.add('visible');
 }
 
 // ── INIT ─────────────────────────────────────────────────────
 showWeek(1);
-load();
-restoreLogs();
+loadLocal();           // instant — from localStorage
+loadFromAirtable();    // async — fetches from Airtable and updates UI
 </script>
-</body>
-</html>
+
+
+</body></html>
