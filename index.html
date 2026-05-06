@@ -8,6 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Family Wellness">
 <meta name="theme-color" content="#f7f4ef">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -1435,17 +1438,34 @@ function tog(el) {
   el.classList.toggle('checked');
   const checked = el.classList.contains('checked');
   el.querySelector('.tblock-chk').textContent = checked ? '✓' : '';
-  // Save checkbox state to localStorage
   const cbid = el.getAttribute('data-cbid');
   if (cbid) {
     try { localStorage.setItem('cb-'+cbid, checked ? '1' : '0'); } catch(e) {}
   }
-  // Find which day this is in and trigger a background save
   const panel = el.closest('.day-panel');
   if (panel) {
     const dayId = getDayId(panel);
-    if (dayId) debounceSave(dayId);
+    if (dayId) {
+      // Save all checkbox states for this day to Airtable
+      clearTimeout(saveTimers['cb-'+dayId]);
+      saveTimers['cb-'+dayId] = setTimeout(() => {
+        saveCheckboxesToAirtable(dayId);
+      }, 1500);
+      debounceSave(dayId);
+    }
   }
+}
+
+// ── SAVE ALL CHECKBOXES FOR A DAY TO AIRTABLE ────────────────
+async function saveCheckboxesToAirtable(dayId) {
+  const panel = findPanel(dayId);
+  if (!panel) return;
+  const state = {};
+  panel.querySelectorAll('[data-cbid]').forEach(el => {
+    const cbid = el.getAttribute('data-cbid');
+    if (cbid) state[cbid] = el.classList.contains('checked');
+  });
+  await upsertDaily(dayId, { 'Checkbox State': JSON.stringify(state) });
 }
 
 // ── RESTORE ALL CHECKBOXES ───────────────────────────────────
@@ -1460,6 +1480,24 @@ function restoreCheckboxes() {
       }
     } catch(e) {}
   });
+}
+
+// ── RESTORE CHECKBOXES FROM AIRTABLE RECORD ──────────────────
+function restoreCheckboxesFromRecord(dayId, checkboxStateJson) {
+  if (!checkboxStateJson) return;
+  try {
+    const state = JSON.parse(checkboxStateJson);
+    Object.keys(state).forEach(cbid => {
+      if (state[cbid]) {
+        const el = document.querySelector(`[data-cbid="${cbid}"]`);
+        if (el) {
+          el.classList.add('checked');
+          el.querySelector('.tblock-chk').textContent = '✓';
+          try { localStorage.setItem('cb-'+cbid, '1'); } catch(e) {}
+        }
+      }
+    });
+  } catch(e) { console.warn('Could not restore checkboxes:', e); }
 }
 
 function getDayId(panel) {
@@ -1772,6 +1810,11 @@ async function loadFromAirtable() {
     if (f['Notes'] || f['Mood'] || f['Gym Done'] || f['Flow Done']) {
       updateLogViewFromRecord(id, f);
     }
+
+    // Restore checkbox state from Airtable
+    if (f['Checkbox State']) {
+      restoreCheckboxesFromRecord(id, f['Checkbox State']);
+    }
   });
 }
 
@@ -1801,11 +1844,29 @@ function updateLogViewFromRecord(id, fields) {
   logView.classList.add('visible');
 }
 
+// ── AUTO REFRESH — polls Airtable every 30 seconds ───────────
+function startAutoRefresh() {
+  setInterval(() => {
+    // Only refresh if app is visible (not in background)
+    if (!document.hidden) {
+      loadFromAirtable();
+    }
+  }, 30000);
+}
+
+// Also refresh when app comes back into focus
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    loadFromAirtable();
+  }
+});
+
 // ── INIT ─────────────────────────────────────────────────────
 showWeek(1);
 loadLocal();
 restoreCheckboxes();
 loadFromAirtable();
+startAutoRefresh();
 </script>
 </body>
 </html>
