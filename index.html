@@ -164,25 +164,37 @@ header {
 .wellness-name { font-size: 13px; font-weight: 600; color: var(--sky); margin-bottom: 4px; }
 .wellness-why { font-size: 12px; color: var(--text2); line-height: 1.5; }
 
-.gym-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 7px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-.gym-header { padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.gym-card { background: var(--surface); border: 0.5px solid var(--border); border-left: 3px solid var(--sage); border-radius: 12px; margin-bottom: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); overflow: hidden; }
+.gym-header { padding: 12px 14px; display: flex; align-items: center; cursor: pointer; gap: 10px; }
+.gym-check { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: transparent; transition: all 0.15s; }
+.gym-card.gym-done .gym-check { background: var(--sage); border-color: var(--sage); color: white; }
+.gym-card.gym-done { opacity: 0.45; }
+.gym-card.gym-done .gym-name { text-decoration: line-through; color: var(--muted); }
 .gym-name { font-size: 14px; font-weight: 500; color: var(--text); }
 .gym-eq { font-size: 11px; color: var(--muted); margin-top: 2px; }
-.gym-sets { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--sage); flex-shrink: 0; margin-left: 10px; }
+.gym-sets { font-size: 15px; font-weight: 500; color: var(--sage); white-space: nowrap; flex-shrink: 0; }
+.gym-sets .gym-last { font-size: 11px; color: var(--muted); font-weight: 400; }
 .gym-expand { padding: 0 14px 12px; display: none; border-top: 1px solid var(--border); }
 .gym-expand.open { display: block; }
-.weight-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
-.weight-label { font-size: 11px; color: var(--muted); }
+.gym-tip { font-size: 11px; color: var(--sage); font-style: italic; margin: 10px 0 10px; }
+.weight-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.weight-label { font-size: 12px; color: var(--muted); white-space: nowrap; }
 .weight-input { background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 5px 8px; width: 70px; outline: none; }
 .weight-input:focus { border-color: var(--sage); }
 .weight-input::placeholder { color: var(--muted); }
 .weight-unit { font-size: 12px; color: var(--muted); }
-.gym-done-btn { margin-top: 10px; padding: 8px 0; width: 100%; border-radius: 8px; border: 1px solid var(--sage-mid); background: transparent; color: var(--sage); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.how-to-link { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--sage); text-decoration: none; background: var(--sage-dim); padding: 3px 9px; border-radius: 20px; flex-shrink: 0; }
+.gym-done-btn { padding: 8px 0; width: 100%; border-radius: 8px; border: 1px solid var(--sage-mid); background: transparent; color: var(--sage); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
 .gym-done-btn.done { background: var(--sage-dim); border-color: var(--sage); }
 .prog-wrap { background: var(--surface2); border-radius: 4px; height: 3px; margin-bottom: 5px; overflow: hidden; }
 .prog-fill { height: 100%; background: var(--sage); border-radius: 4px; transition: width 0.4s ease; width: 0%; }
 .prog-text { font-size: 11px; color: var(--muted); text-align: right; }
-.reset-btn { width: 100%; margin-top: 10px; padding: 9px; border-radius: 8px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer; }
+.session-notes-wrap { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.session-notes-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.session-notes-ta { background: var(--surface); border: 1px solid var(--border2); border-radius: 8px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 10px 12px; width: 100%; resize: none; outline: none; line-height: 1.5; min-height: 72px; }
+.session-notes-ta:focus { border-color: var(--sage); }
+.session-notes-ta::placeholder { color: var(--muted); }
+.session-save-btn { width: 100%; margin-top: 8px; padding: 9px; border-radius: 8px; border: 1px solid var(--border2); background: transparent; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer; }
 
 .timer-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 13px 14px; display: flex; align-items: center; gap: 14px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
 .timer-display { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--sage); line-height: 1; min-width: 65px; font-weight: 300; }
@@ -252,7 +264,7 @@ header {
 
 <div class="week-bar">
   <button class="week-btn active" onclick="showWeek(1)">7–11 May</button>
-  <button class="week-btn" onclick="showWeek(2)">12–18 May</button>
+  <button class="week-btn" onclick="showWeek(2)">11–17 May</button>
 </div>
 
 <div class="day-bar" id="bar-1">
@@ -263,13 +275,13 @@ header {
   <button class="day-tab rest-tab" onclick="showDay(1,5)">SUN 11</button>
 </div>
 <div class="day-bar" id="bar-2" style="display:none">
-  <button class="day-tab active" onclick="showDay(2,1)">MON 12</button>
-  <button class="day-tab" onclick="showDay(2,2)">TUE 13</button>
-  <button class="day-tab" onclick="showDay(2,3)">WED 14</button>
-  <button class="day-tab" onclick="showDay(2,4)">THU 15</button>
-  <button class="day-tab" onclick="showDay(2,5)">FRI 16</button>
-  <button class="day-tab rest-tab" onclick="showDay(2,6)">SAT 17</button>
-  <button class="day-tab rest-tab" onclick="showDay(2,7)">SUN 18</button>
+  <button class="day-tab active" onclick="showDay(2,1)">MON 11</button>
+  <button class="day-tab" onclick="showDay(2,2)">TUE 12</button>
+  <button class="day-tab" onclick="showDay(2,3)">WED 13</button>
+  <button class="day-tab" onclick="showDay(2,4)">THU 14</button>
+  <button class="day-tab" onclick="showDay(2,5)">FRI 15</button>
+  <button class="day-tab rest-tab" onclick="showDay(2,6)">SAT 16</button>
+  <button class="day-tab rest-tab" onclick="showDay(2,7)">SUN 17</button>
 </div>
 
 <div class="content">
@@ -319,14 +331,18 @@ header {
 
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell at chest · sit deep</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Chest up · knees track over toes</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gs')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×10</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Feel the hamstring stretch · don't round back</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-rdl')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine · seated</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Pause + squeeze at top for 1 sec</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-le')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine · slow 3-sec lowering</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Slow on the way back · 3-sec lowering</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-lc')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Glute Bridge</div><div class="gym-eq">Mat · dumbbell on hips · drive through heels</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Squeeze glutes hard · 2-sec hold at top</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gb')"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d1-gs"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Goblet squat</div><div class="gym-eq">Dumbbell at chest · sit deep</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w1d1-gs"></span></div></div><div class="gym-expand"><p class="gym-tip">Chest up · knees track over toes</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gs')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/dumbbell-goblet-squat" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1','w1d1-gs')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d1-rdl"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Romanian deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×10 <span class="gym-last" id="last-w1d1-rdl"></span></div></div><div class="gym-expand"><p class="gym-tip">Feel hamstring stretch · don't round back</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-rdl')"><span class="weight-unit">kg each</span><a href="https://musclewiki.com/exercise/dumbbell-romanian-deadlift" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1','w1d1-rdl')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d1-le"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Leg extension</div><div class="gym-eq">Leg machine · seated</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w1d1-le"></span></div></div><div class="gym-expand"><p class="gym-tip">Pause + squeeze at top for 1 sec</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-le')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/leg-extension" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1','w1d1-le')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d1-lc"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Leg curl</div><div class="gym-eq">Leg machine · slow 3-sec lowering</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w1d1-lc"></span></div></div><div class="gym-expand"><p class="gym-tip">Slow on the way back · 3-sec lowering</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-lc')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/seated-leg-curl" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1','w1d1-lc')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d1-gb"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Dumbbell glute bridge</div><div class="gym-eq">Mat · dumbbell on hips</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w1d1-gb"></span></div></div><div class="gym-expand"><p class="gym-tip">Squeeze glutes hard · 2-sec hold at top</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d1-gb')"><span class="weight-unit">kg opt</span><a href="https://musclewiki.com/exercise/dumbbell-glute-bridge" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d1','w1d1-gb')">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w1d1"></div></div>
     <div class="prog-text" id="gt-w1d1">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w1d1')">Reset session</button>
+    <div class="session-notes-wrap">
+      <div class="session-notes-label">Session notes</div>
+      <textarea class="session-notes-ta" id="sn-w1d1" placeholder="How did legs feel? Anything heavier next time?" oninput="saveSessionNote('w1d1')"></textarea>
+      <button class="session-save-btn" onclick="saveSessionNote('w1d1')">Save notes</button>
+    </div>
   </div>
 
   <div class="section">
@@ -352,12 +368,14 @@ header {
   <div class="section">
     <div class="section-label">Dinner (18:00) — Ninja Foodi ready</div>
     <div class="dinner-card">
-      <div class="dinner-who dinner-marcia">🌿 Marcia prepped this morning — just plate up</div>
+      <div class="dinner-who dinner-marcia">🌿 Marcia cooks tonight</div>
       <div class="dinner-body">
-        <div class="dinner-name">Slow-cooked chicken + roast vegetables</div>
+        <div class="dinner-name">Meat + roast vegetables</div>
         <div class="dinner-steps">
-          <div class="dinner-step">Plate up chicken + veg. Nutritional yeast on Marcia's serve.</div>
-          <div class="dinner-step">Gabe: pull chicken apart + soft veg. Toddler perfect.</div>
+          <div class="dinner-step">Choose protein: chicken thighs, beef or lamb. Season with olive oil, salt, herbs.</div>
+          <div class="dinner-step">Roast veg: pumpkin, sweet potato, zucchini, cherry tomatoes. Toss in olive oil.</div>
+          <div class="dinner-step">Cook together until done. Nutritional yeast on Marcia's serve.</div>
+          <div class="dinner-step">Gabe: pull meat apart + soft veg. Toddler perfect.</div>
         </div>
       </div>
     </div>
@@ -570,17 +588,21 @@ header {
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
     <div class="timer-card">
-      <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td">0:30</div></div>
+      <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td">1:30</div></div>
       <div class="timer-btns"><button class="t-btn t-start" id="t-start" onclick="startTimer()">Start</button><button class="t-btn t-reset" onclick="resetTimer()">Reset</button></div>
     </div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×10</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Pull elbows DOWN to ribs · not back</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-lpd')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Sit tall · pull to belly button · squeeze shoulder blades</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-sr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope at eye height · posture gold</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Pull to ears · externally rotate at end</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-fp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Single-Arm Dumbbell Row</div><div class="gym-eq">Knee on bench · one arm at a time</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Row to hip · think elbow, not hand · each side</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bor')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">4-sec lowering · no swinging · squeeze at top</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bc')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d3-lpd"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable lat pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×10 <span class="gym-last" id="last-w1d3-lpd"></span></div></div><div class="gym-expand"><p class="gym-tip">Pull elbows DOWN to ribs · not back</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-lpd')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-lat-pulldown" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3','w1d3-lpd')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d3-sr"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable seated row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w1d3-sr"></span></div></div><div class="gym-expand"><p class="gym-tip">Sit tall · pull to belly button</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-sr')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-seated-row" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3','w1d3-sr')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d3-bor"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Single-arm dumbbell row</div><div class="gym-eq">Knee on bench · one arm at a time</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w1d3-bor"></span></div></div><div class="gym-expand"><p class="gym-tip">Row to hip · think elbow not hand</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bor')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/dumbbell-single-arm-row" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3','w1d3-bor')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d3-fp"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable face pull</div><div class="gym-eq">Rope at eye height · posture gold</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w1d3-fp"></span></div></div><div class="gym-expand"><p class="gym-tip">Pull to ears · externally rotate at end</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-fp')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-face-pull" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3','w1d3-fp')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w1d3-bc"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Dumbbell bicep curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w1d3-bc"></span></div></div><div class="gym-expand"><p class="gym-tip">4-sec lowering · no swinging</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w1d3-bc')"><span class="weight-unit">kg each</span><a href="https://musclewiki.com/exercise/dumbbell-bicep-curl" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w1d3','w1d3-bc')">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w1d3"></div></div>
     <div class="prog-text" id="gt-w1d3">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w1d3')">Reset session</button>
+    <div class="session-notes-wrap">
+      <div class="session-notes-label">Session notes</div>
+      <textarea class="session-notes-ta" id="sn-w1d3" placeholder="How did pull day feel? Back or biceps sore?" oninput="saveSessionNote('w1d3')"></textarea>
+      <button class="session-save-btn" onclick="saveSessionNote('w1d3')">Save notes</button>
+    </div>
   </div>
 
   <div class="section">
@@ -709,7 +731,7 @@ header {
   <div class="tline" style="margin-top:16px">
     <div data-cbid="w1d5-cb0" class="tblock tb-mind" onclick="tog(this)"><div data-cbid="w1d5-cb1" class="tblock-chk">✓</div><div data-cbid="w1d5-cb2" class="tblock-body"><div data-cbid="w1d5-cb3" class="tblock-name">🌅 Morning rise ritual + 5g creatine</div></div><div data-cbid="w1d5-cb4" class="tblock-right"><div data-cbid="w1d5-cb5" class="tblock-time">7:00</div></div></div>
     <div data-cbid="w1d5-cb6" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w1d5-cb7" class="tblock-chk">✓</div><div data-cbid="w1d5-cb8" class="tblock-body"><div data-cbid="w1d5-cb9" class="tblock-name">☕ Family coffee ❤️</div></div><div data-cbid="w1d5-cb10" class="tblock-right"><div data-cbid="w1d5-cb11" class="tblock-time">7:15</div></div></div>
-    <div data-cbid="w1d5-cb12" class="tblock tb-life" onclick="tog(this)"><div data-cbid="w1d5-cb13" class="tblock-chk">✓</div><div data-cbid="w1d5-cb14" class="tblock-body"><div data-cbid="w1d5-cb15" class="tblock-name">🛒 Woolies online order</div><div data-cbid="w1d5-cb16" class="tblock-detail">Smoothie ingredients + Mon/Wed Ninja Foodi items + Gabe snacks + Tommy's dinner ingredients (Tue: pesto pasta, Thu: kale bowl)</div></div><div data-cbid="w1d5-cb17" class="tblock-right"><div data-cbid="w1d5-cb18" class="tblock-time">19:00</div></div></div>
+    <div data-cbid="w1d5-cb12" class="tblock tb-life" onclick="tog(this)"><div data-cbid="w1d5-cb13" class="tblock-chk">✓</div><div data-cbid="w1d5-cb14" class="tblock-body"><div data-cbid="w1d5-cb15" class="tblock-name">🛒 Woolies online order</div><div data-cbid="w1d5-cb16" class="tblock-detail">Smoothie ingredients + Gabe snacks + Mon: meat &amp; veg · Tue: salmon + greens · Wed: poke bowl · Thu: edamame pasta + pesto + chicken</div></div><div data-cbid="w1d5-cb17" class="tblock-right"><div data-cbid="w1d5-cb18" class="tblock-time">19:00</div></div></div>
     <div data-cbid="w1d5-cb19" class="tblock tb-fuel" onclick="tog(this)"><div data-cbid="w1d5-cb20" class="tblock-chk">✓</div><div data-cbid="w1d5-cb21" class="tblock-body"><div data-cbid="w1d5-cb22" class="tblock-name">Set smoothie ingredients on bench 🥤</div><div data-cbid="w1d5-cb23" class="tblock-detail">Ready for Monday morning. Ninja Foodi check — clean and ready.</div></div><div data-cbid="w1d5-cb24" class="tblock-right"><div data-cbid="w1d5-cb25" class="tblock-time">20:00</div></div></div>
   </div>
   <div class="section" style="margin-top:16px">
@@ -754,13 +776,17 @@ header {
 <div class="day-panel active" id="w2d1">
   <div class="day-header">
     <div class="day-title">Monday</div>
-    <div class="day-date">12 May</div>
+    <div class="day-date">11 May</div>
     <div class="day-focus" style="color:var(--sage)">Gym · Upper Push</div>
     <div class="day-meta">Tommy drop-off · Marcia walks to gym · Ninja Foodi · Marcia cooks</div>
     <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-fuel">Fuel</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy drop-off</span></div>
   </div>
   <div class="alert alert-tommy"><strong>🚗 Tommy does drop-off today</strong>Tommy leaves 7:45am with Gabe. Marcia goes straight to gym.</div>
-  <div class="alert alert-info"><strong>💉 Mounjaro day</strong>Take injection after family coffee. Eat your full yogurt bowl breakfast even if appetite feels low — protein matters most today.</div><div data-cbid="w2d1-cb1" class="tblock-chk">✓</div><div data-cbid="w2d1-cb2" class="tblock-body"><div data-cbid="w2d1-cb3" class="tblock-name">🌅 Morning rise ritual</div><div data-cbid="w2d1-cb4" class="tblock-detail">Tongue scrape + 600ml water</div></div><div data-cbid="w2d1-cb5" class="tblock-right"><div data-cbid="w2d1-cb6" class="tblock-time">7:00</div></div></div>
+
+  <div class="section">
+    <div class="section-label">Morning</div>
+    <div class="tline">
+      <div data-cbid="w2d1-cb0" class="tblock tb-mind" onclick="tog(this)"><div data-cbid="w2d1-cb1" class="tblock-chk">✓</div><div data-cbid="w2d1-cb2" class="tblock-body"><div data-cbid="w2d1-cb3" class="tblock-name">🌅 Morning rise ritual</div><div data-cbid="w2d1-cb4" class="tblock-detail">Tongue scrape + 600ml water</div></div><div data-cbid="w2d1-cb5" class="tblock-right"><div data-cbid="w2d1-cb6" class="tblock-time">7:00</div></div></div>
       <div data-cbid="w2d1-cb7" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d1-cb8" class="tblock-chk">✓</div><div data-cbid="w2d1-cb9" class="tblock-body"><div data-cbid="w2d1-cb10" class="tblock-name">☕ Family coffee ❤️</div></div><div data-cbid="w2d1-cb11" class="tblock-right"><div data-cbid="w2d1-cb12" class="tblock-time">7:15</div></div></div>
       <div data-cbid="w2d1-cb13" class="tblock tb-tommy" onclick="tog(this)"><div data-cbid="w2d1-cb14" class="tblock-chk">✓</div><div data-cbid="w2d1-cb15" class="tblock-body"><div data-cbid="w2d1-cb16" class="tblock-name">Tommy leaves with Gabe 🚗</div><div data-cbid="w2d1-cb17" class="tblock-detail">Daycare drop-off. Rides to work after.</div></div><div data-cbid="w2d1-cb18" class="tblock-right"><div data-cbid="w2d1-cb19" class="tblock-time">7:45</div><div class="tommy-tag">Tommy</div></div></div>
       <div data-cbid="w2d1-cb20" class="tblock tb-move" onclick="tog(this)"><div data-cbid="w2d1-cb21" class="tblock-chk">✓</div><div data-cbid="w2d1-cb22" class="tblock-body"><div data-cbid="w2d1-cb23" class="tblock-name">🏋️ Gym — Upper Push</div><div data-cbid="w2d1-cb24" class="tblock-detail">3 min walk. Chest press · Cable fly · Shoulder press · Lateral raise · Tricep pushdown. ~40 min.</div></div><div data-cbid="w2d1-cb25" class="tblock-right"><div data-cbid="w2d1-cb26" class="tblock-time">7:45</div></div></div>
@@ -778,17 +804,21 @@ header {
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
     <div class="timer-card">
-      <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td2">0:30</div></div>
+      <div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">Rest timer</div><div class="timer-display" id="td2">1:30</div></div>
       <div class="timer-btns"><button class="t-btn t-start" id="t-start2" onclick="startTimer2()">Start</button><button class="t-btn t-reset" onclick="resetTimer2()">Reset</button></div>
     </div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Chest Press</div><div class="gym-eq">Flat bench · slow 3-sec lowering</div></div><div class="gym-sets">3×10</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Squeeze at top · slow down</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cp')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Shoulder Press</div><div class="gym-eq">Seated or standing · don't lock elbows</div></div><div class="gym-sets">3×10</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Keep tension at top · don't lock out</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-sp')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Chest Fly</div><div class="gym-eq">Cable · arms at chest height</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Full stretch at bottom · chest opener</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cf')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lateral Raise</div><div class="gym-eq">Cable low · single arm</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Lead with elbow, not wrist</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-lr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Tricep Pushdown</div><div class="gym-eq">Rope or bar · elbows glued to sides</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Keep elbows glued · squeeze at bottom</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-tp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d1-cp"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Dumbbell chest press</div><div class="gym-eq">Flat bench · slow 3-sec lowering</div></div><div class="gym-sets">3×10 <span class="gym-last" id="last-w2d1-cp"></span></div></div><div class="gym-expand"><p class="gym-tip">Squeeze at top · slow on the way down</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cp')"><span class="weight-unit">kg each</span><a href="https://musclewiki.com/exercise/dumbbell-bench-press" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1','w2d1-cp')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d1-cf"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable chest fly</div><div class="gym-eq">Cable · arms at chest height</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w2d1-cf"></span></div></div><div class="gym-expand"><p class="gym-tip">Full stretch at bottom · chest opener</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-cf')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-chest-fly" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1','w2d1-cf')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d1-sp"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Dumbbell shoulder press</div><div class="gym-eq">Seated or standing</div></div><div class="gym-sets">3×10 <span class="gym-last" id="last-w2d1-sp"></span></div></div><div class="gym-expand"><p class="gym-tip">Don't lock elbows · keep tension at top</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-sp')"><span class="weight-unit">kg each</span><a href="https://musclewiki.com/exercise/dumbbell-shoulder-press" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1','w2d1-sp')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d1-lr"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable lateral raise</div><div class="gym-eq">Cable low · single arm</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w2d1-lr"></span></div></div><div class="gym-expand"><p class="gym-tip">Lead with elbow · not wrist</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-lr')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-lateral-raise" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1','w2d1-lr')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d1-tp"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable tricep pushdown</div><div class="gym-eq">Rope or bar · elbows glued to sides</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w2d1-tp"></span></div></div><div class="gym-expand"><p class="gym-tip">Keep elbows glued · squeeze at bottom</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d1-tp')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-tricep-pushdown" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d1','w2d1-tp')">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w2d1"></div></div>
     <div class="prog-text" id="gt-w2d1">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w2d1')">Reset session</button>
+    <div class="session-notes-wrap">
+      <div class="session-notes-label">Session notes</div>
+      <textarea class="session-notes-ta" id="sn-w2d1" placeholder="How did push day feel? Shoulders or chest sore?" oninput="saveSessionNote('w2d1')"></textarea>
+      <button class="session-save-btn" onclick="saveSessionNote('w2d1')">Save notes</button>
+    </div>
   </div>
 
   <div class="section">
@@ -863,7 +893,7 @@ header {
 <div class="day-panel" id="w2d2">
   <div class="day-header">
     <div class="day-title">Tuesday</div>
-    <div class="day-date">13 May</div>
+    <div class="day-date">12 May</div>
     <div class="day-focus" style="color:var(--sky)">Flow Physique</div>
     <div class="day-meta">Out all day 🚗 · Flow · Café/library · Tommy cooks</div>
     <div class="pillars"><span class="pill pill-recover">Flow</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy cooks</span></div>
@@ -965,13 +995,12 @@ header {
 <div class="day-panel" id="w2d3">
   <div class="day-header">
     <div class="day-title">Wednesday</div>
-    <div class="day-date">14 May</div>
+    <div class="day-date">13 May</div>
     <div class="day-focus" style="color:var(--sage)">Gym · Lower Body</div>
-    <div class="day-meta">Tommy drop-off · Marcia walks to gym · Psychologist 5pm · Tommy cooks + has Gabe</div>
-    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-fuel">Fuel</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy drop-off</span><span class="pill pill-mind">Psych 5pm</span></div>
+    <div class="day-meta">Tommy drop-off · Marcia walks to gym · Tommy cooks</div>
+    <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-fuel">Fuel</span><span class="pill pill-work">Work</span><span class="pill pill-tommy">Tommy drop-off</span></div>
   </div>
   <div class="alert alert-tommy"><strong>🚗 Tommy does drop-off today</strong>Tommy leaves 7:45am with Gabe. Marcia goes straight to gym.</div>
-  <div class="alert alert-info"><strong>🧠 Psychologist at 5:00pm</strong>Marcia picks up Gabe as normal (3:30), drops home, leaves ~4:30pm for appointment. Tommy has Gabe + cooks dinner.</div>
   <div class="section">
     <div class="section-label">Morning</div>
     <div class="tline">
@@ -990,14 +1019,18 @@ header {
   </div>
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Goblet Squat</div><div class="gym-eq">Dumbbell at chest · sit deep</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Chest up · knees track over toes</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gs')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Romanian Deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×10</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Feel the hamstring stretch · don't round back</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-rdl')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Extension</div><div class="gym-eq">Leg machine · seated</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Pause + squeeze at top for 1 sec</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-le')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Leg Curl</div><div class="gym-eq">Leg machine · slow 3-sec lowering</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Slow on the way back · 3-sec lowering</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-lc')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Glute Bridge</div><div class="gym-eq">Mat · dumbbell on hips · drive through heels</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Squeeze glutes hard · 2-sec hold at top</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gb')"><span class="weight-unit">kg optional</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d3-gs"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Goblet squat</div><div class="gym-eq">Dumbbell at chest · sit deep</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w2d3-gs"></span></div></div><div class="gym-expand"><p class="gym-tip">Chest up · knees track over toes</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gs')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/dumbbell-goblet-squat" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3','w2d3-gs')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d3-rdl"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Romanian deadlift</div><div class="gym-eq">Dumbbells · hinge at hips</div></div><div class="gym-sets">3×10 <span class="gym-last" id="last-w2d3-rdl"></span></div></div><div class="gym-expand"><p class="gym-tip">Feel hamstring stretch · don't round back</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-rdl')"><span class="weight-unit">kg each</span><a href="https://musclewiki.com/exercise/dumbbell-romanian-deadlift" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3','w2d3-rdl')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d3-le"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Leg extension</div><div class="gym-eq">Leg machine · seated</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w2d3-le"></span></div></div><div class="gym-expand"><p class="gym-tip">Pause + squeeze at top for 1 sec</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-le')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/leg-extension" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3','w2d3-le')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d3-lc"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Leg curl</div><div class="gym-eq">Leg machine · slow 3-sec lowering</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w2d3-lc"></span></div></div><div class="gym-expand"><p class="gym-tip">Slow on the way back · 3-sec lowering</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-lc')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/seated-leg-curl" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3','w2d3-lc')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d3-gb"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Dumbbell glute bridge</div><div class="gym-eq">Mat · dumbbell on hips</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w2d3-gb"></span></div></div><div class="gym-expand"><p class="gym-tip">Squeeze glutes hard · 2-sec hold at top</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d3-gb')"><span class="weight-unit">kg opt</span><a href="https://musclewiki.com/exercise/dumbbell-glute-bridge" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d3','w2d3-gb')">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w2d3"></div></div>
     <div class="prog-text" id="gt-w2d3">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w2d3')">Reset session</button>
+    <div class="session-notes-wrap">
+      <div class="session-notes-label">Session notes</div>
+      <textarea class="session-notes-ta" id="sn-w2d3" placeholder="How did legs feel? Going heavier next week?" oninput="saveSessionNote('w2d3')"></textarea>
+      <button class="session-save-btn" onclick="saveSessionNote('w2d3')">Save notes</button>
+    </div>
   </div>
   <div class="section">
     <div class="section-label">💼 Work + lunch at desk</div>
@@ -1005,18 +1038,17 @@ header {
     <div class="meal-card" style="margin-top:8px"><div class="meal-title">🥤 Lunch Smoothie (13:00)</div><div class="meal-items"><span>Plant protein + almond milk + mango + peanut butter + cacao nibs</span></div></div>
   </div>
   <div class="section">
-    <div class="section-label">Afternoon — Gabe + Psych</div>
+    <div class="section-label">Afternoon — Gabe time</div>
     <div class="tline">
       <div data-cbid="w2d3-cb45" class="tblock tb-mind" onclick="tog(this)"><div data-cbid="w2d3-cb46" class="tblock-chk">✓</div><div data-cbid="w2d3-cb47" class="tblock-body"><div data-cbid="w2d3-cb48" class="tblock-name">Afternoon supplements</div><div data-cbid="w2d3-cb49" class="tblock-detail">Hair & Energy + Magnesium Threonate</div></div><div data-cbid="w2d3-cb50" class="tblock-right"><div data-cbid="w2d3-cb51" class="tblock-time">15:00</div></div></div>
       <div data-cbid="w2d3-cb52" class="tblock tb-fuel" onclick="tog(this)"><div data-cbid="w2d3-cb53" class="tblock-chk">✓</div><div data-cbid="w2d3-cb54" class="tblock-body"><div data-cbid="w2d3-cb55" class="tblock-name">Prep Gabe's snack</div></div><div data-cbid="w2d3-cb56" class="tblock-right"><div data-cbid="w2d3-cb57" class="tblock-time">15:15</div></div></div>
       <div data-cbid="w2d3-cb58" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d3-cb59" class="tblock-chk">✓</div><div data-cbid="w2d3-cb60" class="tblock-body"><div data-cbid="w2d3-cb61" class="tblock-name">Leave for pickup 🚗</div></div><div data-cbid="w2d3-cb62" class="tblock-right"><div data-cbid="w2d3-cb63" class="tblock-time">15:30</div></div></div>
-      <div data-cbid="w2d3-cb64" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d3-cb65" class="tblock-chk">✓</div><div data-cbid="w2d3-cb66" class="tblock-body"><div data-cbid="w2d3-cb67" class="tblock-name">Pick up Gabe + home to drop off ❤️</div><div data-cbid="w2d3-cb68" class="tblock-detail">Hand Gabe to Tommy — then Marcia leaves for appointment</div></div><div data-cbid="w2d3-cb69" class="tblock-right"><div data-cbid="w2d3-cb70" class="tblock-time">16:00</div></div></div>
-      <div data-cbid="w2d3-cb71" class="tblock tb-mind" onclick="tog(this)"><div data-cbid="w2d3-cb72" class="tblock-chk">✓</div><div data-cbid="w2d3-cb73" class="tblock-body"><div data-cbid="w2d3-cb74" class="tblock-name">🚗 Leave for psychologist</div><div data-cbid="w2d3-cb75" class="tblock-detail">Allow 30 min to make 5pm appointment</div></div><div data-cbid="w2d3-cb76" class="tblock-right"><div data-cbid="w2d3-cb77" class="tblock-time">16:30</div></div></div>
-      <div data-cbid="w2d3-cb78" class="tblock tb-mind" onclick="tog(this)"><div data-cbid="w2d3-cb79" class="tblock-chk">✓</div><div data-cbid="w2d3-cb80" class="tblock-body"><div data-cbid="w2d3-cb81" class="tblock-name">🧠 Psychologist appointment</div></div><div data-cbid="w2d3-cb82" class="tblock-right"><div data-cbid="w2d3-cb83" class="tblock-time">17:00</div></div></div>
+      <div data-cbid="w2d3-cb64" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d3-cb65" class="tblock-chk">✓</div><div data-cbid="w2d3-cb66" class="tblock-body"><div data-cbid="w2d3-cb67" class="tblock-name">Pick up Gabe + playground 🛝</div></div><div data-cbid="w2d3-cb68" class="tblock-right"><div data-cbid="w2d3-cb69" class="tblock-time">16:00</div></div></div>
+      <div data-cbid="w2d3-cb70" class="tblock tb-fuel" onclick="tog(this)"><div data-cbid="w2d3-cb71" class="tblock-chk">✓</div><div data-cbid="w2d3-cb72" class="tblock-body"><div data-cbid="w2d3-cb73" class="tblock-name">Home — Marcia snack</div><div data-cbid="w2d3-cb74" class="tblock-detail">Protein shake or yogurt bowl</div></div><div data-cbid="w2d3-cb75" class="tblock-right"><div data-cbid="w2d3-cb76" class="tblock-time">17:00</div></div></div>
     </div>
   </div>
   <div class="section">
-    <div class="section-label">Dinner (18:00) — Tommy cooks + has Gabe</div>
+    <div class="section-label">Dinner (18:00) — Tommy cooks</div>
     <div class="dinner-card">
       <div class="dinner-who dinner-tommy">👨‍🍳 Tommy cooks — Poke Bowl</div>
       <div class="dinner-body"><div class="dinner-name">Poke Bowl</div><div class="dinner-steps"><div class="dinner-step">Rice: microwave pouch or boil. Edamame: thaw in sink.</div><div class="dinner-step">Salmon: tinned (easy) or pan fry 3 min each side. Slice avocado + cucumber.</div><div class="dinner-step">Build bowls: rice + salmon + edamame + avo + cucumber + sesame + tamari + nori sheet.</div><div class="dinner-step">Gabe: rice + flaked salmon + cucumber + avocado. Skip tamari or tiny bit.</div></div></div>
@@ -1067,7 +1099,7 @@ header {
 <div class="day-panel" id="w2d4">
   <div class="day-header">
     <div class="day-title">Thursday</div>
-    <div class="day-date">15 May</div>
+    <div class="day-date">14 May</div>
     <div class="day-focus" style="color:var(--sky)">Flow Physique</div>
     <div class="day-meta">Out all day 🚗 · Flow · Café/library · Marcia cooks when home</div>
     <div class="pillars"><span class="pill pill-recover">Flow</span><span class="pill pill-work">Work</span><span class="pill pill-fuel">Marcia cooks</span></div>
@@ -1115,6 +1147,7 @@ header {
       <div data-cbid="w2d4-cb50" class="tblock tb-mind" onclick="tog(this)"><div data-cbid="w2d4-cb51" class="tblock-chk">✓</div><div data-cbid="w2d4-cb52" class="tblock-body"><div data-cbid="w2d4-cb53" class="tblock-name">Afternoon supplements — from bag 💊</div></div><div data-cbid="w2d4-cb54" class="tblock-right"><div data-cbid="w2d4-cb55" class="tblock-time">15:00</div></div></div>
       <div data-cbid="w2d4-cb56" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d4-cb57" class="tblock-chk">✓</div><div data-cbid="w2d4-cb58" class="tblock-body"><div data-cbid="w2d4-cb59" class="tblock-name">Leave for pickup 🚗</div></div><div data-cbid="w2d4-cb60" class="tblock-right"><div data-cbid="w2d4-cb61" class="tblock-time">15:30</div></div></div>
       <div data-cbid="w2d4-cb62" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d4-cb63" class="tblock-chk">✓</div><div data-cbid="w2d4-cb64" class="tblock-body"><div data-cbid="w2d4-cb65" class="tblock-name">Pick up Gabe + playground 🛝</div><div data-cbid="w2d4-cb66" class="tblock-detail">Gabe's snack in the car.</div></div><div data-cbid="w2d4-cb67" class="tblock-right"><div data-cbid="w2d4-cb68" class="tblock-time">16:00</div></div></div>
+      <div data-cbid="w2d4-cb68b" class="tblock tb-fuel" onclick="tog(this)"><div data-cbid="w2d4-cb68c" class="tblock-chk">✓</div><div data-cbid="w2d4-cb68d" class="tblock-body"><div data-cbid="w2d4-cb68e" class="tblock-name">🍝 Start pasta — home ~4:45</div><div data-cbid="w2d4-cb68f" class="tblock-detail">Boil edamame pasta + cut veg. Done in 20 min.</div></div><div data-cbid="w2d4-cb68g" class="tblock-right"><div data-cbid="w2d4-cb68h" class="tblock-time">16:45</div></div></div>
     </div>
   </div>
   <div class="section">
@@ -1127,7 +1160,7 @@ header {
   <div class="section">
     <div class="section-label">Evening</div>
     <div class="tline">
-      <div data-cbid="w2d4-cb69" class="tblock tb-tommy" onclick="tog(this)"><div data-cbid="w2d4-cb70" class="tblock-chk">✓</div><div data-cbid="w2d4-cb71" class="tblock-body"><div data-cbid="w2d4-cb72" class="tblock-name">Tommy home 🏠 — starts dinner</div></div><div data-cbid="w2d4-cb73" class="tblock-right"><div data-cbid="w2d4-cb74" class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
+      <div data-cbid="w2d4-cb69" class="tblock tb-tommy" onclick="tog(this)"><div data-cbid="w2d4-cb70" class="tblock-chk">✓</div><div data-cbid="w2d4-cb71" class="tblock-body"><div data-cbid="w2d4-cb72" class="tblock-name">Tommy home 🏠 — dinner nearly ready</div></div><div data-cbid="w2d4-cb73" class="tblock-right"><div data-cbid="w2d4-cb74" class="tblock-time">17:30</div><div class="tommy-tag">Tommy</div></div></div>
       <div data-cbid="w2d4-cb75" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d4-cb76" class="tblock-chk">✓</div><div data-cbid="w2d4-cb77" class="tblock-body"><div data-cbid="w2d4-cb78" class="tblock-name">🍽️ Family dinner</div></div><div data-cbid="w2d4-cb79" class="tblock-right"><div data-cbid="w2d4-cb80" class="tblock-time">18:00</div></div></div>
       <div data-cbid="w2d4-cb81" class="tblock tb-gabe" onclick="tog(this)"><div data-cbid="w2d4-cb82" class="tblock-chk">✓</div><div data-cbid="w2d4-cb83" class="tblock-body"><div data-cbid="w2d4-cb84" class="tblock-name">🛁 Gabe bedtime routine</div></div><div data-cbid="w2d4-cb85" class="tblock-right"><div data-cbid="w2d4-cb86" class="tblock-time">19:30</div></div></div>
     </div>
@@ -1156,7 +1189,7 @@ header {
         <div class="mood-opt" onclick="selMood(this,'w2d4')"><button class="mood-btn">😊</button><div class="mood-lbl">Great</div></div>
       </div>
       <div class="checkin-q">What actually happened?</div>
-      <textarea class="checkin-ta" id="n-w2d4" placeholder="e.g. Red light + sauna was incredible, café work flowed well, kale bowl was perfect…" oninput="saveN('w2d4')"></textarea>
+      <textarea class="checkin-ta" id="n-w2d4" placeholder="e.g. Red light + sauna was great, pasta was easy, Gabe loved it…" oninput="saveN('w2d4')"></textarea>
       <button class="save-btn" id="s-w2d4" onclick="saveDay('w2d4')">Save check-in</button>
         <div class="log-view" id="log-w2d4">
           <div class="log-title">Logged</div>
@@ -1170,7 +1203,7 @@ header {
 <div class="day-panel" id="w2d5">
   <div class="day-header">
     <div class="day-title">Friday</div>
-    <div class="day-date">16 May 🧗</div>
+    <div class="day-date">15 May 🧗</div>
     <div class="day-focus" style="color:var(--sage)">Gym + First Climbing Friday!</div>
     <div class="day-meta">Gym morning · Pickup Gabe · Urban Climb West End · Tommy 4:30 · Dinner out</div>
     <div class="pillars"><span class="pill pill-move">Gym</span><span class="pill pill-move">Climb</span><span class="pill pill-tommy">Tommy 4:30</span></div>
@@ -1193,14 +1226,18 @@ header {
   </div>
   <div class="section">
     <div class="section-label">Gym exercises — log your weights</div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Lat Pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×10</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Pull elbows DOWN to ribs · not back</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-lpd')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Seated Row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Sit tall · pull to belly button · squeeze shoulder blades</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-sr')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Cable Face Pull</div><div class="gym-eq">Rope at eye height · posture gold</div></div><div class="gym-sets">3×15</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Pull to ears · externally rotate at end</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-fp')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Single-Arm Dumbbell Row</div><div class="gym-eq">Knee on bench · one arm at a time</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">Row to hip · think elbow, not hand · each side</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bor')"><span class="weight-unit">kg</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
-    <div class="gym-card"><div class="gym-header" onclick="togGym(this)"><div><div class="gym-name">Dumbbell Bicep Curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12</div></div><div class="gym-expand"><div class="tblock-detail" style="margin-bottom:6px;font-size:11px;color:var(--sage)">4-sec lowering · no swinging · squeeze at top</div><div class="weight-row"><span class="weight-label">Weight:</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bc')"><span class="weight-unit">kg each</span></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d5-lpd"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable lat pulldown</div><div class="gym-eq">Life Fitness · wide grip</div></div><div class="gym-sets">3×10 <span class="gym-last" id="last-w2d5-lpd"></span></div></div><div class="gym-expand"><p class="gym-tip">Pull elbows DOWN to ribs · not back</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-lpd')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-lat-pulldown" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5','w2d5-lpd')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d5-sr"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable seated row</div><div class="gym-eq">Life Fitness · neutral grip</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w2d5-sr"></span></div></div><div class="gym-expand"><p class="gym-tip">Sit tall · pull to belly button</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-sr')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-seated-row" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5','w2d5-sr')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d5-bor"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Single-arm dumbbell row</div><div class="gym-eq">Knee on bench · one arm at a time</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w2d5-bor"></span></div></div><div class="gym-expand"><p class="gym-tip">Row to hip · think elbow not hand</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bor')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/dumbbell-single-arm-row" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5','w2d5-bor')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d5-fp"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Cable face pull</div><div class="gym-eq">Rope at eye height · posture gold</div></div><div class="gym-sets">3×15 <span class="gym-last" id="last-w2d5-fp"></span></div></div><div class="gym-expand"><p class="gym-tip">Pull to ears · externally rotate at end</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-fp')"><span class="weight-unit">kg</span><a href="https://musclewiki.com/exercise/cable-face-pull" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5','w2d5-fp')">Mark done ✓</button></div></div>
+    <div class="gym-card" id="gc-w2d5-bc"><div class="gym-header" onclick="togGym(this)"><div class="gym-check">✓</div><div style="flex:1;min-width:0"><div class="gym-name">Dumbbell bicep curl</div><div class="gym-eq">Slow and controlled</div></div><div class="gym-sets">3×12 <span class="gym-last" id="last-w2d5-bc"></span></div></div><div class="gym-expand"><p class="gym-tip">4-sec lowering · no swinging</p><div class="weight-row"><span class="weight-label">This week</span><input class="weight-input" type="number" placeholder="kg" onclick="event.stopPropagation()" oninput="saveW(this,'w2d5-bc')"><span class="weight-unit">kg each</span><a href="https://musclewiki.com/exercise/dumbbell-bicep-curl" class="how-to-link" onclick="event.stopPropagation()">↗ how to</a></div><button class="gym-done-btn" onclick="gymDone(this,'gp-w2d5','w2d5-bc')">Mark done ✓</button></div></div>
     <div class="prog-wrap"><div class="prog-fill" id="gp-w2d5"></div></div>
     <div class="prog-text" id="gt-w2d5">0 / 5 done</div>
-    <button class="reset-btn" onclick="resetGym('w2d5')">Reset session</button>
+    <div class="session-notes-wrap">
+      <div class="session-notes-label">Session notes</div>
+      <textarea class="session-notes-ta" id="sn-w2d5" placeholder="Last session of the week — how did it go?" oninput="saveSessionNote('w2d5')"></textarea>
+      <button class="session-save-btn" onclick="saveSessionNote('w2d5')">Save notes</button>
+    </div>
   </div>
   <div class="section">
     <div class="section-label">💼 Work + lunch at desk</div>
@@ -1245,7 +1282,7 @@ header {
 <div class="day-panel" id="w2d6">
   <div class="day-header">
     <div class="day-title">Saturday</div>
-    <div class="day-date">17 May 🥾</div>
+    <div class="day-date">16 May</div>
     <div class="day-focus" style="color:var(--sage)">Day Hike with Bibi!</div>
     <div class="day-meta">Marcia · Tommy · Gabe · Bibi — day out together</div>
   </div>
@@ -1272,7 +1309,7 @@ header {
 <div class="day-panel" id="w2d7">
   <div class="day-header">
     <div class="day-title">Sunday</div>
-    <div class="day-date">18 May</div>
+    <div class="day-date">17 May</div>
     <div class="day-focus" style="color:var(--muted)">Rest · Reset · Woolies order</div>
     <div class="day-meta">Slow family day · Prep for next week · Come back to Claude 🌿</div>
   </div>
@@ -1336,13 +1373,13 @@ const DAY_META = {
   w1d2:  { date: '2026-05-08', type: 'Flow Physique',   label: 'Thu 8 May' },
   w1d3:  { date: '2026-05-09', type: 'Gym - Pull',      label: 'Fri 9 May' },
   w1wknd:{ date: '2026-05-11', type: 'Rest',             label: 'Weekend 10-11 May' },
-  w2d1:  { date: '2026-05-12', type: 'Gym - Push',      label: 'Mon 12 May' },
-  w2d2:  { date: '2026-05-13', type: 'Flow Physique',   label: 'Tue 13 May' },
-  w2d3:  { date: '2026-05-14', type: 'Gym - Lower',     label: 'Wed 14 May' },
-  w2d4:  { date: '2026-05-15', type: 'Flow Physique',   label: 'Thu 15 May' },
-  w2d5:  { date: '2026-05-16', type: 'Climbing Friday', label: 'Fri 16 May' },
-  w2d6:  { date: '2026-05-17', type: 'Hike / Day Out',  label: 'Sat 17 May' },
-  w2wknd:{ date: '2026-05-18', type: 'Rest',             label: 'Sun 18 May' },
+  w2d1:  { date: '2026-05-11', type: 'Gym - Push',      label: 'Mon 11 May' },
+  w2d2:  { date: '2026-05-12', type: 'Flow Physique',   label: 'Tue 12 May' },
+  w2d3:  { date: '2026-05-13', type: 'Gym - Lower',     label: 'Wed 13 May' },
+  w2d4:  { date: '2026-05-14', type: 'Flow Physique',   label: 'Thu 14 May' },
+  w2d5:  { date: '2026-05-15', type: 'Climbing Friday', label: 'Fri 15 May' },
+  w2d6:  { date: '2026-05-16', type: 'Rest',  label: 'Sat 16 May' },
+  w2wknd:{ date: '2026-05-17', type: 'Rest',             label: 'Sun 17 May' },
 };
 
 // Cache of Airtable record IDs per date — avoids repeated lookups
@@ -1513,10 +1550,12 @@ function getDayId(panel) {
 // ── GYM ──────────────────────────────────────────────────────
 function togGym(h) { h.nextElementSibling.classList.toggle('open'); }
 
-function gymDone(btn, progId) {
-  btn.classList.toggle('done');
-  btn.textContent = btn.classList.contains('done') ? 'Done ✓' : 'Mark done ✓';
-  btn.closest('.gym-card').style.opacity = btn.classList.contains('done') ? '0.45' : '1';
+function gymDone(btn, progId, key) {
+  const card = btn.closest('.gym-card');
+  card.classList.toggle('gym-done');
+  const isDone = card.classList.contains('gym-done');
+  btn.textContent = isDone ? 'Done ✓' : 'Mark done ✓';
+  if (isDone) btn.classList.add('done'); else btn.classList.remove('done');
   const section = btn.closest('.section');
   const total = section.querySelectorAll('.gym-done-btn').length;
   const done  = section.querySelectorAll('.gym-done-btn.done').length;
@@ -1524,29 +1563,40 @@ function gymDone(btn, progId) {
   const t = document.getElementById(progId.replace('gp-','gt-'));
   if(p) p.style.width = (done/total*100)+'%';
   if(t) t.textContent = done+' / '+total+' done'+(done===total?' 🎉':'');
-  // Save gym progress
   const panel = btn.closest('.day-panel');
   if (panel) {
     const dayId = getDayId(panel);
-    if (dayId) {
-      upsertDaily(dayId, { 'Gym Done': done > 0 });
-      updateLogView(dayId);
-    }
+    if (dayId) { upsertDaily(dayId, { 'Gym Done': done > 0 }); updateLogView(dayId); }
   }
 }
 
-function resetGym(id) {
-  const w=id[1], d=id[3];
-  const panel=document.getElementById('w'+w+'d'+d);
-  if(!panel) return;
-  panel.querySelectorAll('.gym-done-btn.done').forEach(b=>{
-    b.classList.remove('done'); b.textContent='Mark done ✓';
-    b.closest('.gym-card').style.opacity='1';
+function saveSessionNote(dayId) {
+  const ta = document.getElementById('sn-'+dayId);
+  if (!ta) return;
+  try { localStorage.setItem('sn-'+dayId, ta.value); } catch(e) {}
+  const btn = ta.nextElementSibling;
+  if (btn) { btn.textContent = 'Saved ✓'; setTimeout(() => { btn.textContent = 'Save notes'; }, 1500); }
+}
+
+function loadSessionNotes() {
+  document.querySelectorAll('.session-notes-ta').forEach(ta => {
+    const id = ta.id.replace('sn-','');
+    try { const v = localStorage.getItem('sn-'+id); if(v) ta.value = v; } catch(e) {}
   });
-  const p=document.getElementById('gp-w'+w+'d'+d);
-  const t=document.getElementById('gt-w'+w+'d'+d);
-  if(p) p.style.width='0%';
-  if(t) t.textContent='0 / 5 done';
+}
+
+function loadLastWeights() {
+  const prevMap = {
+    'w2d3-gs':'w1d1-gs','w2d3-rdl':'w1d1-rdl','w2d3-le':'w1d1-le','w2d3-lc':'w1d1-lc','w2d3-gb':'w1d1-gb',
+    'w2d5-lpd':'w1d3-lpd','w2d5-sr':'w1d3-sr','w2d5-fp':'w1d3-fp','w2d5-bor':'w1d3-bor','w2d5-bc':'w1d3-bc',
+  };
+  Object.entries(prevMap).forEach(([curr, prev]) => {
+    try {
+      const v = localStorage.getItem('mw-'+prev);
+      const el = document.getElementById('last-'+curr);
+      if (el && v) el.textContent = '· last: '+v+' kg';
+    } catch(e) {}
+  });
 }
 
 // ── WEIGHT SAVING ─────────────────────────────────────────────
@@ -1561,21 +1611,21 @@ const GYM_MAP = {
   'w1d3-bor': { date:'2026-05-09', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
   'w1d3-fp':  { date:'2026-05-09', exercise:'Cable Face Pull',       sessionType:'Upper Pull' },
   'w1d3-bc':  { date:'2026-05-09', exercise:'Dumbbell Bicep Curl',   sessionType:'Upper Pull' },
-  'w2d1-cp':  { date:'2026-05-12', exercise:'Dumbbell Chest Press',  sessionType:'Upper Push' },
-  'w2d1-cf':  { date:'2026-05-12', exercise:'Cable Chest Fly',       sessionType:'Upper Push' },
-  'w2d1-sp':  { date:'2026-05-12', exercise:'Dumbbell Shoulder Press',sessionType:'Upper Push'},
-  'w2d1-lr':  { date:'2026-05-12', exercise:'Cable Lateral Raise',   sessionType:'Upper Push' },
-  'w2d1-tp':  { date:'2026-05-12', exercise:'Cable Tricep Pushdown', sessionType:'Upper Push' },
-  'w2d3-gs':  { date:'2026-05-14', exercise:'Goblet Squat',          sessionType:'Lower Body' },
-  'w2d3-rdl': { date:'2026-05-14', exercise:'Romanian Deadlift',     sessionType:'Lower Body' },
-  'w2d3-le':  { date:'2026-05-14', exercise:'Leg Extension',         sessionType:'Lower Body' },
-  'w2d3-lc':  { date:'2026-05-14', exercise:'Leg Curl',              sessionType:'Lower Body' },
-  'w2d3-gb':  { date:'2026-05-14', exercise:'Glute Bridge',          sessionType:'Lower Body' },
-  'w2d5-lpd': { date:'2026-05-16', exercise:'Cable Lat Pulldown',    sessionType:'Upper Pull' },
-  'w2d5-sr':  { date:'2026-05-16', exercise:'Cable Seated Row',      sessionType:'Upper Pull' },
-  'w2d5-bor': { date:'2026-05-16', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
-  'w2d5-fp':  { date:'2026-05-16', exercise:'Cable Face Pull',       sessionType:'Upper Pull' },
-  'w2d5-bc':  { date:'2026-05-16', exercise:'Dumbbell Bicep Curl',   sessionType:'Upper Pull' },
+  'w2d1-cp':  { date:'2026-05-11', exercise:'Dumbbell Chest Press',  sessionType:'Upper Push' },
+  'w2d1-cf':  { date:'2026-05-11', exercise:'Cable Chest Fly',       sessionType:'Upper Push' },
+  'w2d1-sp':  { date:'2026-05-11', exercise:'Dumbbell Shoulder Press',sessionType:'Upper Push'},
+  'w2d1-lr':  { date:'2026-05-11', exercise:'Cable Lateral Raise',   sessionType:'Upper Push' },
+  'w2d1-tp':  { date:'2026-05-11', exercise:'Cable Tricep Pushdown', sessionType:'Upper Push' },
+  'w2d3-gs':  { date:'2026-05-13', exercise:'Goblet Squat',          sessionType:'Lower Body' },
+  'w2d3-rdl': { date:'2026-05-13', exercise:'Romanian Deadlift',     sessionType:'Lower Body' },
+  'w2d3-le':  { date:'2026-05-13', exercise:'Leg Extension',         sessionType:'Lower Body' },
+  'w2d3-lc':  { date:'2026-05-13', exercise:'Leg Curl',              sessionType:'Lower Body' },
+  'w2d3-gb':  { date:'2026-05-13', exercise:'Glute Bridge',          sessionType:'Lower Body' },
+  'w2d5-lpd': { date:'2026-05-15', exercise:'Cable Lat Pulldown',    sessionType:'Upper Pull' },
+  'w2d5-sr':  { date:'2026-05-15', exercise:'Cable Seated Row',      sessionType:'Upper Pull' },
+  'w2d5-bor': { date:'2026-05-15', exercise:'Dumbbell Bent-Over Row',sessionType:'Upper Pull' },
+  'w2d5-fp':  { date:'2026-05-15', exercise:'Cable Face Pull',       sessionType:'Upper Pull' },
+  'w2d5-bc':  { date:'2026-05-15', exercise:'Dumbbell Bicep Curl',   sessionType:'Upper Pull' },
 };
 
 const weightSaveTimer = {};
@@ -1603,23 +1653,23 @@ function saveW(input, key) {
 }
 
 // ── TIMERS ───────────────────────────────────────────────────
-let t1s=30,t1r=false,t1i=null;
+let t1s=90,t1r=false,t1i=null;
 function startTimer() {
   const btn=document.getElementById('t-start'), disp=document.getElementById('td');
   if(t1r){ clearInterval(t1i); t1r=false; btn.textContent='Start'; disp.classList.remove('running'); }
   else { t1r=true; btn.textContent='Pause'; disp.classList.add('running');
     t1i=setInterval(()=>{ if(t1s<=0){ clearInterval(t1i); t1r=false; btn.textContent='Start'; disp.textContent='Go! ✓'; disp.classList.remove('running'); t1s=90; return; } t1s--; disp.textContent=Math.floor(t1s/60)+':'+String(t1s%60).padStart(2,'0'); },1000); }
 }
-function resetTimer(){ clearInterval(t1i); t1r=false; t1s=30; const btn=document.getElementById('t-start'),disp=document.getElementById('td'); if(btn)btn.textContent='Start'; if(disp){disp.textContent='0:30';disp.classList.remove('running');} }
+function resetTimer(){ clearInterval(t1i); t1r=false; t1s=90; const btn=document.getElementById('t-start'),disp=document.getElementById('td'); if(btn)btn.textContent='Start'; if(disp){disp.textContent='1:30';disp.classList.remove('running');} }
 
-let t2s=30,t2r=false,t2i=null;
+let t2s=90,t2r=false,t2i=null;
 function startTimer2() {
   const btn=document.getElementById('t-start2'), disp=document.getElementById('td2');
   if(t2r){ clearInterval(t2i); t2r=false; btn.textContent='Start'; disp.classList.remove('running'); }
   else { t2r=true; btn.textContent='Pause'; disp.classList.add('running');
     t2i=setInterval(()=>{ if(t2s<=0){ clearInterval(t2i); t2r=false; btn.textContent='Start'; disp.textContent='Go! ✓'; disp.classList.remove('running'); t2s=90; return; } t2s--; disp.textContent=Math.floor(t2s/60)+':'+String(t2s%60).padStart(2,'0'); },1000); }
 }
-function resetTimer2(){ clearInterval(t2i); t2r=false; t2s=30; const btn=document.getElementById('t-start2'),disp=document.getElementById('td2'); if(btn)btn.textContent='Start'; if(disp){disp.textContent='0:30';disp.classList.remove('running');} }
+function resetTimer2(){ clearInterval(t2i); t2r=false; t2s=90; const btn=document.getElementById('t-start2'),disp=document.getElementById('td2'); if(btn)btn.textContent='Start'; if(disp){disp.textContent='1:30';disp.classList.remove('running');} }
 
 // ── MOOD — saves instantly on tap ────────────────────────────
 function selMood(wrapper, id) {
@@ -1898,6 +1948,8 @@ function initToday() {
 
 loadLocal();
 restoreCheckboxes();
+loadSessionNotes();
+loadLastWeights();
 initToday();
 loadFromAirtable();
 startAutoRefresh();
